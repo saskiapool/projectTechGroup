@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dating App</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <header>
+        <% if (data2.length > 0) { %>
+
+        <% for (let i = 0; i < data2.length; i++) { %>
+
+        <% if (data2[i]._id != data.clientid) { %>
+        <h1> <%= data2[i].username %> </h1>
+        <% } %>
+
+        <% } %>
+
+        <% } else { %>
+        <h1>Username</h1>
+        <% } %>
+    </header>
+
+    <main>
+        <div class="wrapper">
+
+            <%- include('components/chatSidebar', {chats: data, users: data2}); -%>
+
+            <%- include('components/chatMessages', {data: data}); -%>
+
+            <%- include('components/chatSend', {data: data}); -%>
+
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
