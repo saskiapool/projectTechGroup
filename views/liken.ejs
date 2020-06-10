@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include ("components/head.ejs") %>
 
 <body>
-  <%- include ("components/header.ejs") %> <% for (var index = 0; index <
-    userprops.length; index++) { %>
+
   <div class="person">
     <figure>
       <img src="/images/swipe.jpg" alt="" />
@@ -27,10 +25,10 @@
     <input type="radio" name="review" value="megalike" />
     <label for="dislike"></label>
     <input type="radio" name="review" value="like" />
-    <input type="text" name="id" value="<%= userprops[index]._id %>">
+    <input type="text" name="id" value="hallo">
     <button> submit</button>
   </form>
-  <% } %>
+
 </body>
 
 </html>
