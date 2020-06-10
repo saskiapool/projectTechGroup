@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<%- include ("includes/head.ejs") %>
+
 <body>
 
   <div class="person">
@@ -14,7 +16,6 @@
       <p>
         Hallo, dit is de beschrijving van Kees
       </p>
-
     </div>
   </div>
 
@@ -26,9 +27,10 @@
     <label for="dislike"></label>
     <input type="radio" name="review" value="like" />
     <input type="text" name="id" value="hallo">
-    <button> submit</button>
+    <button type="submit"> submit</button>
   </form>
 
+  <script src="js/script.js"></script>
 </body>
 
 </html>
