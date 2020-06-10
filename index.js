@@ -2,8 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('./helper/db');
-const mongodb = require('mongodb');
-const ObjectId = mongodb.ObjectID;
 // const session = require('express-session');
 // const cookieParser = require('cookie-parser');
 
@@ -23,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(require('./routes/routes'));
 
 db.connect(() => {
-  app.listen(process.env.PORT || 3000, () => {
+  app.listen(port, () => {
     console.log(`App listening at http://localhost:${port}`);
   });
 });
