@@ -5,29 +5,15 @@
 
 <body>
     <header>
-        <% if (data2.length > 0) { %>
 
-        <% for (let i = 0; i < data2.length; i++) { %>
-
-        <% if (data2[i]._id != data.clientid) { %>
-        <h1> <%= data2[i].username %> </h1>
-        <% } %>
-
-        <% } %>
-
-        <% } else { %>
-        <h1>Username</h1>
-        <% } %>
     </header>
 
     <main>
         <div class="wrapper">
 
-            <%- include('components/chatSidebar', {chats: data, users: data2}); -%>
+            <%- include('components/chatSidebar', {users: data}); -%>
 
-            <%- include('components/chatMessages', {data: data}); -%>
-
-            <%- include('components/chatSend', {data: data}); -%>
+            <%- include('components/chatSend.ejs') -%>
 
         </div>
     </main>
