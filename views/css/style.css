@@ -19,7 +19,7 @@
   list-style: none;
   text-decoration: none;
 
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 button {
@@ -124,7 +124,7 @@ header .profilepicture {
   display: flex;
 }
 
-#login button[type='submit'] {
+#login button[type="submit"] {
   background-color: var(--purple);
   border-radius: 100rem;
   padding: 0.6rem 1.2rem;
@@ -146,6 +146,78 @@ header .profilepicture {
 }
 
 #likeForm {
+  height: calc(100vh - 3.6rem);
+  background-image: url(../img/loginBackground.jpg);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#likeForm .text {
   background: var(--purple-blue-gradient);
-  position: absolute;
+  max-width: 24rem;
+  margin: 0 1rem;
+  padding: 1rem;
+  border-radius: 0.6rem;
+}
+
+#likeForm figure {
+  width: 10em;
+  height: 15em;
+  overflow: hidden;
+}
+
+#likeForm img {
+  object-fit: cover;
+  width: 100%;
+  border-radius: 0.6em;
+}
+
+#likeForm .person {
+  display: flex;
+  flex-direction: row;
+}
+
+#likeForm .addData {
+  display: flex;
+  justify-content: center;
+  margin: 2em;
+}
+
+#likeForm input {
+  z-index: 10;
+  visibility: hidden;
+  position: fixed;
+  width: 0;
+}
+
+#likeForm label {
+  display: inline-block;
+  padding: 2.7em;
+  margin: 1em;
+  background-repeat: no-repeat;
+}
+
+#likeForm .like {
+  background-image: url(../img/like.svg);
+}
+
+#likeForm .megalike {
+  background-image: url(../img/megalike.svg);
+}
+
+#likeForm .dislike {
+  background-image: url(../img/dislike.svg);
+}
+
+#likeForm label {
+  display: inline-block;
+  padding: 2em;
+  background-repeat: no-repeat;
+}
+
+#likeForm input[type="radio"]:checked + label {
+  padding: 3em;
+  background-color: white;
 }
