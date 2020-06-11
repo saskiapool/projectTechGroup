@@ -16,6 +16,8 @@
 * {
   margin: 0;
   padding: 0;
+  list-style: none;
+  text-decoration: none;
 
   font-family: 'Open Sans', sans-serif;
 }
@@ -33,14 +35,12 @@ input {
 h1 {
   font-weight: bold;
   font-size: 2.5rem;
-
   color: var(--white);
 }
 
 h2 {
   font-weight: bold;
   font-size: 1.875;
-
   color: var(--white);
 }
 
@@ -50,8 +50,38 @@ p {
 }
 
 header {
-  height: 3.6rem;
-  background-color: var(--blue);
+  background: var(--blue);
+  height: 4.6rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8em 5em 0.8em 5em;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  color: white;
+  padding: 0em 5em;
+}
+
+nav ul li a,
+nav ul li a:visited {
+  color: white;
+}
+
+header img {
+  height: 3em;
+}
+
+header .profilepicture {
+  height: 3em;
+  border-radius: 100%;
 }
 
 #login {
@@ -113,4 +143,9 @@ header {
   outline: none;
   margin-bottom: 1.2rem;
   display: inline-block;
+}
+
+#likeForm {
+  background: var(--purple-blue-gradient);
+  position: absolute;
 }
