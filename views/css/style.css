@@ -19,7 +19,7 @@
   list-style: none;
   text-decoration: none;
 
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 button {
@@ -49,25 +49,58 @@ p {
   color: var(--white);
 }
 
+body {
+  overflow-x: hidden;
+}
+
+.bgImage {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.bgImage div {
+  width: 100vw;
+  height: 100vh;
+
+  transform: scale(1.1);
+
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
+
+  background: linear-gradient(rgba(26, 26, 26, 0.3), rgba(0, 0, 0, 0.3)),
+    url(../img/loginBackground.jpg);
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/***********************
+Header
+***********************/
 header {
   background: var(--blue);
-  height: 4.6rem;
 }
 
 nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0.8em 5em 0.8em 5em;
+  padding: 0 2rem;
+  height: 4.2rem;
 }
 
 nav ul {
   display: flex;
+  flex-direction: row;
+  margin-left: auto;
 }
 
 nav ul li {
   color: white;
-  padding: 0em 5em;
+  margin-left: 2rem;
 }
 
 nav ul li a,
@@ -75,18 +108,30 @@ nav ul li a:visited {
   color: white;
 }
 
-header img {
-  height: 3em;
+header .logo {
+  height: 3rem;
+}
+
+header .logo img {
+  height: 100%;
+  width: auto;
 }
 
 header .profilepicture {
-  height: 3em;
-  border-radius: 100%;
+  height: 3rem;
+  margin-left: 2rem;
 }
 
+header .profilepicture img {
+  border-radius: 100%;
+  height: 100%;
+}
+
+/***********************
+Login form
+***********************/
 #login {
-  height: calc(100vh - 3.6rem);
-  background-image: url(../img/loginBackground.jpg);
+  height: calc(100vh - 4.2rem);
 
   display: flex;
   justify-content: center;
@@ -124,7 +169,7 @@ header .profilepicture {
   display: flex;
 }
 
-#login button[type="submit"] {
+#login button[type='submit'] {
   background-color: var(--purple);
   border-radius: 100rem;
   padding: 0.6rem 1.2rem;
@@ -145,9 +190,11 @@ header .profilepicture {
   display: inline-block;
 }
 
+/***********************
+Like form
+***********************/
 #likeForm {
-  height: calc(100vh - 3.6rem);
-  background-image: url(../img/loginBackground.jpg);
+  height: calc(100vh - 4.2rem);
 
   display: flex;
   justify-content: center;
@@ -217,7 +264,7 @@ header .profilepicture {
   background-repeat: no-repeat;
 }
 
-#likeForm input[type="radio"]:checked + label {
+#likeForm input[type='radio']:checked + label {
   padding: 3em;
-  background-color: white;
+  background-color: var(--white);
 }
