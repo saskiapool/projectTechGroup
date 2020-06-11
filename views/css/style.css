@@ -20,16 +20,97 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+input {
+  border: none;
+}
+
 h1 {
   font-weight: bold;
   font-size: 2.5rem;
+
+  color: var(--white);
 }
 
 h2 {
   font-weight: bold;
   font-size: 1.875;
+
+  color: var(--white);
 }
 
 p {
   font-size: 1rem;
+  color: var(--white);
+}
+
+header {
+  height: 3.6rem;
+  background-color: var(--blue);
+}
+
+#login {
+  height: calc(100vh - 3.6rem);
+  background-image: url(../img/loginBackground.jpg);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#login .container {
+  background: var(--purple-blue-gradient);
+  max-width: 24rem;
+  margin: 0 1rem;
+  padding: 1rem;
+  border-radius: 0.6rem;
+}
+
+#login .container h1 {
+  margin-bottom: 0.2rem;
+}
+
+#login .container p {
+  font-size: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+#login .container a {
+  color: var(--white);
+}
+
+#login label {
+  display: inline-block;
+  color: var(--white);
+  margin-bottom: 0.2rem;
+}
+
+#login .submitContainer {
+  display: flex;
+}
+
+#login button[type='submit'] {
+  background-color: var(--purple);
+  border-radius: 100rem;
+  padding: 0.6rem 1.2rem;
+  color: var(--white);
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-left: auto;
+}
+
+#login input {
+  box-sizing: border-box;
+  background-color: var(--white);
+  border-radius: 100rem;
+  padding: 0.6rem 1.4rem;
+  width: 100%;
+  outline: none;
+  margin-bottom: 1.2rem;
+  display: inline-block;
 }
