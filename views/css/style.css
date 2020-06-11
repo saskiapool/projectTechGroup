@@ -16,20 +16,61 @@
 * {
   margin: 0;
   padding: 0;
+  list-style: none;
+  text-decoration: none;
 
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 h1 {
   font-weight: bold;
   font-size: 2.5rem;
+  color: white;
 }
 
 h2 {
   font-weight: bold;
   font-size: 1.875;
+  color: white;
 }
 
 p {
   font-size: 1rem;
+  color: white;
+}
+
+header {
+  background: var(--blue);
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8em 5em 0.8em 5em;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  color: white;
+  padding: 0em 5em;
+}
+
+nav ul li a:visited {
+  color: white;
+}
+header img {
+  height: 3em;
+}
+
+header .profilepicture {
+  height: 3em;
+  border-radius: 100%;
+}
+
+#likeForm {
+  background: var(--purple-blue-gradient);
+  position: absolute;
 }
