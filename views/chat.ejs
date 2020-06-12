@@ -5,28 +5,30 @@
 
 <body>
     <header>
-
+        <%- include ("components/header.ejs") %>
     </header>
 
-    <main>
+    <main id="chats">
         <div class="bgImage">
             <div></div>
         </div>
 
-        <div class="wrapper">
+        <section class="chatComponents">
+            <%- include('components/chatSidebar.ejs') -%>
 
-            <%- include('components/chatSidebar', {users: data}); -%>
+            <%- include('components/chatMessages.ejs') -%>
 
             <%- include('components/chatSend.ejs') -%>
+        </section>
 
-        </div>
     </main>
 
     <footer>
 
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src=" js/script.js">
+    </script>
 </body>
 
 </html>
