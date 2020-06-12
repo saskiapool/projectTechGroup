@@ -1,9 +1,515 @@
 :root {
   --white: #fff;
   --black: #000;
+
+  --purple: #832ead;
+  --blue: #505eac;
+  --cyan: #4398b5;
+
+  --purple-blue-gradient: linear-gradient(
+    138deg,
+    var(--purple) 0%,
+    var(--cyan) 100%
+  );
 }
 
 * {
   margin: 0;
   padding: 0;
+  list-style: none;
+  text-decoration: none;
+
+  font-family: 'Open Sans', sans-serif;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+input {
+  border: none;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: var(--white);
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 1.875;
+  color: var(--white);
+}
+
+p {
+  font-size: 1rem;
+  color: var(--white);
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.bgImage {
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.bgImage div {
+  width: 100vw;
+  height: 100vh;
+
+  transform: scale(1.1);
+
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
+
+  background: linear-gradient(rgba(26, 26, 26, 0.3), rgba(0, 0, 0, 0.3)),
+    url(../img/loginBackground.jpg);
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/***********************
+Buttons
+***********************/
+
+.button[type='submit'] {
+  background-color: var(--purple);
+  border-radius: 100rem;
+  padding: 0.6rem 1.2rem;
+  color: var(--white);
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-left: auto;
+}
+
+/***********************
+Header
+***********************/
+header {
+  width: 100vw;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background: var(--blue);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  height: 4.2rem;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+}
+
+nav ul li {
+  color: white;
+  margin-left: 2rem;
+}
+
+nav ul li a,
+nav ul li a:visited {
+  color: white;
+}
+
+header .logo {
+  height: 3rem;
+}
+
+header .logo img {
+  height: 100%;
+  width: auto;
+}
+
+header .profilepicture {
+  height: 3rem;
+  margin-left: 2rem;
+}
+
+header .profilepicture img {
+  border-radius: 100%;
+  height: 100%;
+}
+
+/***********************
+Login form
+***********************/
+#login {
+  height: calc(100vh - 4.2rem);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#login .container {
+  background: var(--purple-blue-gradient);
+  max-width: 24rem;
+  margin: 0 1rem;
+  padding: 1rem;
+  border-radius: 0.6rem;
+}
+
+#login .container h1 {
+  margin-bottom: 0.2rem;
+}
+
+#login .container p {
+  font-size: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+#login .container a {
+  color: var(--white);
+}
+
+#login label {
+  display: inline-block;
+  color: var(--white);
+  margin-bottom: 0.2rem;
+}
+
+#login .submitContainer {
+  display: flex;
+}
+
+#login input {
+  box-sizing: border-box;
+  background-color: var(--white);
+  border-radius: 100rem;
+  padding: 0.6rem 1.4rem;
+  width: 100%;
+  outline: none;
+  margin-bottom: 1.2rem;
+  display: inline-block;
+}
+
+/***********************
+Like form
+***********************/
+#likeForm {
+  height: calc(100vh - 4.2rem);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#likeForm .text {
+  background: var(--purple-blue-gradient);
+  max-width: 24rem;
+  margin: 0 1rem;
+  padding: 1rem;
+  border-radius: 0.6rem;
+}
+
+#likeForm figure {
+  width: 10em;
+  height: 15em;
+  overflow: hidden;
+}
+
+#likeForm img {
+  object-fit: cover;
+  width: 100%;
+  border-radius: 0.6em;
+}
+
+#likeForm .person {
+  display: flex;
+  flex-direction: row;
+}
+
+#likeForm .addData {
+  display: flex;
+  justify-content: center;
+  margin: 2em;
+}
+
+#likeForm input {
+  z-index: 10;
+  visibility: hidden;
+  position: fixed;
+  width: 0;
+}
+
+#likeForm label {
+  display: inline-block;
+  padding: 2.7em;
+  margin: 1em;
+  background-repeat: no-repeat;
+}
+
+#likeForm .like {
+  background-image: url(../img/like.svg);
+}
+
+#likeForm .megalike {
+  background-image: url(../img/megalike.svg);
+}
+
+#likeForm .dislike {
+  background-image: url(../img/dislike.svg);
+}
+
+#likeForm label {
+  display: inline-block;
+  padding: 2em;
+  background-repeat: no-repeat;
+}
+
+#likeForm input[type='radio']:checked + label {
+  padding: 3em;
+  background-color: var(--white);
+}
+
+/***********************
+Register form
+***********************/
+#registerForm {
+  margin: 6rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#registerForm fieldset {
+  margin: 2rem;
+  display: flex;
+  border: none;
+}
+
+#registerForm .container {
+  background: var(--purple-blue-gradient);
+  max-width: 24rem;
+  margin: 0 1rem;
+  padding: 1rem;
+  border-radius: 0.6rem;
+}
+
+#registerForm label {
+  color: var(--white);
+  margin: 0.5rem;
+}
+
+#registerForm input {
+  box-sizing: border-box;
+  background-color: var(--white);
+  border-radius: 100rem;
+  padding: 0.6rem 1.4rem;
+  width: 100%;
+  outline: none;
+  margin-bottom: 1.2rem;
+  display: inline-block;
+}
+
+/***********************
+Chats
+***********************/
+#chats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4.2rem;
+  height: calc(100vh - 4.2rem);
+}
+
+#chats .chatComponents {
+  background: var(--purple-blue-gradient);
+  width: 100%;
+  max-width: 52rem;
+  padding: 1rem;
+  border-radius: 0.6rem;
+  height: 80vh;
+
+  display: grid;
+  grid-template-columns: 20rem auto;
+  grid-template-rows: auto 4rem;
+  grid-template-areas:
+    'profiles chatMessages'
+    'profiles sendMessage';
+}
+
+#profiles {
+  grid-area: profiles;
+  position: relative;
+
+  background-color: var(--white);
+  border-radius: 0.6rem;
+  padding: 0 1rem 1rem 1rem;
+  margin-right: 1rem;
+}
+
+#profiles ul {
+  overflow-y: scroll;
+  height: 42rem;
+}
+
+#sideSearchbar {
+  width: 100%;
+  background-color: var(--white);
+  padding: 1rem 0 0.4rem 0;
+}
+
+#sideSearchbar input {
+  box-sizing: border-box;
+  border-radius: 100rem;
+  border: 1px solid var(--purple);
+  width: 100%;
+  padding: 0.6rem 1rem;
+}
+
+.chatProfile {
+  margin-bottom: 1rem;
+}
+
+.chatProfile:last-child {
+  margin-bottom: 0;
+}
+
+.chatProfile .profile {
+  display: flex;
+  align-items: center;
+}
+
+.chatProfile .profile img {
+  height: 6rem;
+  width: auto;
+  border-radius: 0.6rem;
+  margin-right: 1rem;
+}
+
+#messages {
+  grid-area: chatMessages;
+  background-color: var(--white);
+  border-radius: 0.6rem 0.6rem 0 0;
+  padding: 0 1rem;
+
+  overflow-y: scroll;
+}
+
+/* style chat messages */
+.messageSend {
+  justify-content: flex-end;
+}
+
+.messageSend p {
+  background-color: var(--purple);
+  color: var(--white);
+}
+
+.messageSend p::after {
+  content: '';
+  position: absolute;
+  top: calc(100% - 14px);
+  right: 0;
+
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12px 14px 12px 0;
+  border-color: transparent var(--purple) transparent transparent;
+}
+
+.message {
+  display: flex;
+}
+
+.message:first-child {
+  margin-top: 1rem;
+}
+
+.message p {
+  display: inline-block;
+  position: relative;
+  max-width: 70%;
+
+  margin-bottom: 1.6rem;
+  padding: 0.4rem 1rem;
+
+  border-radius: 10px;
+
+  font-size: 1rem;
+}
+
+.messageRecieve p {
+  background-color: var(--blue);
+}
+
+.messageRecieve p::after {
+  content: '';
+  position: absolute;
+  top: calc(100% - 14px);
+  left: 0;
+
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12px 0 12px 14px;
+  border-color: transparent transparent transparent var(--blue);
+}
+
+/* end msg style*/
+
+#messageForm {
+  grid-area: sendMessage;
+  height: auto;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--white);
+  border-radius: 0 0 0.6rem 0.6rem;
+  padding: 0 1rem 1rem 1rem;
+}
+
+#message {
+  box-sizing: border-box;
+  padding: 0 1rem;
+  border: 1px solid var(--purple);
+  height: 2.4rem;
+  border-radius: 100rem;
+  width: 100%;
+  margin-right: 1rem;
+}
+
+#sendMessage {
+  background-color: var(--purple);
+  display: flex;
+
+  border-radius: 100rem;
+  justify-content: center;
+  align-items: center;
+
+  width: 2.4rem;
+  height: 2.4rem;
+
+  padding: 0.4rem 0.6rem;
+}
+
+#sendMessage svg {
+  fill: var(--white);
+}
+
+/* Tablet */
+@media screen and (min-width: 48rem) {
+}
+
+/* Desktop */
+@media screen and (min-width: 64rem) {
 }

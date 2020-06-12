@@ -1,12 +1,16 @@
-<h1>Log in</h1>
-<h2>Do not have an account yet? <a href="register.ejs">Register!</a></h2>
-
 <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+  <h1>Log in</h1>
+  <p>Do not have an account yet? <a href="register.ejs">Register!</a></p>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+  <form action="/login" method="post">
+    <label for="uname">Username</label>
+    <input type="text" placeholder="Enter Username" name="uname" required />
 
-    <button type="submit">Log in</button>
-  </div>
+    <label for="psw">Password</label>
+    <input type="password" placeholder="Enter Password" name="psw" required />
+
+    <div class="submitContainer">
+      <button class="button" type="submit">Log in</button>
+    </div>
+  </form>
+</div>

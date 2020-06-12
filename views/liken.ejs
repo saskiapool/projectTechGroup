@@ -1,34 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+<%- include ("components/head.ejs") %>
 
 <body>
+  <header>
+    <%- include ("components/header.ejs") %>
+  </header>
 
-  <div class="person">
-    <figure>
-      <img src="/images/swipe.jpg" alt="" />
-    </figure>
-    <div class="text">
-      <h2 class="firstname">Kees</h2>
-      <h3 class="age">22</h3>
-      <h3 class="city">Amsterdam</h3>
-      <p>
-        Hallo, dit is de beschrijving van Kees
-      </p>
-
+  <main id="likeForm">
+    <div class="bgImage">
+      <div></div>
     </div>
-  </div>
 
-  <form class="addData" action=/home method="post">
-    <label for="dislike"></label>
-    <input type="radio" name="review" value="dislike" />
-    <label for="dislike"></label>
-    <input type="radio" name="review" value="megalike" />
-    <label for="dislike"></label>
-    <input type="radio" name="review" value="like" />
-    <input type="text" name="id" value="hallo">
-    <button> submit</button>
-  </form>
+    <%- include ("components/likeForm.ejs") %>
+  </main>
 
+  <footer></footer>
+
+  <script src="js/script.js"></script>
 </body>
 
 </html>

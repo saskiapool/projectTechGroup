@@ -9,6 +9,7 @@ router.get('/users', (req, res) => {
     .toArray()
     .then((users) => {
       console.log('users', users);
+      res.render('chat.ejs', { data: users });
     });
 });
 
