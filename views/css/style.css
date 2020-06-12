@@ -19,7 +19,7 @@
   list-style: none;
   text-decoration: none;
 
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 button {
@@ -56,7 +56,7 @@ body {
 .bgImage {
   top: 0;
   left: 0;
-  position: absolute;
+  position: fixed;
   z-index: -1;
   overflow: hidden;
 }
@@ -79,9 +79,27 @@ body {
 }
 
 /***********************
+Buttons
+***********************/
+
+.button[type="submit"] {
+  background-color: var(--purple);
+  border-radius: 100rem;
+  padding: 0.6rem 1.2rem;
+  color: var(--white);
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-left: auto;
+}
+
+/***********************
 Header
 ***********************/
 header {
+  width: 100vw;
+  top: 0;
+  left: 0;
+  position: fixed;
   background: var(--blue);
 }
 
@@ -169,16 +187,6 @@ Login form
   display: flex;
 }
 
-#login button[type='submit'] {
-  background-color: var(--purple);
-  border-radius: 100rem;
-  padding: 0.6rem 1.2rem;
-  color: var(--white);
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-left: auto;
-}
-
 #login input {
   box-sizing: border-box;
   background-color: var(--white);
@@ -264,7 +272,55 @@ Like form
   background-repeat: no-repeat;
 }
 
-#likeForm input[type='radio']:checked + label {
+#likeForm input[type="radio"]:checked + label {
   padding: 3em;
   background-color: var(--white);
+}
+
+/***********************
+Register form
+***********************/
+#registerForm {
+  margin: 6rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#registerForm fieldset {
+  margin: 2rem;
+  display: flex;
+  border: none;
+}
+
+#registerForm .container {
+  background: var(--purple-blue-gradient);
+  max-width: 24rem;
+  margin: 0 1rem;
+  padding: 1rem;
+  border-radius: 0.6rem;
+}
+
+#registerForm form {
+  display: flex;
+  flex: 2 2 2;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+#registerForm label {
+  color: var(--white);
+  margin: 0.5rem;
+}
+
+#registerForm input {
+  box-sizing: border-box;
+  background-color: var(--white);
+  border-radius: 100rem;
+  padding: 0.6rem 1.4rem;
+  width: 100%;
+  outline: none;
+  margin-bottom: 1.2rem;
+  display: inline-block;
 }
