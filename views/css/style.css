@@ -19,7 +19,7 @@
   list-style: none;
   text-decoration: none;
 
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 button {
@@ -82,7 +82,7 @@ body {
 Buttons
 ***********************/
 
-.button[type="submit"] {
+.button[type='submit'] {
   background-color: var(--purple);
   border-radius: 100rem;
   padding: 0.6rem 1.2rem;
@@ -272,7 +272,7 @@ Like form
   background-repeat: no-repeat;
 }
 
-#likeForm input[type="radio"]:checked + label {
+#likeForm input[type='radio']:checked + label {
   padding: 3em;
   background-color: var(--white);
 }
@@ -317,13 +317,15 @@ Register form
   margin-bottom: 1.2rem;
   display: inline-block;
 }
-/**********************
-  Chats
-  ***********************/
+
+/***********************
+Chats
+***********************/
 #chats {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 4.2rem;
   height: calc(100vh - 4.2rem);
 }
 
@@ -339,8 +341,8 @@ Register form
   grid-template-columns: 20rem auto;
   grid-template-rows: auto 4rem;
   grid-template-areas:
-    "profiles chatMessages"
-    "profiles sendMessage";
+    'profiles chatMessages'
+    'profiles sendMessage';
 }
 
 #profiles {
@@ -412,7 +414,7 @@ Register form
 }
 
 .messageSend p::after {
-  content: "";
+  content: '';
   position: absolute;
   top: calc(100% - 14px);
   right: 0;
@@ -450,7 +452,7 @@ Register form
 }
 
 .messageRecieve p::after {
-  content: "";
+  content: '';
   position: absolute;
   top: calc(100% - 14px);
   left: 0;
