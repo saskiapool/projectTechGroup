@@ -3,23 +3,32 @@
         <input type="text" id="search" name="search" placeholder="Search...">
     </div>
 
-    <h2>Messages</h2>
+    <ul>
+        <li>
+            <form class="chatProfile" action="/changeChat" method="post">
+                <button type="submit" name="changeChat" value="">
+                    <div class="profile">
+                        <img src="img/moffelMuts.png" alt="">
+                        <h3>
+                            Loes, 23
+                        </h3>
+                    </div>
+                </button>
+            </form>
+        </li>
 
-    <% for (let i = 0; i < users.length; i++) { %>
-
-    <form action="/changeChat" method="post">
-        <button type="submit" name="changeChat" value="<%= users[i]._id %>">
-
-            <div class="profile">
-                <h3>
-                    <%= users[i].username %>
-                </h3>
-                <p>Last Message</p>
-            </div>
-        </button>
-    </form>
-
-    <% } %>
-
+        <li>
+            <form class="chatProfile" action="/changeChat" method="post">
+                <button type="submit" name="changeChat" value="">
+                    <div class="profile">
+                        <img src="img/moffelMuts.png" alt="">
+                        <h3>
+                            Loes, 23
+                        </h3>
+                    </div>
+                </button>
+            </form>
+        </li>
+    </ul>
 
 </aside>
