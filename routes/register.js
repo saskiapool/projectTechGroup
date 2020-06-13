@@ -20,7 +20,7 @@ router.post('/register', async (req, res) => {
   // see if user already exists
   const email = req.body.email;
 
-  let user = await db.get().collection('users').findOne({
+  const user = await db.get().collection('users').findOne({
     email: email,
   });
 
@@ -31,7 +31,7 @@ router.post('/register', async (req, res) => {
   }
 
   // add to database
-  let data = {
+  const data = {
     name: req.body.secondname,
     mid: req.body.middlename,
     surname: req.body.surname,

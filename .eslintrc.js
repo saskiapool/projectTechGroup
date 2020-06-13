@@ -9,20 +9,8 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    'object-curly-spacing': ['warning', 'always'],
-    'linebreak-style': ['warning', 'windows'],
-    'eslint max-len': ['warning', { code: 1000 }],
-    'require-jsdoc': [
-      'warning',
-      {
-        require: {
-          FunctionDeclaration: false,
-          MethodDefinition: false,
-          ClassDeclaration: false,
-          ArrowFunctionExpression: false,
-          FunctionExpression: false,
-        },
-      },
-    ],
+    'linebreak-style': 0,
+    'new-cap': 0,
+    'require-jsdoc': 0,
   },
 };
