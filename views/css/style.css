@@ -240,7 +240,7 @@ Like form
   margin: 2em;
 }
 
-#likeForm input {
+/* #likeForm input {
   z-index: 10;
   visibility: hidden;
   position: fixed;
@@ -252,7 +252,7 @@ Like form
   padding: 2.7em;
   margin: 1em;
   background-repeat: no-repeat;
-}
+} */
 
 #likeForm .like {
   background-image: url(../img/like.svg);
@@ -274,7 +274,6 @@ Like form
 
 #likeForm input[type='radio']:checked + label {
   padding: 3em;
-  background-color: var(--white);
 }
 
 /***********************

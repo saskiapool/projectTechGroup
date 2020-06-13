@@ -14,14 +14,18 @@
     </div>
   </div>
 
-  <form class="addData" action="/home" method="post">
-    <label class="dislike" for="dislike"></label>
+  <form class="addData" action="/like" method="post">
     <input type="radio" name="review" value="dislike" />
-    <label class="megalike" for="megalike"></label>
+    <label class="dislike" for="dislike"></label>
+
     <input type="radio" name="review" value="megalike" />
-    <label class="like" for="like"></label>
+    <label class="megalike" for="megalike"></label>
+
     <input type="radio" name="review" value="like" />
-    <input type="text" name="id" value="hallo">
+    <label class="like" for="like"></label>
+
+    <input type="text" name="id" value="<%= data[index]._id %>" />
+    <input type="submit" />
   </form>
 </div>
 
