@@ -1,26 +1,28 @@
-<% for (var index = 0; index <
-    data.length; index++) { %>
+<% for (let index = 0; index < data.length; index++) { %>
+
 <div class="container">
-<div class="person">
-  <figure>
-    <img src="../img/loestoch.PNG" alt="" />
-  </figure>
-  <div class="text">
-    <h2 class="firstname"><%= data[index].username %></h2>
-    <h2 class="age"><%= data[index].age %></h2>
-    <p>
-     Hallo, dit is de beschriving van Kees
-    </p>
+  <div class="person">
+    <figure>
+      <img src="../img/loestoch.PNG" alt="" />
+    </figure>
+    <div class="text">
+      <h2 class="firstname"><%= data[index].username %></h2>
+      <h2 class="age"><%= data[index].age %></h2>
+      <p>
+        Hallo, dit is de beschriving van Kees
+      </p>
+    </div>
   </div>
+
+  <form class="addData" action="/home" method="post">
+    <label class="dislike" for="dislike"></label>
+    <input type="radio" name="review" value="dislike" />
+    <label class="megalike" for="megalike"></label>
+    <input type="radio" name="review" value="megalike" />
+    <label class="like" for="like"></label>
+    <input type="radio" name="review" value="like" />
+    <input type="text" name="id" value="hallo">
+  </form>
 </div>
 
-<form class="addData" action=/home method="post">
-  <label class="dislike" for="dislike"></label>
-  <input type="radio" name="review" value="dislike" />
-  <label class="megalike" for="megalike"></label>
-  <input type="radio" name="review" value="megalike" />
-  <label class="like" for="like"></label>
-  <input type="radio" name="review" value="like" />
-  <input type="text" name="id" value="hallo">
-</form>
-</div>
+<% } %>
