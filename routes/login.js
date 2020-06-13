@@ -14,7 +14,7 @@ router.post('/login', (req, res) => {
     .collection('users')
     .findOne(
       {
-        username: username,
+        email: username,
         password: password,
       },
       (err, result) => {
