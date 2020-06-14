@@ -38,8 +38,7 @@ router.post('/register', async (req, res) => {
     email: email,
     gender: req.body.gender,
     age: req.body.age,
-    psw: psw,
-    psw2: psw2,
+    password: psw,
   };
 
   db.get().collection('users').insertOne(data);
