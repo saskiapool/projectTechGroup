@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link rel="stylesheet" href="style.css">
+
+<%- include ("components/head.ejs") %>
+
+<body>
+    <header>
+        <%- include ("components/header.ejs") %>
+    </header>
+
+    <main class="questions">
+
+        <div class="bgImage">
+            <div></div>
+        </div>
+        <div class="questionElement">
+        <h1>Would you like to see eachother again?</h1>
+
+<form id="question" action="question">
+    <input type="radio" id="yes" name="answer" value="yes">
+    <label for="yes">Yes</label><br>
+    <input type="radio" id="no" name="answer" value="no">
+    <label for="no">No</label><br>
+</form>
+
+<button type="next" class="button"><a href="questionTwo">Next question</a></button>
+</div>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

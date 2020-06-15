@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include ("components/head.ejs") %>
+
+<body>
+    <header>
+        <%- include ("components/header.ejs") %>
+    </header>
+
+    <main class="questions">
+
+        <div class="bgImage">
+            <div></div>
+        </div>
+
+        <div class="questionElement">
+        <h1>Are you splitting the bill?</h1>
+
+<form action="question">
+    <input type="radio" id="yes" name="answer" value="yes">
+    <label for="yes">Yes</label><br>
+    <input type="radio" id="no" name="answer" value="no">
+    <label for="noI">No, I pay</label><br>
+    <input type="radio" id="no" name="answer" value="no">
+    <label for="noO">No, the other person is paying</label><br>
+</form>
+
+<button class="button" type="next"><a href="chat">continue</a></button>
+</div>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
+
+
+
+

@@ -1,0 +1,36 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<%- include ("components/head.ejs") %>
+
+<body>
+    <header>
+        <%- include ("components/header.ejs") %>
+    </header>
+
+    <main class="questions">
+      <div class="bgImage">
+        <div></div>
+    </div>
+
+    <div class="questionElement">
+      <h1>How would you rate this date?</h1>
+
+      <!-- Bron slider: w3schools. (z.d.-a). How To Create Range Sliders. Geraadpleegd op 
+                  31 mei 2020, van https://www.w3schools.com/howto/howto_js_rangeslider.asp -->
+                  <div class="slidecontainer">
+                      <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                    </div>
+      
+       <button class="button" type="next"><a href="questionThree">Next question</a></button>
+      </div>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
