@@ -21,12 +21,12 @@
 - NodeJS
 - EJS
 - MongoDB
-- NPM
+- NPM packages
 - Lots of love
 
 ## Installing the project
 
-First of all make sure you have **NodeJS** and **NPM** installed otherwhise the project won't work.
+First of all, make sure you have **NodeJS** and **NPM** installed otherwise the project won't work.
 
 1. Clone the repository
    `git clone https://github.com/Vuurvos1/projectTechGroup.git`
@@ -37,7 +37,7 @@ First of all make sure you have **NodeJS** and **NPM** installed otherwhise the 
 
 1. Create a MongoDB database
 2. Create the following collections: **users**, **chats**
-3. Create a .env containing these varialbes:
+3. Create a .env containing these variables:
 
 ```
 DB_HOST= link to mongodb database
@@ -51,7 +51,7 @@ SECRET= session secret
 
 You can use `npm start` to start the project or `npm run dev` if you are a developer
 
-By defealt the project will be hosted on **port 3000**
+By default, the project will be hosted on **port 3000**
 
 ## Team
 
