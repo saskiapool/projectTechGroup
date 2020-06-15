@@ -8,63 +8,63 @@ const port = process.env.PORT || 3000;
 const app = express();
 const server = http.createServer(app);
 
-// const session = require('express-session');
+const socketIo = require('socket.io');
+const io = socketIo.listen(server);
 
-// app.io = require('socket.io');
-
-// const app = require('express')();
-// const server = require('http').Server(app);
-// const io = require('socket.io')(server);
-const io = require('socket.io').listen(server);
-// const socketio = require('socket.io');
-// const sharedsession = require('express-socket.io-session');
-// const io = socketio(server);
-// io.use(sharedsession(session));
+const cookieParser = require('cookie-parser');
+const session = require('express-session')({
+  secret: process.env.SECRET,
+  resave: true,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 3600000,
+  },
+});
 
 app.use(express.static(__dirname + '/views'));
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 app.set('socketio', io);
+app.use(session);
+const sharedsession = require('express-socket.io-session');
+io.use(sharedsession(session));
 
 app.use(require('./routes/routes'));
 
 // realtime chat
-// io.on('connection', (socket) => {
-//   console.log(`A new client connected: ${socket.id}`);
-// });
+io.on('connection', (socket) => {
+  console.log(`A new client connected: ${socket.id}`);
 
-// io.on('connection', (socket) => {
-//   console.log(`A new client connected: ${socket.id}`);
-//   // });
-//   const socketRoom = socket.handshake.session.chatroom;
-//   socket.join(socketRoom);
+  const socketRoom = socket.handshake.session.chatroom;
+  socket.join(socketRoom);
 
-//   socket.on('message', (data) => {
-//     const sender = socket.handshake.session.user._id;
+  socket.on('message', (data) => {
+    const sender = socket.handshake.session.user._id;
 
-//     const databaseData = {
-//       sender: sender,
-//       content: data.message,
-//       time: new Date(),
-//     };
+    const databaseData = {
+      sender: sender,
+      content: data.message,
+      time: new Date(),
+    };
 
-//     // send to database
-//     // db.collection('chats').updateOne(
-//     //   {
-//     //     _id: ObjectId(socketRoom),
-//     //   },
-//     //   { $push: { messages: databaseData } }
-//     // );
+    // send to database
+    db.collection('chats').updateOne(
+      {
+        _id: ObjectId(socketRoom),
+      },
+      { $push: { messages: databaseData } }
+    );
 
-//     socket.to(socketRoom).emit('message', data.message);
-//   });
+    socket.to(socketRoom).emit('message', data.message);
+  });
 
-//   socket.on('disconnect', () => {
-//     console.log('Client has disconnected');
-//   });
-// });
+  socket.on('disconnect', () => {
+    console.log('Client has disconnected');
+  });
+});
 
 db.connect(() => {
   server.listen(port, () => {

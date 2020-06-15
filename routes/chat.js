@@ -11,43 +11,6 @@ router.get('/chat', async (req, res) => {
   }
 
   const id = req.session.user._id;
-  const io = req.app.get('socketio');
-
-  // const io = socketio(server);
-  // io.use(sharedsession(req.session));
-
-  io.on('connection', (socket) => {
-    console.log(`A new client connected: ${socket.id}`);
-    const socketRoom = req.session.chatroom;
-    socket.join(socketRoom);
-
-    socket.on('message', (data) => {
-      const sender = req.session.user._id;
-
-      const databaseData = {
-        sender: sender,
-        content: data.message,
-        time: new Date(),
-      };
-
-      // send to database
-      db.get()
-        .collection('chats')
-        .updateOne(
-          {
-            _id: ObjectId(socketRoom),
-          },
-          { $push: { messages: databaseData } }
-        );
-
-      console.log(`sending to ${socketRoom}, message: ${data.message}`);
-      socket.to(socketRoom).emit('message', data.message);
-    });
-
-    socket.on('disconnect', () => {
-      console.log('Client has disconnected');
-    });
-  });
 
   const chats = await db
     .get()
