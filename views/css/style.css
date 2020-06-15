@@ -283,6 +283,14 @@ Like form
   padding: 3em;
 }
 
+#likeForm .noMoreUsers {
+  background: var(--purple-blue-gradient);
+  max-width: 24rem;
+  margin: 0 1rem;
+  padding: 3rem;
+  border-radius: 0.6rem;
+}
+
 /***********************
 Register form
 ***********************/

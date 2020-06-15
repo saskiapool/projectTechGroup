@@ -18,24 +18,6 @@ router.get('/like', async (req, res) => {
       .get()
       .collection('users')
       .findOne({ _id: ObjectId(req.session.user._id) });
-    // console.log(index.number);
-
-    // if (!index.number) {
-    //   db.get()
-    //     .collection('users')
-    //     .updateOne(
-    //       {
-    //         _id: ObjectId(req.session.user._id),
-    //       },
-    //       {
-    //         $push: {
-    //           number: 0,
-    //         },
-    //       }
-    //     );
-    // } else {
-    //   res.render('./login.ejs', { data: data[index] });
-    // }
     console.log('1 GEBRUIKER LADEN');
     console.log(users[index.number]);
     res.render('./liken.ejs', { data: users[index.number] });
