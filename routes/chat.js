@@ -25,7 +25,7 @@ router.get('/chat', async (req, res) => {
   console.log(chats);
 
   if (chats.length > 0) {
-    req.session.chatroom = await chats[0]._id;
+    req.session.chatroom = chats[0]._id;
     console.log(`chatroom session: ${req.session.chatroom}`);
     chats.clientid = id;
 

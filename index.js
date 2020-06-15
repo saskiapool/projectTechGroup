@@ -2,6 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('./helper/db');
+const mongo = require('mongodb');
+const ObjectId = mongo.ObjectID;
 
 const http = require('http');
 const port = process.env.PORT || 3000;
@@ -39,6 +41,7 @@ io.on('connection', (socket) => {
   console.log(`A new client connected: ${socket.id}`);
 
   const socketRoom = socket.handshake.session.chatroom;
+  console.log(socketRoom);
   socket.join(socketRoom);
 
   socket.on('message', (data) => {
@@ -51,12 +54,14 @@ io.on('connection', (socket) => {
     };
 
     // send to database
-    db.collection('chats').updateOne(
-      {
-        _id: ObjectId(socketRoom),
-      },
-      { $push: { messages: databaseData } }
-    );
+    db.get()
+      .collection('chats')
+      .updateOne(
+        {
+          _id: ObjectId(socketRoom),
+        },
+        { $push: { messages: databaseData } }
+      );
 
     socket.to(socketRoom).emit('message', data.message);
   });
