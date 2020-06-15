@@ -1,13 +1,12 @@
-<% for (let index = 0; index < data.length; index++) { %>
-
+<% if(data){ %>
 <div class="container">
   <div class="person">
     <figure>
       <img src="../img/loestoch.PNG" alt="" />
     </figure>
     <div class="text">
-      <h2 class="firstname"><%= data[index].username %></h2>
-      <h2 class="age"><%= data[index].age %></h2>
+      <h2 class="firstname"><%= data.username %></h2>
+      <h2 class="age"><%= data.age %></h2>
       <p>
         Hallo, dit is de beschriving van Kees
       </p>
@@ -15,18 +14,31 @@
   </div>
 
   <form class="addData" action="/like" method="post">
-    <input type="radio" name="review" value="dislike" />
-    <label class="dislike" for="dislike"></label>
-
-    <input type="radio" name="review" value="megalike" />
-    <label class="megalike" for="megalike"></label>
-
-    <input type="radio" name="review" value="like" />
-    <label class="like" for="like"></label>
-
-    <input type="text" name="id" value="<%= data[index]._id %>" />
-    <input type="submit" />
+    <input type="text" class="userId" name="id" value="<%= data._id %>" />
+    <input name="like" id="like" type="submit" />
+    <label for="like" class="like"></label>
   </form>
+
+  <form class="addData" action="/like" method="post">
+    <input type="text" class="userId" name="id" value="<%= data._id %>" />
+    <input name="megalike" id="megalike" type="submit" />
+    <label for="megalike" class="megalike"></label>
+  </form>
+
+  <form class="addData" action="/like" method="post">
+    <input type="text" class="userId" name="id" value="<%= data._id %>" />
+    <input name="dislike" id="dislike" type="submit" />
+    <label for="dislike" class="dislike"></label>
+  </form>
+</div>
+
+<% } else{ %>
+
+<div class="shitman">
+  <h1>
+    Jij vind wel heel veel mensen leuk! Nu zijn alle piertjes op! Kom morgen
+    terug voor meer moffeltjes.
+  </h1>
 </div>
 
 <% } %>

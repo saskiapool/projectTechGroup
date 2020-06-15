@@ -1,17 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const session = require('express-session')({
-  secret: process.env.SECRET,
-  resave: true,
-  saveUninitialized: false,
-  cookie: {
-    maxAge: 3600000,
-  },
-});
-const cookieParser = require('cookie-parser');
-
-router.use(cookieParser());
-router.use(session);
 
 // Routes
 const index = require('./index');

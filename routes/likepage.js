@@ -5,22 +5,44 @@ const router = express.Router();
 const mongo = require('mongodb');
 const ObjectId = mongo.ObjectID;
 
-router.get('/like', (req, res) => {
+router.get('/like', async (req, res) => {
   if (req.session.user) {
-    db.get()
+    const users = await db
+      .get()
       .collection('users')
-      .find()
-      .toArray((err, data) => {
-        res.render('./liken.ejs', { data: data });
-      });
-  } else {
-    res.render('./login.ejs');
+      .find({ _id: { $ne: ObjectId(req.session.user._id) } })
+      .toArray();
+    // console.log(users);
+
+    const index = await db
+      .get()
+      .collection('users')
+      .findOne({ _id: ObjectId(req.session.user._id) });
+    // console.log(index.number);
+
+    // if (!index.number) {
+    //   db.get()
+    //     .collection('users')
+    //     .updateOne(
+    //       {
+    //         _id: ObjectId(req.session.user._id),
+    //       },
+    //       {
+    //         $push: {
+    //           number: 0,
+    //         },
+    //       }
+    //     );
+    // } else {
+    //   res.render('./login.ejs', { data: data[index] });
+    // }
+    console.log('1 GEBRUIKER LADEN');
+    console.log(users[index.number]);
+    res.render('./liken.ejs', { data: users[index.number] });
   }
 });
 
 router.post('/like', (req, res) => {
-  console.log(req.body.id);
-
   db.get()
     .collection('users')
     .updateOne(
@@ -28,6 +50,7 @@ router.post('/like', (req, res) => {
         _id: ObjectId(req.session.user._id),
       },
       {
+        $inc: { number: 1 },
         $push: {
           likes: req.body.id,
         },

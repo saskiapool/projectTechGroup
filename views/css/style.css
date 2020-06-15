@@ -272,7 +272,14 @@ Like form
   background-repeat: no-repeat;
 }
 
-#likeForm input[type='radio']:checked + label {
+#likeForm .userId,
+#likeForm #like,
+#likeForm #megalike,
+#likeForm #dislike {
+  visibility: hidden;
+}
+
+#likeForm label:hover {
   padding: 3em;
 }
 
