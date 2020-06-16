@@ -15,19 +15,19 @@
 
   <form class="addData" action="/like" method="post">
     <input type="text" class="userId" name="id" value="<%= data._id %>" />
-    <input name="like" id="like" type="submit" />
+    <input name="review" value="like" id="like" type="submit" />
     <label for="like" class="like"></label>
   </form>
 
   <form class="addData" action="/like" method="post">
     <input type="text" class="userId" name="id" value="<%= data._id %>" />
-    <input name="megalike" id="megalike" type="submit" />
+    <input name="review" value="megalike" id="megalike" type="submit" />
     <label for="megalike" class="megalike"></label>
   </form>
 
   <form class="addData" action="/like" method="post">
     <input type="text" class="userId" name="id" value="<%= data._id %>" />
-    <input name="dislike" id="dislike" type="submit" />
+    <input name="review" value="dislike" id="dislike" type="submit" />
     <label for="dislike" class="dislike"></label>
   </form>
 </div>

@@ -18,27 +18,55 @@ router.get('/like', async (req, res) => {
       .get()
       .collection('users')
       .findOne({ _id: ObjectId(req.session.user._id) });
-    console.log('1 GEBRUIKER LADEN');
-    console.log(users[index.number]);
+    // console.log('1 GEBRUIKER LADEN');
+    // console.log(users[index.number]);
     res.render('./liken.ejs', { data: users[index.number] });
   }
 });
 
 router.post('/like', (req, res) => {
-  db.get()
-    .collection('users')
-    .updateOne(
-      {
-        _id: ObjectId(req.session.user._id),
-      },
-      {
-        $inc: { number: 1 },
-        $push: {
-          likes: req.body.id,
+  if (req.body.review === 'like') {
+    db.get()
+      .collection('users')
+      .updateOne(
+        {
+          _id: ObjectId(req.session.user._id),
         },
-      }
-    );
+        {
+          $inc: { number: 1 },
+          $push: {
+            likes: req.body.id,
+          },
+        }
+      );
+  } else if (req.body.review === 'dislike') {
+    db.get()
+      .collection('users')
+      .updateOne(
+        {
+          _id: ObjectId(req.session.user._id),
+        },
+        {
+          $inc: { number: 1 },
+        }
+      );
+  } else if (req.body.review === 'megalike') {
+    db.get()
+      .collection('users')
+      .updateOne(
+        {
+          _id: ObjectId(req.session.user._id),
+        },
+        {
+          $inc: { number: 1 },
+          $push: {
+            megalikes: req.body.id,
+          },
+        }
+      );
+  }
   res.redirect('./like');
+  console.log(req.body.review);
 });
 
 module.exports = router;

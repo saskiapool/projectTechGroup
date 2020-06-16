@@ -40,6 +40,8 @@ router.post('/register', async (req, res) => {
     age: req.body.age,
     password: psw,
     likes: [],
+    megalikes: [],
+    number: 0,
   };
 
   db.get().collection('users').insertOne(data);
