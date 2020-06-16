@@ -42,14 +42,10 @@ router.post('/register', async (req, res) => {
     email: email,
     gender: req.body.gender,
     age: req.body.age,
-<<<<<<< HEAD
-    password: psw,
+    password: pswHash,
     likes: [],
     megalikes: [],
     number: 0,
-=======
-    password: pswHash,
->>>>>>> origin
   };
 
   db.get().collection('users').insertOne(data);
