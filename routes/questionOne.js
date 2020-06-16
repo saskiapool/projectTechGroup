@@ -9,17 +9,17 @@ req.session.user ? res.render('./questionone.ejs') : res.render('./login.ejs');
 });
 
 router.post('/questionOne', async (req, res) => {
-  const answer = req.body.answer;
 
-  const data = {
-    yes: req.body.answer,
-    no: req.body.answer,
+    const data = {
+    questionT: req.body.questionT,
   };
+
+  console.log(`post question one data: ${data}`);
 
   db.get().collection('questions').insertOne(data);
   console.log(`added ${data} to the database`);
-  res.redirect('/chat');
-
-
-  module.exports = router;
+  res.redirect('/questionTwo');
 });
+
+module.exports = router;
+
