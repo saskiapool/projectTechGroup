@@ -240,20 +240,6 @@ Like form
   margin: 2em;
 }
 
-#likeForm input {
-  z-index: 10;
-  visibility: hidden;
-  position: fixed;
-  width: 0;
-}
-
-#likeForm label {
-  display: inline-block;
-  padding: 2.7em;
-  margin: 1em;
-  background-repeat: no-repeat;
-}
-
 #likeForm .like {
   background-image: url(../img/like.svg);
 }
@@ -272,9 +258,23 @@ Like form
   background-repeat: no-repeat;
 }
 
-#likeForm input[type='radio']:checked + label {
+#likeForm .userId,
+#likeForm #like,
+#likeForm #megalike,
+#likeForm #dislike {
+  visibility: hidden;
+}
+
+#likeForm label:hover {
   padding: 3em;
-  background-color: var(--white);
+}
+
+#likeForm .noMoreUsers {
+  background: var(--purple-blue-gradient);
+  max-width: 24rem;
+  margin: 0 1rem;
+  padding: 3rem;
+  border-radius: 0.6rem;
 }
 
 /***********************
