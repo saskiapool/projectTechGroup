@@ -15,18 +15,22 @@
         <div class="bgImage">
             <div></div>
         </div>
+
         <div class="questionElement">
-        <h1>Would you like to see eachother again?</h1>
+            <h1>Would you like to see eachother again?</h1>
 
-<form name="questionO" id="question" action="/questionOne" method="post">
-    <label for="yes">Yes</label><br>
-    <input type="radio" id="yes" name="answerY" value="yes">
-    <label for="no">No</label><br>
-    <input type="radio" id="no" name="answerN" value="no">
-</form>
+            <form id="question" action="/questionOne" method="post">
+                <label for="yes">Yes</label><br>
+                <input type="radio" id="yes" name="answerY" value="yes">
+                <label for="no">No</label><br>
+                <input type="radio" id="no" name="answerN" value="no">
 
-<button type="next" class="button"><a href="questionTwo">Next question</a></button>
-</div>
+                <button type="submit" class="button">Next question</button>
+            </form>
+
+
+        </div>
+
     </main>
 
     <footer>
