@@ -24,6 +24,10 @@ router.get('/like', async (req, res) => {
   }
 });
 
+//***************************************//
+//******* WHEN FORM GETS POSTED *********//
+//***************************************//
+
 router.post('/like', (req, res) => {
   if (req.body.review === 'like') {
     db.get()
