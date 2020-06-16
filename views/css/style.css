@@ -100,7 +100,7 @@ header {
   top: 0;
   left: 0;
   position: fixed;
-  background: var(--blue);
+  background: var(--purple);
 }
 
 nav {
@@ -517,6 +517,7 @@ questions
   font-weight: bold;
   font-size: 1.2rem;
   margin-left: auto;
+  margin-top: 1.4rem;
 }
 
 .button[type='next']:hover{
@@ -528,6 +529,13 @@ questions
   margin-left: auto;
 }
 
+.questions h1 {
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: var(--white);
+  margin-bottom: 5rem;
+}
+
 .questions a{
   color: white;
 }
@@ -536,6 +544,7 @@ questions
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   margin-top: 4.2rem;
   height: calc(100vh - 4.2rem);
 }
@@ -546,17 +555,67 @@ questions
   max-width: 52rem;
   padding: 1rem;
   border-radius: 0.6rem;
-  height: 80vh;
+  height: 60vh;
+}
+
+.questions input {
+  box-sizing: border-box;
+  background-color: var(--white);
+  border-radius: 100rem;
+  padding: 0.6rem 0.6rem;
+  width: 100%;
+  outline: none;
+  margin-bottom: 1.2rem;
+  display: inline-block;
 }
 
 .questions label {
   box-sizing: border-box;
   border-radius: 100rem;
-  padding: 0.6rem 1.4rem;
+  padding: 0rem 1.4rem;
+  width: 100%;
   color: white;
   outline: none;
   margin-bottom: 1.2rem;
   display: inline-block;
+  justify-content: center;
+}
+
+.questions .slide{
+    width: 100%; 
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.questions .slider{
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; 
+  height: 1rem; 
+  background: white; 
+  outline: none;
+}
+
+.questions .slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 30px; 
+  height: 30px; 
+  border-radius: 1rem;
+  background: var(--purple); 
+  cursor: pointer; 
+}
+
+.questions #dateValue {
+  box-sizing: border-box;
+  background-color: var(--white);
+  border-radius: 100rem;
+  padding: 0.6rem 1.4rem;
+  width: 8%;
+  outline: none;
+  margin-bottom: 1.2rem;
+  display: inline-block;
+  margin-top: 2rem;
 }
 
 /* Tablet */
