@@ -180,22 +180,56 @@ Login form
 #login label {
   display: inline-block;
   color: var(--white);
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.3rem;
 }
 
 #login .submitContainer {
   display: flex;
 }
 
-#login input {
+#login input[type='email'] {
   box-sizing: border-box;
   background-color: var(--white);
   border-radius: 100rem;
   padding: 0.6rem 1.4rem;
   width: 100%;
   outline: none;
-  margin-bottom: 1.2rem;
   display: inline-block;
+}
+
+#login input[type='email'] {
+  margin-bottom: 1.2rem;
+}
+
+#login .passwordBox {
+  background-color: var(--white);
+  border-radius: 100rem;
+  padding: 0.6rem 1.4rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+#login .passwordBox input {
+  width: 100%;
+}
+
+#login .passwordBox input:focus {
+  outline: none;
+}
+
+.jsActive #login .passwordBox #toggle {
+  cursor: pointer;
+  padding-right: 0.1rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  background: url('../img/eye.svg');
+  background-size: cover;
+}
+
+.jsActive #login .passwordBox #toggle.hide {
+  background: url('../img/hide.svg');
 }
 
 /***********************
