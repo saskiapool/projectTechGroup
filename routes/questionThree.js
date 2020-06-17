@@ -2,23 +2,24 @@ const express = require('express');
 const router = express.Router();
 const db = require('../helper/db');
 
-router.get('/questionOne', (req, res) => {
-  // res.render('./index.ejs');
-req.session.user ? res.render('./questiontwo.ejs') : res.render('./login.ejs');
-  // res.render('./questionOne.ejs');
+router.get('/questionThree', (req, res) => {
+  req.session.user
+    ? res.render('./questionThree.ejs')
+    : res.render('./login.ejs');
+// res.render('./questionOne.ejs');
 });
 
-router.post('/questionTwo', async (req, res) => {
+router.post('/questionThree', async (req, res) => {
 
-    const data = {
-    questionO: req.body.questionO,
+  const data = {
+    questionTh: req.body.questionTh,
   };
 
   console.log(`post question one data: ${data}`);
 
   db.get().collection('questions').insertOne(data);
   console.log(`added ${data} to the database`);
-  res.redirect('/questionTwo');
+  res.redirect('/questionFour');
 });
 
 module.exports = router;
