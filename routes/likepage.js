@@ -28,7 +28,7 @@ router.get('/like', async (req, res) => {
 //******* WHEN FORM GETS POSTED *********//
 //***************************************//
 
-router.post('/like', (req, res) => {
+router.post('/like', async (req, res) => {
   if (req.body.review === 'like') {
     db.get()
       .collection('users')
@@ -43,6 +43,7 @@ router.post('/like', (req, res) => {
           },
         }
       );
+    req.session.user.likes.push(req.body.id);
   } else if (req.body.review === 'dislike') {
     db.get()
       .collection('users')
@@ -68,6 +69,29 @@ router.post('/like', (req, res) => {
           },
         }
       );
+    req.session.user.megalikes.push(req.body.id);
+  }
+
+  if (
+    req.session.user.likes.length > 0 ||
+    req.session.user.megalikes.length > 0
+  ) {
+    const likedUser = await db
+      .get()
+      .collection('users')
+      .findOne({ _id: ObjectId(req.body.id) });
+    console.log('liked user is ');
+    console.log(likedUser);
+
+    if (likedUser.likes.includes(req.session.user._id)) {
+      const data = {
+        paticipants: [ObjectId(req.session.user._id), likedUser._id],
+        messages: [],
+      };
+
+      db.get().collection('chats').insertOne(data);
+      console.log(`Chat toegevoegd met ${data.participants} `);
+    }
   }
   res.redirect('./like');
   console.log(req.body.review);
