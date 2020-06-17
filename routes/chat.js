@@ -12,6 +12,8 @@ router.get('/chat', async (req, res) => {
 
   const id = req.session.user._id;
 
+  console.log(typeof id);
+
   const chats = await db
     .get()
     .collection('chats')
@@ -50,9 +52,12 @@ router.get('/chat', async (req, res) => {
       })
       .toArray();
 
-    res.render('./chat.ejs', { data: chats });
+    console.log(users);
+
+    res.render('./chat.ejs', { chats: chats, users: users });
   } else {
-    res.render('./chat.ejs', { data: {} });
+    // res.render('./chat.ejs', { data: {} });
+    // res.render('./chat.ejs', { chats: chats, users: users });
     // res.render('index.ejs', { data: {}, data2: {} });
   }
 });

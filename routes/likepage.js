@@ -80,16 +80,16 @@ router.post('/like', async (req, res) => {
       .get()
       .collection('users')
       .findOne({ _id: ObjectId(req.body.id) });
+
     console.log('liked user is ');
-    console.log(likedUser);
+    console.log(`${likedUser._id}`);
 
     if (likedUser.likes.includes(req.session.user._id)) {
       const data = {
-        paticipants: [ObjectId(req.session.user._id), likedUser._id],
+        participants: [req.session.user._id, `${likedUser._id}`],
         messages: [],
       };
-
-      db.get().collection('chats').insertOne(data);
+      -db.get().collection('chats').insertOne(data);
       console.log(`Chat toegevoegd met ${data.participants} `);
     }
   }
