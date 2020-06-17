@@ -10,12 +10,13 @@ router.get('/questionOne', (req, res) => {
 });
 
 router.post('/questionOne', async (req, res) => {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1c41829e75901bc518444774d3d2d728e316d7c0
   const data = {
     questionO: req.body.questionO,
   };
-
-  console.log(`post question one data: ${data}`);
 
   db.get().collection('questions').insertOne(data);
   console.log(`added ${data} to the database`);
@@ -23,4 +24,8 @@ router.post('/questionOne', async (req, res) => {
   res.redirect('/questionTwo');
 });
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+module.exports = router;
+>>>>>>> 1c41829e75901bc518444774d3d2d728e316d7c0
