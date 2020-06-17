@@ -252,10 +252,17 @@ Like form
   background-image: url(../img/dislike.svg);
 }
 
+#likeForm .reviewButtons {
+  display: flex;
+  justify-content: space-around;
+  height: 1em;
+}
+
 #likeForm label {
-  display: inline-block;
+  margin: 0.4em;
   padding: 2em;
   background-repeat: no-repeat;
+  transition: 0.1s ease-out;
 }
 
 #likeForm .userId,
@@ -263,10 +270,15 @@ Like form
 #likeForm #megalike,
 #likeForm #dislike {
   visibility: hidden;
+  position: absolute;
+  width: 0;
+  height: 0;
 }
 
 #likeForm label:hover {
-  padding: 3em;
+  transition: 0.1s ease-out;
+  margin: 0;
+  padding: 2.4rem;
 }
 
 #likeForm .noMoreUsers {
@@ -316,6 +328,43 @@ Register form
   outline: none;
   margin-bottom: 1.2rem;
   display: inline-block;
+}
+
+#registerForm .reviewButtons {
+  display: flex;
+  justify-content: space-around;
+}
+
+#registerForm [type='radio'] {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+#registerForm [type='radio'] + label {
+  border-radius: 100rem;
+  padding: 0.5rem;
+  background-color: var(--purple);
+  color: var(--white);
+  transition: 0.1s ease-out;
+}
+
+#registerForm [type='radio']:hover + label {
+  box-shadow: inset 0px 0px 0px 2px var(--purple);
+  transition: 0.1s ease-out;
+}
+
+#registerForm [type='radio']:checked + label {
+  box-shadow: inset 0px 0px 0px 2px var(--purple);
+  background-color: var(--white);
+  color: var(--purple);
+  transition: 0.1s ease-out;
+  font-weight: bold;
+}
+
+#registerForm button {
+  margin: 2rem 0rem 2rem 0rem;
 }
 
 /***********************

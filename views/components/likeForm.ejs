@@ -5,31 +5,32 @@
       <img src="../img/loestoch.PNG" alt="" />
     </figure>
     <div class="text">
-      <h2 class="firstname"><%= data.username %></h2>
+      <h2 class="firstname"><%= data.name %></h2>
       <h2 class="age"><%= data.age %></h2>
       <p>
         Hallo, dit is de beschriving van Kees
       </p>
     </div>
   </div>
+  <div class="reviewButtons">
+    <form class="addData" action="/like" method="post">
+      <input type="text" class="userId" name="id" value="<%= data._id %>" />
+      <input type="submit" name="review" value="like" id="like" />
+      <label for="like" class="like"></label>
+    </form>
 
-  <form class="addData" action="/like" method="post">
-    <input type="text" class="userId" name="id" value="<%= data._id %>" />
-    <input type="submit" name="review" value="like" id="like" />
-    <label for="like" class="like"></label>
-  </form>
+    <form class="addData" action="/like" method="post">
+      <input type="text" class="userId" name="id" value="<%= data._id %>" />
+      <input type="submit" name="review" value="megalike" id="megalike" />
+      <label for="megalike" class="megalike"></label>
+    </form>
 
-  <form class="addData" action="/like" method="post">
-    <input type="text" class="userId" name="id" value="<%= data._id %>" />
-    <input type="submit" name="review" value="megalike" id="megalike" />
-    <label for="megalike" class="megalike"></label>
-  </form>
-
-  <form class="addData" action="/like" method="post">
-    <input type="text" class="userId" name="id" value="<%= data._id %>" />
-    <input type="submit" name="review" value="dislike" id="dislike" />
-    <label for="dislike" class="dislike"></label>
-  </form>
+    <form class="addData" action="/like" method="post">
+      <input type="text" class="userId" name="id" value="<%= data._id %>" />
+      <input type="submit" name="review" value="dislike" id="dislike" />
+      <label for="dislike" class="dislike"></label>
+    </form>
+  </div>
 </div>
 
 <% } else{ %>
