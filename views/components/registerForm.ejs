@@ -13,11 +13,14 @@
       <input type="text" name="surname" id="surname" />
 
       <label for="gender" type="text"><b>Gender</b></label>
+      <div class="reviewButtons">
       <input type="radio" name="gender" value="male" id="male" />
+      <label for="male" class="reviewBtn">Male</label>
       <input type="radio" name="gender" value="female" id="female" />
+      <label for="female" class="reviewBtn">Female</label>
       <input type="radio" name="gender" value="other" id="other" />
-
-
+      <label for="other" class="reviewBtn">Other</label>
+    </div>
       <label for="age"><b>Age</b></label>
       <input type="date" name="age" id="age" />
     </fieldset>
@@ -36,8 +39,10 @@
       By creating an account you agree to our <a href="#">Terms & Privacy</a>.
     </p>
     <button type="submit" class="button">Register</button>
+    
+    <p>Already have an account? <a href="#">Sign in</a>.</p>
+
 </div>
 
-<p>Already have an account? <a href="#">Sign in</a>.</p>
 
 </form>
