@@ -1,5 +1,3 @@
-console.log('js connected');
-
 const msg = document.querySelector('#message');
 const sendMsg = document.querySelector('#sendMessage');
 const messageSection = document.querySelector('#messages');
