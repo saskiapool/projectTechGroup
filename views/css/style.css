@@ -440,7 +440,7 @@ Chats
   overflow-y: scroll;
 }
 
-/* style chat messages */
+/* style chat messages. */
 .messageSend {
   justify-content: flex-end;
 }
