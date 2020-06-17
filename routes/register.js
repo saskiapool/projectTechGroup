@@ -1,6 +1,8 @@
 const express = require('express');
 const db = require('../helper/db');
 const router = express.Router();
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 router.get('/register', (req, res) => {
   res.render('./register.ejs');
@@ -20,7 +22,7 @@ router.post('/register', async (req, res) => {
   // see if user already exists
   const email = req.body.email;
 
-  let user = await db.get().collection('users').findOne({
+  const user = await db.get().collection('users').findOne({
     email: email,
   });
 
@@ -31,15 +33,19 @@ router.post('/register', async (req, res) => {
   }
 
   // add to database
-  let data = {
+  const pswHash = bcrypt.hashSync(psw, saltRounds);
+
+  const data = {
     name: req.body.secondname,
     mid: req.body.middlename,
     surname: req.body.surname,
     email: email,
     gender: req.body.gender,
     age: req.body.age,
-    psw: psw,
-    psw2: psw2,
+    password: pswHash,
+    likes: [],
+    megalikes: [],
+    number: 0,
   };
 
   db.get().collection('users').insertOne(data);
