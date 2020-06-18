@@ -6,6 +6,8 @@
   --blue: #505eac;
   --cyan: #4398b5;
 
+  --red: red;
+
   --purple-blue-gradient: linear-gradient(
     138deg,
     var(--purple) 0%,
@@ -82,7 +84,7 @@ body {
 Buttons
 ***********************/
 
-.button[type='submit'] {
+.submit-button {
   background-color: var(--purple);
   border-radius: 100rem;
   padding: 0.6rem 1.2rem;
@@ -90,6 +92,23 @@ Buttons
   font-weight: bold;
   font-size: 1.2rem;
   margin-left: auto;
+}
+
+/* text area  */
+.textfield {
+  box-sizing: border-box;
+  background-color: var(--white);
+  border-radius: 100rem;
+  border: 1px solid var(--white);
+  padding: 0.5rem 1.3rem;
+  width: 100%;
+  outline: none;
+  margin-bottom: 1.2rem;
+  display: inline-block;
+}
+
+.textfield:focus:invalid {
+  border-color: var(--red);
 }
 
 /***********************
@@ -188,16 +207,6 @@ Login form
 }
 
 #login input[type='email'] {
-  box-sizing: border-box;
-  background-color: var(--white);
-  border-radius: 100rem;
-  padding: 0.6rem 1.4rem;
-  width: 100%;
-  outline: none;
-  display: inline-block;
-}
-
-#login input[type='email'] {
   margin-bottom: 1.2rem;
 }
 
@@ -221,14 +230,17 @@ Login form
 
 .jsActive #login .passwordBox #toggle {
   cursor: pointer;
-  padding-right: 0.1rem;
   width: 1.4rem;
   height: 1.4rem;
-  background: url('../img/eye.svg');
+  background: url('../img/eye.png');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
   background-size: cover;
 }
 
 .jsActive #login .passwordBox #toggle.hide {
+  width: 1.4rem;
+  height: 1.4rem;
   background: url('../img/hide.svg');
 }
 
@@ -335,7 +347,7 @@ Register form
 }
 
 #registerForm fieldset {
-  margin: 2rem;
+  margin-bottom: 1.2rem;
   display: flex;
   border: none;
 }
@@ -344,29 +356,22 @@ Register form
   background: var(--purple-blue-gradient);
   max-width: 24rem;
   margin: 0 1rem;
-  padding: 1rem;
+  padding: 1rem 1.2rem;
   border-radius: 0.6rem;
 }
 
 #registerForm label {
   color: var(--white);
-  margin: 0.5rem;
-}
-
-#registerForm input {
-  box-sizing: border-box;
-  background-color: var(--white);
-  border-radius: 100rem;
-  padding: 0.6rem 1.4rem;
-  width: 100%;
-  outline: none;
-  margin-bottom: 1.2rem;
-  display: inline-block;
+  margin: 0.4rem;
 }
 
 #registerForm .reviewButtons {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
+}
+
+#registerForm .reviewButtons label {
+  margin: 0 1rem 0 0;
 }
 
 #registerForm [type='radio'] {
@@ -398,7 +403,8 @@ Register form
 }
 
 #registerForm button {
-  margin: 2rem 0rem 2rem 0rem;
+  display: block;
+  margin: 0.6rem 0 0.6rem auto;
 }
 
 /***********************
@@ -463,6 +469,7 @@ Chats
 
 .chatProfile:last-child {
   margin-bottom: 0;
+  /* margin-top: 100vh; */
 }
 
 .chatProfile .profile {

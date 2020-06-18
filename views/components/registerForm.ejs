@@ -4,13 +4,13 @@
   <form action="/register" method="post">
     <fieldset>
       <label for="name"><b>First name</b></label>
-      <input tabindex="1" type="text" name="secondname" id="firstname" />
+      <input tabindex="1" class="textfield" type="text" name="secondname" id="firstname" required />
 
       <label for="middlename"><b>Middle name</b></label>
-      <input tabindex="1" type="text" name="middlename" id="middlename" />
+      <input tabindex="1" class="textfield" type="text" name="middlename" id="middlename" />
 
       <label for="surname"><b>Surname</b></label>
-      <input tabindex="1" type="text" name="surname" id="surname" />
+      <input tabindex="1" class="textfield" type="text" name="surname" id="surname" required />
 
       <label for="gender" type="text"><b>Gender</b></label>
       <div class="reviewButtons">
@@ -22,26 +22,26 @@
         <label tabindex="1" for="other" class="reviewBtn">Other</label>
       </div>
       <label for="age"><b>Age</b></label>
-      <input tabindex="1" type="date" name="age" id="age" />
+      <input tabindex="1" class="textfield" type="date" name="age" id="age" />
     </fieldset>
     <fieldset>
       <label for="email"><b>Email</b></label>
-      <input tabindex="1" type="email" placeholder="Enter Email" name="email" id="email" required />
+      <input tabindex="1" class="textfield" type="email" placeholder="Enter Email" name="email" id="email" required />
 
       <label for="psw"><b>Password</b></label>
-      <input tabindex="1" type="password" placeholder="Enter Password" name="psw" id="psw" required />
+      <input tabindex="1" class="textfield" type="password" placeholder="Enter Password" name="psw" id="psw" required />
 
       <label for="psw-repeat"><b>Repeat Password</b></label>
-      <input tabindex="1" type="password" placeholder="Repeat Password" name="psw2" id="psw-repeat" required />
+      <input tabindex="1" class="textfield" type="password" placeholder="Repeat Password" name="psw2" id="psw-repeat"
+        required />
     </fieldset>
 
     <p>
       By creating an account you agree to our <a href="#">Terms & Privacy</a>.
     </p>
-    <button tabindex="1" type="submit" class="button">Register</button>
+    <button tabindex="1" type="submit" class="submit-button">Register</button>
+  </form>
 
-    <p>Already have an account? <a href="./login">Sign in</a>.</p>
+  <p>Already have an account? <a href="./login">Sign in</a>.</p>
 
 </div>
-
-</form>

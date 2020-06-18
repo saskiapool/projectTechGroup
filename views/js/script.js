@@ -8,7 +8,6 @@ if (passwordBox.dataset.pswhide === 'true') {
   const pswToggle = document.querySelector('.passwordBox #toggle');
 
   pswToggle.addEventListener('click', () => {
-    console.log('click pswToggle');
     if (psw.type === 'password') {
       psw.setAttribute('type', 'text');
       pswToggle.classList.add('hide');
