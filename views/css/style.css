@@ -654,20 +654,39 @@ Chats
   .hideMobile {
     display: inline-block;
   }
+
   #chats .chatComponents {
+    box-sizing: border-box;
     background: var(--purple-blue-gradient);
     width: 100%;
-    max-width: 52rem;
+
+    max-width: 72rem;
     padding: 1rem;
     border-radius: 0.6rem;
-    height: 80vh;
 
     display: grid;
-    grid-template-columns: 20rem auto;
-    grid-template-rows: auto 4rem;
+    grid-template-columns: 22rem 1fr;
+    grid-template-rows: 1fr 4rem;
     grid-template-areas:
       'profiles chatMessages'
       'profiles sendMessage';
+  }
+
+  #messages {
+    height: 75vh;
+  }
+
+  #profiles {
+    position: initial;
+    top: initial;
+    left: initial;
+    height: initial;
+    width: initial;
+    margin-top: 0;
+    transform: translateX(0);
+
+    border-radius: 0.6rem;
+    margin-right: 1rem;
   }
 }
 
