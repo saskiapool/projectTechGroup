@@ -4,31 +4,35 @@
     </div>
 
     <ul>
+        <% if (data.length > 0) { %>
+
+        <% for (let i = 0; i < data.length; i++) { %>
+
         <li>
             <form class="chatProfile" action="/changeChat" method="post">
-                <button type="submit" name="changeChat" value="">
+                <button type="submit" name="changeChat" value="<%= data[i]._id %>">
                     <div class="profile">
-                        <img src="img/moffelMuts.png" alt="">
+                        <img src="img/moffelMuts.png" alt="profile picture of <%= data[i].name %>">
                         <h3>
-                            Loes, 23
+                            <%= data[i].name %>
                         </h3>
                     </div>
                 </button>
             </form>
         </li>
 
-        <li>
-            <form class="chatProfile" action="/changeChat" method="post">
-                <button type="submit" name="changeChat" value="">
-                    <div class="profile">
-                        <img src="img/moffelMuts.png" alt="">
-                        <h3>
-                            Loes, 23
-                        </h3>
-                    </div>
-                </button>
-            </form>
-        </li>
+        <% } %>
+
+        <% } else { %>
+        <div class="">
+            <p>No messages found, start chatting and matching 🦀</p>
+        </div>
+
+        <div class="">
+            <p>No messages found, start chatting and matching 🦀</p>
+        </div>
+        <% } %>
+
     </ul>
 
 </aside>

@@ -60,3 +60,13 @@ Simon Planje || [SimonPlanje](https://github.com/SimonPlanje) \
 Saskia Pool || [saskiapool](https://github.com/saskiapool)
 
 ## 📝 Sources
+
+Bachtiar, W. (2015, June 13). MongoDB: best design for messaging app. Retrieved 9 June 2020, from https://stackoverflow.com/questions/30823944/mongodb-best-design-for-messaging-app/30830429#30830429
+
+Delgado, C. (2016, October 4). How to use Socket.IO properly with Express Framework in Node.js. Retrieved 8 June 2020, from https://ourcodeworld.com/articles/read/272/how-to-use-socket-io-properly-with-express-framework-in-node-js
+
+Moffat, M. (2018, April 19). Nodejs - Re-use MongoDB database connection in routes. Retrieved 9 June 2020, from https://mrvautin.com/re-use-mongodb-database-connection-in-routes/
+
+Osk. (n.d.). express-socket.io-session. Retrieved 9 June 2020, from https://openbase.io/js/express-socket.io-session
+
+Wikipedia contributors. (2020, June 13). Bcrypt. Retrieved 14 June 2020, from https://en.wikipedia.org/wiki/Bcrypt
