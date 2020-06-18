@@ -1,35 +1,28 @@
 <section id="messages">
-    <% if (data.length > 0) { %>
+  <% if (data !== undefined) { %> <% for (let i = 0; i <
+  data[0].messages.length; i++) { %> <% if (data[0].messages[i].sender ===
+  data.clientid) { %>
+  <div class="message messageSend">
+    <p>
+      <%= data[0].messages[i].content %>
+    </p>
+  </div>
 
-    <% for (let i = 0; i < data[0].messages.length; i++) { %>
+  <% } else { %>
 
-    <% if (data[0].messages[i].sender === data.clientid) { %>
-    <div class="message messageSend">
-        <p>
-            <%= data[0].messages[i].content %>
-        </p>
-    </div>
+  <div class="message messageRecieve">
+    <p>
+      <%= data[0].messages[i].content %>
+    </p>
+  </div>
 
-    <% } else { %>
+  <% } %> <% } %> <% } else { %>
+  <div class="message messageRecieve">
+    <p>No messages found, start chatting and matching 🦀</p>
+  </div>
 
-    <div class="message messageRecieve">
-        <p>
-            <%= data[0].messages[i].content %>
-        </p>
-    </div>
-
-    <% } %>
-
-    <% } %>
-
-    <% } else { %>
-    <div class="message messageRecieve">
-        <p>No messages found, start chatting and matching 🦀</p>
-    </div>
-
-    <div class="message messageSend">
-        <p>No messages found, start chatting and matching 🦀</p>
-    </div>
-    <% } %>
-
+  <div class="message messageSend">
+    <p>No messages found, start chatting and matching 🦀</p>
+  </div>
+  <% } %>
 </section>

@@ -52,7 +52,7 @@ router.get('/chat', async (req, res) => {
 
     res.render('./chat.ejs', { data: chats });
   } else {
-    res.render('./chat.ejs', { data: {} });
+    res.render('./chat.ejs', { chats: {}, users: {} });
     // res.render('index.ejs', { data: {}, data2: {} });
   }
 });
