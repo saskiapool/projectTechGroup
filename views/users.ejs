@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include ("components/head.ejs") -%>
+
+<body>
+    <header>
+        <%- include ("components/header.ejs") -%>
+    </header>
+
+    <main id="chats" data-chatting="true">
+        <div class="bgImage">
+            <div></div>
+        </div>
+
+        <section class="chatUsers">
+            <div id="sideSearchbar">
+                <input type="text" id="search" name="search" placeholder="Search...">
+            </div>
+
+            <ul>
+                <% if (data.length > 0) { %>
+
+                <% for (let i = 0; i < data.length; i++) { %>
+
+                <li>
+                    <form class="chatProfile" action="/changeChat" method="post">
+                        <button tabindex="2" type="submit" name="changeChat" value="<%= data[i]._id %>">
+                            <div class="profile">
+                                <img src="img/moffelMuts.png" alt="profile picture of <%= data[i].name %>">
+                                <h3>
+                                    <%= data[i].name %>
+                                </h3>
+                            </div>
+                        </button>
+                    </form>
+                </li>
+
+                <% } %>
+
+                <% } else { %>
+                <div class="">
+                    <p>No messages found, start chatting and matching 🦀</p>
+                </div>
+
+                <div class="">
+                    <p>No messages found, start chatting and matching 🦀</p>
+                </div>
+                <% } %>
+
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

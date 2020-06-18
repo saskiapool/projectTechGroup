@@ -3,7 +3,7 @@ body.classList.add('jsActive');
 
 // login password toggle
 const passwordBox = document.querySelector('.passwordBox');
-if (passwordBox.dataset.pswhide === 'true') {
+if (passwordBox && passwordBox.dataset.pswhide === 'true') {
   const psw = document.querySelector('.passwordBox input');
   const pswToggle = document.querySelector('.passwordBox #toggle');
 
@@ -66,3 +66,10 @@ if (body.dataset.chatting === 'true') {
     msg.value = '';
   });
 }
+
+const openMenu = document.querySelector('.back');
+openMenu.addEventListener('click', (e) => {
+  e.preventDefault;
+  openMenu.removeAttribute('href');
+  document.querySelector('#profiles').classList.toggle('active');
+});
