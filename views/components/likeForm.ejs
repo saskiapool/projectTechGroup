@@ -1,25 +1,46 @@
+<% if(data){ %>
 <div class="container">
-<div class="person">
-  <figure>
-    <img src="../img/loestoch.PNG" alt="" />
-  </figure>
-  <div class="text">
-    <h2 class="firstname">Kees</h2>
-    <h2 class="age">22</h3>
-    <h2 class="city">Amsterdam</h3>
-    <p>
-     Hallo, dit is de beschriving van Kees
-    </p>
+  <div class="person">
+    <figure>
+      <img src="../img/loestoch.PNG" alt="" />
+    </figure>
+    <div class="text">
+      <h2 class="firstname"><%= data.name %></h2>
+      <h2 class="age"><%= data.age %></h2>
+      <p>
+        Hallo, dit is de beschriving van Kees
+      </p>
+    </div>
+  </div>
+  <div class="reviewButtons">
+    <form class="addData" action="/like" method="post">
+      <input type="text" class="userId" name="id" value="<%= data._id %>" />
+      <input type="submit" name="review" value="like" id="like" />
+      <label for="like" class="like"></label>
+    </form>
+
+    <form class="addData" action="/like" method="post">
+      <input type="text" class="userId" name="id" value="<%= data._id %>" />
+      <input type="submit" name="review" value="megalike" id="megalike" />
+      <label for="megalike" class="megalike"></label>
+    </form>
+
+    <form class="addData" action="/like" method="post">
+      <input type="text" class="userId" name="id" value="<%= data._id %>" />
+      <input type="submit" name="review" value="dislike" id="dislike" />
+      <label for="dislike" class="dislike"></label>
+    </form>
   </div>
 </div>
 
-<form class="addData" action=/home method="post">
-  <label class="dislike" for="dislike"></label>
-  <input type="radio" name="review" value="dislike" />
-  <label class="megalike" for="megalike"></label>
-  <input type="radio" name="review" value="megalike" />
-  <label class="like" for="like"></label>
-  <input type="radio" name="review" value="like" />
-  <input type="text" name="id" value="hallo">
-</form>
+<% } else{ %>
+
+<div class="noMoreUsers">
+  <h1>
+    Jij vind wel heel veel mensen leuk! Nu zijn alle piertjes op! Kom morgen
+    terug voor meer moffeltjes.
+  </h1>
+  <a href="./chat">Checkout your matches</a>
 </div>
+
+<% } %>

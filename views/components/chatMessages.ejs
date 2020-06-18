@@ -1,12 +1,12 @@
 <section id="messages">
-    <% if (data.length > 0) { %>
+    <% if (data.messages.length > 0) { %>
 
-    <% for (let i = 0; i < data[0].messages.length; i++) { %>
+    <% for (let i = 0; i < data.messages.length; i++) { %>
 
-    <% if (data[0].messages[i].sender === data.clientid) { %>
+    <% if (data.messages[i].sender === data.clientid) { %>
     <div class="message messageSend">
         <p>
-            <%= data[0].messages[i].content %>
+            <%= data.messages[i].content %>
         </p>
     </div>
 
@@ -14,7 +14,7 @@
 
     <div class="message messageRecieve">
         <p>
-            <%= data[0].messages[i].content %>
+            <%= data.messages[i].content %>
         </p>
     </div>
 

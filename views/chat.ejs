@@ -14,9 +14,9 @@
         </div>
 
         <section class="chatComponents">
-            <%- include('components/chatSidebar.ejs') -%>
+            <%- include('components/chatSidebar.ejs', {data: users}) -%>
 
-            <%- include('components/chatMessages.ejs', {data: data}) -%>
+            <%- include('components/chatMessages.ejs', {data: chats}) -%>
 
             <%- include('components/chatSend.ejs') -%>
         </section>
@@ -28,7 +28,7 @@
     </footer>
 
     <script src="/socket.io/socket.io.js"></script>
-    <script src=" js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

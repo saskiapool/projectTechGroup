@@ -63,6 +63,7 @@ io.on('connection', (socket) => {
         { $push: { messages: databaseData } }
       );
 
+    console.log(`sending message: ${data.message} to ${socketRoom}`);
     socket.to(socketRoom).emit('message', data.message);
   });
 
