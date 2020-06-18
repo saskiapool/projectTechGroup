@@ -9,6 +9,7 @@ router.get('/chat', async (req, res) => {
     res.render('./login.ejs');
     return;
   }
+  let gifUrl = '';
 
   const id = req.session.user._id;
 
@@ -47,10 +48,10 @@ router.get('/chat', async (req, res) => {
       .toArray();
 
     // console.log(users);
-
-    res.render('./chat.ejs', { chats: chats[0], users: users });
+    console.log(gifUrl);
+    res.render('./chat.ejs', { chats: chats[0], users: users, gifUrl: gifUrl });
   } else {
-    res.render('./chat.ejs', { chats: {}, users: {} });
+    res.render('./chat.ejs', { chats: {}, users: {}, gifUrl: gifUrl });
   }
 });
 

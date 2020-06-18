@@ -16,7 +16,7 @@
         <%- include('components/chatSidebar.ejs', {data: users}) -%> <%-
         include('components/chatMessages.ejs', {data: chats}) -%> <%-
         include('components/chatSend.ejs') -%> <%-
-        include('components/sendGif.ejs') -%>
+        include('components/sendGif.ejs', {gifUrl: gifUrl}) -%>
       </section>
     </main>
 

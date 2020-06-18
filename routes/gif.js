@@ -19,10 +19,11 @@ router.post('/gif', async (req, res) => {
       response.on('end', () => {
         body = JSON.parse(body);
         console.log(body);
-        // console.log(body.data[0].images.downsized.url);
         gifUrl = body.data[0].images.downsized.url;
-        // res.render('./chat.ejs', { data: gifUrl });
-        res.render('./chat.ejs', { chats: {}, users: {} });
+
+        res.render('./chat.ejs', { chats: {}, users: {}, gifUrl: gifUrl });
+        console.log('DIT IS DE URL');
+        console.log(gifUrl);
       });
     });
 
