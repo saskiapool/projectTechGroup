@@ -15,14 +15,12 @@
       <section class="chatComponents">
         <%- include('components/chatSidebar.ejs', {data: users}) -%> <%-
         include('components/chatMessages.ejs', {data: chats}) -%> <%-
-        include('components/chatSend.ejs') -%> <%-
-        include('components/sendGif.ejs', {gifUrl: gifUrl}) -%>
+        include('components/chatSend.ejs') -%>
       </section>
     </main>
 
     <footer></footer>
 
     <script src="/socket.io/socket.io.js"></script>
-    <script src="js/script.js"></script>
   </body>
 </html>

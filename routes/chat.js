@@ -3,6 +3,8 @@ const db = require('../helper/db');
 const mongo = require('mongodb');
 const ObjectId = mongo.ObjectID;
 const router = express.Router();
+const https = require('https');
+const axios = require('axios');
 
 router.get('/chat', async (req, res) => {
   if (!req.session.user) {
@@ -55,15 +57,37 @@ router.get('/chat', async (req, res) => {
   }
 });
 
-router.post('/chat', (req, res) => {
+router.post('/chat', async (req, res) => {
   if (req.body.message.trim() != '') {
     const sender = req.session.user._id;
 
     const databaseData = {
       sender: sender,
-      content: req.body.message.trim(),
+      content: '',
       time: new Date(),
+      media: 'text',
     };
+    //-----------------------------------/
+    //******** gifje verzenden *********/
+    //---------------------------------/
+    //CHECKBOX CHEKEN
+    if (req.body.sendGif) {
+      let gifUrl = '';
+      const url = `https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_APIKEY}&limit=5&q=${req.body.message}`;
+
+      const response = await axios.get(url);
+      let index = Math.floor(Math.random() * response.data.data.length);
+      gifUrl = response.data.data[index].images.downsized.url;
+      databaseData.media = 'gif';
+      databaseData.content = gifUrl;
+      if (!gifUrl) {
+        databaseData.content =
+          'https://media.giphy.com/media/H7wajFPnZGdRWaQeu0/giphy.gif';
+      }
+    } else {
+      databaseData.media = 'text';
+      databaseData.content = req.body.message.trim();
+    }
 
     // send to database
     db.get()
