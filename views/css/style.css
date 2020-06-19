@@ -84,6 +84,14 @@ body {
   display: none;
 }
 
+.centerOneScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 4.2rem);
+  margin-top: 4.2rem;
+}
+
 /***********************
 Buttons
 ***********************/
@@ -177,14 +185,6 @@ header .profilepicture img {
 /***********************
 Login form
 ***********************/
-#login {
-  height: calc(100vh - 4.2rem);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 #login .container {
   background: var(--purple-blue-gradient);
   max-width: 24rem;
@@ -257,14 +257,6 @@ Login form
 /***********************
 Like form
 ***********************/
-#likeForm {
-  height: calc(100vh - 4.2rem);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 #likeForm .text {
   background: var(--purple-blue-gradient);
   max-width: 24rem;
@@ -443,14 +435,6 @@ Chats
   height: 3rem;
   width: auto;
   border-radius: 100rem;
-}
-
-#chats {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 4.2rem;
-  height: calc(100vh - 4.2rem);
 }
 
 #chats .chatComponents {
@@ -668,6 +652,29 @@ Users
 
 .chatUsers #sideSearchbar {
   padding: 0;
+  margin-bottom: 1rem;
+}
+
+/***********************
+Dashboard
+***********************/
+#dashboard section {
+  margin-top: 4rem;
+  background-color: var(--purple-blue-gradient);
+}
+
+.dashboardItems {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashboardItems img {
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.dashboardItems h1 {
   margin-bottom: 1rem;
 }
 
