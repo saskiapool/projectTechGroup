@@ -1,16 +1,37 @@
-const msg = document.querySelector('#message');
-const sendMsg = document.querySelector('#sendMessage');
-const messageSection = document.querySelector('#messages');
+const body = document.querySelector('body');
+body.classList.add('jsActive');
 
-const socket = io(window.location.host);
+// login password toggle
+const passwordBox = document.querySelector('.passwordBox');
+if (passwordBox && passwordBox.dataset.pswhide === 'true') {
+  const psw = document.querySelector('.passwordBox input');
+  const pswToggle = document.querySelector('.passwordBox #toggle');
 
-messageSection.scrollTop = messageSection.scrollHeight;
+  pswToggle.addEventListener('click', () => {
+    if (psw.type === 'password') {
+      psw.setAttribute('type', 'text');
+      pswToggle.classList.add('hide');
+    } else {
+      psw.setAttribute('type', 'password');
+      pswToggle.classList.remove('hide');
+    }
+  });
+}
 
-// Incomming
-socket.on('message', (data) => {
-  console.log(data);
+// Socket io
+if (body.dataset.chatting === 'true') {
+  const msg = document.querySelector('#message');
+  const sendMsg = document.querySelector('#sendMessage');
+  const messageSection = document.querySelector('#messages');
 
-  messageSection.innerHTML += `
+  const socket = io(window.location.host);
+  messageSection.scrollTop = messageSection.scrollHeight;
+
+  // Incomming
+  socket.on('message', (data) => {
+    console.log(data);
+
+    messageSection.innerHTML += `
   <div class="message messageRecieve">
       <p>
           ${data.trim()}
@@ -18,19 +39,19 @@ socket.on('message', (data) => {
   </div>
   `;
 
-  messageSection.scrollTop = messageSection.scrollHeight;
-});
+    messageSection.scrollTop = messageSection.scrollHeight;
+  });
 
-// Outgoing
-sendMsg.addEventListener('click', (e) => {
-  e.preventDefault();
-  console.log(msg.value.trim());
+  // Outgoing
+  sendMsg.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log(msg.value.trim());
 
-  const data = {
-    message: msg.value.trim(),
-  };
+    const data = {
+      message: msg.value.trim(),
+    };
 
-  messageSection.innerHTML += `
+    messageSection.innerHTML += `
     <div class="message messageSend">
         <p>
             ${msg.value.trim()}
@@ -38,9 +59,17 @@ sendMsg.addEventListener('click', (e) => {
     </div>
     `;
 
-  messageSection.scrollTop = messageSection.scrollHeight;
+    messageSection.scrollTop = messageSection.scrollHeight;
 
-  console.log('send data');
-  socket.emit('message', data);
-  msg.value = '';
+    console.log('send data');
+    socket.emit('message', data);
+    msg.value = '';
+  });
+}
+
+const openMenu = document.querySelector('.back');
+openMenu.addEventListener('click', (e) => {
+  e.preventDefault;
+  openMenu.removeAttribute('href');
+  document.querySelector('#profiles').classList.toggle('active');
 });
