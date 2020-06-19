@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Log in</h1>
+  <p>Do not have an account yet? <a href="./register">Register!</a></p>
+
+  <form action="/login" method="post">
+    <label for="uname">Email</label>
+    <input class="textfield" type="email" tabindex="1" placeholder="Enter Email" name="uname" required />
+
+    <label for="psw">Password</label>
+    <div class="passwordBox" data-pswhide="true">
+      <input type="password" tabindex="1" placeholder="Enter Password" name="psw" required />
+      <span id="toggle"></span>
+    </div>
+
+    <div class="submitContainer">
+      <button class="submit-button" type="submit" tabindex="1">Log in</button>
+    </div>
+  </form>
+</div>

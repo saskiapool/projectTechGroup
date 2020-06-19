@@ -1,0 +1,47 @@
+<div class="container">
+  <h1>Register</h1>
+
+  <form action="/register" method="post">
+    <fieldset>
+      <label for="name"><b>First name</b></label>
+      <input id="firstname" class="textfield" type="text" tabindex="1" name="secondname" required />
+
+      <label for="middlename"><b>Middle name</b></label>
+      <input id="middlename" class="textfield" type="text" tabindex="1" name="middlename" />
+
+      <label for="surname"><b>Surname</b></label>
+      <input id="surname" class="textfield" type="text" tabindex="1" name="surname" required />
+
+      <label for="gender" type="text"><b>Gender</b></label>
+      <div class="reviewButtons">
+        <input id="male" type="radio" name="gender" value="male" />
+        <label class="reviewBtn" tabindex="1" for="male">Male</label>
+        <input id="female" type="radio" name="gender" value="female" />
+        <label class="reviewBtn" tabindex="1" for="female">Female</label>
+        <input id="other" type="radio" name="gender" value="other" />
+        <label class="reviewBtn" tabindex="1" for="other">Other</label>
+      </div>
+      <label for="age"><b>Age</b></label>
+      <input id="age" class="textfield" type="date" tabindex="1" name="age" />
+    </fieldset>
+    <fieldset>
+      <label for="email"><b>Email</b></label>
+      <input id="email" class="textfield" type="email" tabindex="1" placeholder="Enter Email" name="email" required />
+
+      <label for="psw"><b>Password</b></label>
+      <input id="psw" class="textfield" type="password" tabindex="1" placeholder="Enter Password" name="psw" required />
+
+      <label for="psw-repeat"><b>Repeat Password</b></label>
+      <input id="psw-repeat" class="textfield" type="password" tabindex="1" placeholder="Repeat Password" name="psw2"
+        required />
+    </fieldset>
+
+    <p>
+      By creating an account you agree to our <a href="#">Terms & Privacy</a>.
+    </p>
+    <button class="submit-button" type="submit" tabindex="1">Register</button>
+  </form>
+
+  <p>Already have an account? <a href="./login">Sign in</a>.</p>
+
+</div>
