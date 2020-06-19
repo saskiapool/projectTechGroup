@@ -169,6 +169,11 @@ header .profilepicture img {
   height: 100%;
 }
 
+.chatNav .userProfile {
+  margin-left: auto;
+  margin-right: 0;
+}
+
 /***********************
 Login form
 ***********************/
@@ -473,7 +478,6 @@ Chats
   max-height: calc(100vh - 4rem);
 
   background-color: var(--white);
-  /* border-radius: 0.6rem; */
   padding: 0 1rem 1rem 1rem;
   transition: all 0.3s ease-out;
 }
@@ -516,7 +520,6 @@ Chats
 
 .chatProfile:last-child {
   margin-bottom: 0;
-  /* margin-top: 100vh; */
 }
 
 .chatProfile .profile {
@@ -649,10 +652,41 @@ Chats
   fill: var(--white);
 }
 
+/***********************
+Users
+***********************/
+.chatUsers {
+  width: 100vw;
+  max-width: 32rem;
+  background-color: var(--white);
+  border-radius: 0.6rem;
+  margin: 1rem;
+  padding: 1rem;
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+
+.chatUsers #sideSearchbar {
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
 /* Tablet */
 @media screen and (min-width: 48rem) {
   .hideMobile {
     display: inline-block;
+  }
+
+  .hideDesktop {
+    display: none;
+  }
+
+  .chatNav ul {
+    display: flex;
+  }
+
+  .chatNav .userProfile {
+    margin-left: 1rem;
   }
 
   #chats .chatComponents {
