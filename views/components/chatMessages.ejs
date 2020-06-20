@@ -1,5 +1,5 @@
 <section id="messages">
-    <% if (data) { %>
+    <% if (data && data.messages.length > 0) { %>
 
         <% for (let i = 0; i < data.messages.length; i++) { %>
 
@@ -20,13 +20,13 @@
         
     <% } else { %>
 
-    <div class="message messageRecieve">
-        <p>No messages found, start chatting and matching 🦀</p>
-    </div>
+        <div class="message messageRecieve">
+            <p>No messages found, start chatting and matching 🦀</p>
+        </div>
 
-    <div class="message messageSend">
-        <p>No messages found, start chatting and matching 🦀</p>
-    </div>
+        <div class="message messageSend">
+            <p>No messages found, start chatting and matching 🦀</p>
+        </div>
     
     <% } %>
 </section>

@@ -55,6 +55,7 @@ io.on('connection', (socket) => {
       sender: sender,
       content: str,
       time: new Date(),
+      media: data.media,
     };
 
     // send to database

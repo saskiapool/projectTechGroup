@@ -772,6 +772,7 @@ Users
     top: initial;
     left: initial;
     height: initial;
+    max-height: calc(80vh + 1rem);
     width: initial;
     margin-top: 0;
     transform: translateX(0);

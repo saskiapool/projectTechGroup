@@ -51,7 +51,6 @@ if (document.querySelector('*[data-chatting="true"]')) {
           .replace(/</g, '&lt;')
           .replace(/>/g, '&gt;');
 
-
       const data = {
         message: msg.value.trim(),
         media: 'text',
@@ -74,7 +73,6 @@ if (document.querySelector('*[data-chatting="true"]')) {
         </div>
         `;
       }
-
 
       messageSection.scrollTop = messageSection.scrollHeight;
 
