@@ -1,35 +1,52 @@
 <section id="messages">
-    <% if (data) { %>
+  <% if (data) { %> 
+  
+  <% for (let i = 0; i < data.messages.length; i++) { %> 
+    
+    
+    <% if(data.messages[i].media == 'text') { %>
+  <% if (data.messages[i].sender === data.clientid) { %>
 
-    <% for (let i = 0; i < data.messages.length; i++) { %>
+  <div class="message messageSend">
+    <p>
+      <%= data.messages[i].content %>
+    </p>
+  </div>
 
-    <% if (data.messages[i].sender === data.clientid) { %>
-    <div class="message messageSend">
-        <p>
-            <%= data.messages[i].content %>
-        </p>
-    </div>
+  <% } else { %>
 
-    <% } else { %>
+  <div class="message messageRecieve">
+    <p>
+      <%= data.messages[i].content %>
+    </p>
+  </div>
 
-    <div class="message messageRecieve">
-        <p>
-            <%= data.messages[i].content %>
-        </p>
-    </div>
+  <% } %> 
+  <% } else if(data.messages[i].media == 'gif'){ %> 
+  
+  <% if(data.messages[i].sender === data.clientid) { %>
 
-    <% } %>
+  <div class="message messageSend">
+    <img src="<%= data.messages[i].content %>" id="gifImg" />
+  </div>
 
-    <% } %>
+  <% } else { %>
 
-    <% } else { %>
-    <div class="message messageRecieve">
-        <p>No messages found, start chatting and matching 🦀</p>
-    </div>
+  <div class="message messageRecieve">
+    <img src="<%= data.messages[i].content %>" />
+  </div>
 
-    <div class="message messageSend">
-        <p>No messages found, start chatting and matching 🦀</p>
-    </div>
-    <% } %>
+  <% } %> 
+  <% } %>
+   <% } %> 
+   <% } else { %>
+    
+  <div class="message messageRecieve">
+    <p>No messages found, start chatting and matching 🦀</p>
+  </div>
 
+  <div class="message messageSend">
+    <p>No messages found, start chatting and matching 🦀</p>
+  </div>
+  <% } %>
 </section>

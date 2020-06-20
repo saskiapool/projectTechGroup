@@ -82,7 +82,7 @@ router.post('/like', async (req, res) => {
         participants: [req.session.user._id, `${likedUser._id}`],
         messages: [],
       };
-      -db.get().collection('chats').insertOne(data);
+      db.get().collection('chats').insertOne(data);
       console.log(`Chat toegevoegd met ${data.participants} `);
     }
   }

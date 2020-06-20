@@ -3,6 +3,7 @@ const db = require('../helper/db');
 const mongo = require('mongodb');
 const ObjectId = mongo.ObjectID;
 const router = express.Router();
+const axios = require('axios');
 
 // load chat
 router.get('/chat', async (req, res) => {
@@ -14,9 +15,12 @@ router.get('/chat', async (req, res) => {
 
     const id = req.session.user._id;
 
-    const chat = await db.get().collection('chats').findOne({
-      participants: {$in: [id]},
-    });
+    const chat = await db
+        .get()
+        .collection('chats')
+        .findOne({
+          participants: {$in: [id]},
+        });
 
     if (chat) {
       req.session.chatroom = chat._id;
@@ -45,8 +49,29 @@ router.post('/chat', async (req, res) => {
         time: new Date(),
       };
 
+      // gifje verzenden
+      // Checkbox checken
+      if (req.body.sendGif) {
+        let gifUrl = '';
+        const url = `https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_APIKEY}&limit=5&q=${req.body.message}`;
+
+        const response = await axios.get(url);
+        const index = Math.floor(Math.random() * response.data.data.length);
+        gifUrl = response.data.data[index].images.downsized.url;
+        databaseData.media = 'gif';
+        databaseData.content = gifUrl;
+        if (!gifUrl) {
+          databaseData.content =
+            'https://media.giphy.com/media/H7wajFPnZGdRWaQeu0/giphy.gif';
+        }
+      } else {
+        databaseData.media = 'text';
+        databaseData.content = req.body.message.trim();
+      }
+
       // send to database
-      await db.get()
+      await db
+          .get()
           .collection('chats')
           .updateOne(
               {
@@ -67,9 +92,12 @@ router.post('/chat', async (req, res) => {
             _id: ObjectId(req.session.chatroom),
           });
     } else {
-      chat = await db.get().collection('chats').findOne({
-        participants: {$in: [id]},
-      });
+      chat = await db
+          .get()
+          .collection('chats')
+          .findOne({
+            participants: {$in: [id]},
+          });
     }
     chat.clientid = id;
 
@@ -144,6 +172,5 @@ async function getSidebar(userId) {
 
   return users;
 }
-
 
 module.exports = router;
