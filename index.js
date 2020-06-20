@@ -46,10 +46,14 @@ io.on('connection', (socket) => {
 
   socket.on('message', (data) => {
     const sender = socket.handshake.session.user._id;
+    const str = data.message.trim()
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
 
     const databaseData = {
       sender: sender,
-      content: data.message,
+      content: str,
       time: new Date(),
     };
 
@@ -64,7 +68,7 @@ io.on('connection', (socket) => {
         );
 
     console.log(`sending message: ${data.message} to ${socketRoom}`);
-    socket.to(socketRoom).emit('message', data.message);
+    socket.to(socketRoom).emit('message', str);
   });
 
   socket.on('disconnect', () => {
