@@ -20,6 +20,7 @@ if (document.querySelector('*[data-pswhide="true"]')) {
 // Socket io
 if (document.querySelector('*[data-chatting="true"]')) {
   const msg = document.querySelector('#message');
+  const sendGif = document.querySelector('#sendGif');
   const sendMsg = document.querySelector('#sendMessage');
   const messageSection = document.querySelector('#messages');
 
@@ -49,17 +50,31 @@ if (document.querySelector('*[data-chatting="true"]')) {
           .replace(/&/g, '&amp;')
           .replace(/</g, '&lt;')
           .replace(/>/g, '&gt;');
+
+
       const data = {
         message: msg.value.trim(),
+        media: 'text',
       };
 
-      messageSection.innerHTML += `
-    <div class="message messageSend">
-        <p>
-            ${str}
-        </p>
-    </div>
-    `;
+      if (sendGif.checked) {
+        data.media = 'gif';
+
+        messageSection.innerHTML += `
+        <div class="message messageSend">
+          <img src="${str}" class="gifImg"/>
+        </div>
+        `;
+      } else {
+        messageSection.innerHTML += `
+        <div class="message messageSend">
+            <p>
+                ${str}
+            </p>
+        </div>
+        `;
+      }
+
 
       messageSection.scrollTop = messageSection.scrollHeight;
 
