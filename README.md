@@ -2,17 +2,17 @@
 
 <!-- slogan  -->
 
-## Table of contents
+## 📚 Table of contents
 
-- About
-  - Build with
-- Installing the project
-  - Setup database
-  - Launch the project
-- Team
-- Sources
+- [About](#-about)
+  - [Build with](#-build-with)
+- [Installing the project](#-installing-the-project)
+  - [Setup database](#-setting-up-the-database)
+  - [Launch the project](#-launching-the-project)
+- [Team](#-team)
+- [Sources](#-sources)
 
-## About
+## 🤔 About
 
 <!-- some info about the dating app -->
 
@@ -24,7 +24,7 @@
 - NPM packages
 - Lots of love
 
-## Installing the project
+## 🔧 Installing the project
 
 First of all, make sure you have **NodeJS** and **NPM** installed otherwise the project won't work.
 
@@ -33,7 +33,7 @@ First of all, make sure you have **NodeJS** and **NPM** installed otherwise the 
 2. Cd into the project folder
 3. Run `npm install` to install the needed npm packages
 
-### Setting up the database
+### ⚙ Setting up the database
 
 1. Create a MongoDB database
 2. Create the following collections: **users**, **chats**
@@ -54,7 +54,7 @@ You can use `npm start` to start the project or `npm run dev` if you are a devel
 
 By default, the project will be hosted on **port 3000**
 
-## Team
+## 👨‍👩‍👦 Team
 
 Sam de Kanter || [Vuurvos1](https://github.com/Vuurvos1) \
 Simon Planje || [SimonPlanje](https://github.com/SimonPlanje) \

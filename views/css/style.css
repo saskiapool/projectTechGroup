@@ -6,6 +6,8 @@
   --blue: #505eac;
   --cyan: #4398b5;
 
+  --red: red;
+
   --purple-blue-gradient: linear-gradient(
     138deg,
     var(--purple) 0%,
@@ -78,11 +80,15 @@ body {
   background-size: cover;
 }
 
+.hideMobile {
+  display: none;
+}
+
 /***********************
 Buttons
 ***********************/
 
-.button[type='submit'] {
+.submit-button {
   background-color: var(--purple);
   border-radius: 100rem;
   padding: 0.6rem 1.2rem;
@@ -90,6 +96,23 @@ Buttons
   font-weight: bold;
   font-size: 1.2rem;
   margin-left: auto;
+}
+
+/* text area  */
+.textfield {
+  box-sizing: border-box;
+  background-color: var(--white);
+  border-radius: 100rem;
+  border: 1px solid var(--white);
+  padding: 0.5rem 1.3rem;
+  width: 100%;
+  outline: none;
+  margin-bottom: 1.2rem;
+  display: inline-block;
+}
+
+.textfield:focus:invalid {
+  border-color: var(--red);
 }
 
 /***********************
@@ -101,12 +124,13 @@ header {
   left: 0;
   position: fixed;
   background: var(--blue);
+  z-index: 10;
 }
 
 nav {
   display: flex;
   align-items: center;
-  padding: 0 2rem;
+  padding: 0 1rem;
   height: 4.2rem;
 }
 
@@ -130,7 +154,7 @@ header .logo {
   height: 3rem;
 }
 
-header .logo img {
+header .logo svg {
   height: 100%;
   width: auto;
 }
@@ -143,6 +167,11 @@ header .profilepicture {
 header .profilepicture img {
   border-radius: 100%;
   height: 100%;
+}
+
+.chatNav .userProfile {
+  margin-left: auto;
+  margin-right: 0;
 }
 
 /***********************
@@ -180,22 +209,49 @@ Login form
 #login label {
   display: inline-block;
   color: var(--white);
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.3rem;
 }
 
 #login .submitContainer {
   display: flex;
 }
 
-#login input {
-  box-sizing: border-box;
+#login input[type='email'] {
+  margin-bottom: 1.2rem;
+}
+
+#login .passwordBox {
   background-color: var(--white);
   border-radius: 100rem;
   padding: 0.6rem 1.4rem;
-  width: 100%;
-  outline: none;
+  position: relative;
+  display: flex;
+  align-items: center;
   margin-bottom: 1.2rem;
-  display: inline-block;
+}
+
+#login .passwordBox input {
+  width: 100%;
+}
+
+#login .passwordBox input:focus {
+  outline: none;
+}
+
+.jsActive #login .passwordBox #toggle {
+  cursor: pointer;
+  width: 1.4rem;
+  height: 1.4rem;
+  background: url('../img/eye.png');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.jsActive #login .passwordBox #toggle.hide {
+  width: 1.4rem;
+  height: 1.4rem;
+  background: url('../img/hide.svg');
 }
 
 /***********************
@@ -301,7 +357,7 @@ Register form
 }
 
 #registerForm fieldset {
-  margin: 2rem;
+  margin-bottom: 1.2rem;
   display: flex;
   border: none;
 }
@@ -310,29 +366,22 @@ Register form
   background: var(--purple-blue-gradient);
   max-width: 24rem;
   margin: 0 1rem;
-  padding: 1rem;
+  padding: 1rem 1.2rem;
   border-radius: 0.6rem;
 }
 
 #registerForm label {
   color: var(--white);
-  margin: 0.5rem;
-}
-
-#registerForm input {
-  box-sizing: border-box;
-  background-color: var(--white);
-  border-radius: 100rem;
-  padding: 0.6rem 1.4rem;
-  width: 100%;
-  outline: none;
-  margin-bottom: 1.2rem;
-  display: inline-block;
+  margin: 0.4rem;
 }
 
 #registerForm .reviewButtons {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
+}
+
+#registerForm .reviewButtons label {
+  margin: 0 1rem 0 0;
 }
 
 #registerForm [type='radio'] {
@@ -364,12 +413,38 @@ Register form
 }
 
 #registerForm button {
-  margin: 2rem 0rem 2rem 0rem;
+  display: block;
+  margin: 0.6rem 0 0.6rem auto;
 }
 
 /***********************
 Chats
 ***********************/
+.chatNav {
+  display: flex;
+  align-items: center;
+}
+
+.chatNav h1 {
+  font-size: 2rem;
+}
+
+.chatNav a {
+  margin-right: 1rem;
+}
+
+.chatNav svg {
+  fill: var(--white);
+  height: 1.4rem;
+  width: auto;
+}
+
+.chatNav img {
+  height: 3rem;
+  width: auto;
+  border-radius: 100rem;
+}
+
 #chats {
   display: flex;
   justify-content: center;
@@ -379,40 +454,56 @@ Chats
 }
 
 #chats .chatComponents {
-  background: var(--purple-blue-gradient);
   width: 100%;
   max-width: 52rem;
-  padding: 1rem;
+  margin: 0 1rem;
   border-radius: 0.6rem;
-  height: 80vh;
-
-  display: grid;
-  grid-template-columns: 20rem auto;
-  grid-template-rows: auto 4rem;
-  grid-template-areas:
-    'profiles chatMessages'
-    'profiles sendMessage';
 }
 
 #profiles {
+  box-sizing: border-box;
+  z-index: 5;
   grid-area: profiles;
-  position: relative;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow-y: scroll;
+
+  transform: translateX(-100%);
+
+  width: 100%;
+  height: 100vh;
+
+  margin-top: 4rem;
+  max-height: calc(100vh - 4rem);
 
   background-color: var(--white);
-  border-radius: 0.6rem;
   padding: 0 1rem 1rem 1rem;
-  margin-right: 1rem;
+  transition: all 0.3s ease-out;
 }
 
-#profiles ul {
-  overflow-y: scroll;
-  height: 42rem;
+#profiles.active {
+  transform: translateX(0);
+}
+
+#profiles li {
+  margin-bottom: 1rem;
+  border: 1px solid var(--purple);
+  border-radius: 0.6rem;
+  padding: 0.6rem;
+}
+
+#profiles li form {
+  display: flex;
+  align-items: center;
 }
 
 #sideSearchbar {
   width: 100%;
   background-color: var(--white);
   padding: 1rem 0 0.4rem 0;
+  position: sticky;
+  top: 0;
 }
 
 #sideSearchbar input {
@@ -448,6 +539,7 @@ Chats
   background-color: var(--white);
   border-radius: 0.6rem 0.6rem 0 0;
   padding: 0 1rem;
+  height: calc(100vh - 9rem);
 
   overflow-y: scroll;
 }
@@ -512,7 +604,6 @@ Chats
   border-width: 12px 0 12px 14px;
   border-color: transparent transparent transparent var(--blue);
 }
-
 /* end msg style*/
 
 #messageForm {
@@ -524,7 +615,7 @@ Chats
   align-items: center;
   background-color: var(--white);
   border-radius: 0 0 0.6rem 0.6rem;
-  padding: 0 1rem 1rem 1rem;
+  padding: 0.4rem 1rem;
 }
 
 #message {
@@ -534,7 +625,13 @@ Chats
   height: 2.4rem;
   border-radius: 100rem;
   width: 100%;
-  margin-right: 1rem;
+  margin-right: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+#message:focus {
+  border-color: var(--blue);
+  outline: none;
 }
 
 #sendMessage {
@@ -613,8 +710,75 @@ Chats
     transform: scale(1);
   }
 }
+/***********************
+Users
+***********************/
+.chatUsers {
+  width: 100vw;
+  max-width: 32rem;
+  background-color: var(--white);
+  border-radius: 0.6rem;
+  margin: 1rem;
+  padding: 1rem;
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+
+.chatUsers #sideSearchbar {
+  padding: 0;
+  margin-bottom: 1rem;
+}
 /* Tablet */
 @media screen and (min-width: 48rem) {
+  .hideMobile {
+    display: inline-block;
+  }
+
+  .hideDesktop {
+    display: none;
+  }
+
+  .chatNav ul {
+    display: flex;
+  }
+
+  .chatNav .userProfile {
+    margin-left: 1rem;
+  }
+
+  #chats .chatComponents {
+    box-sizing: border-box;
+    background: var(--purple-blue-gradient);
+    width: 100%;
+
+    max-width: 72rem;
+    padding: 1rem;
+    border-radius: 0.6rem;
+
+    display: grid;
+    grid-template-columns: 22rem 1fr;
+    grid-template-rows: 1fr 4rem;
+    grid-template-areas:
+      'profiles chatMessages'
+      'profiles sendMessage';
+  }
+
+  #messages {
+    height: 75vh;
+  }
+
+  #profiles {
+    position: initial;
+    top: initial;
+    left: initial;
+    height: initial;
+    width: initial;
+    margin-top: 0;
+    transform: translateX(0);
+
+    border-radius: 0.6rem;
+    margin-right: 1rem;
+  }
 }
 
 /* Desktop */

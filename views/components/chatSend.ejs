@@ -1,6 +1,12 @@
 <form id="messageForm" action="/chat" method="post">
-  <input type="text" id="message" name="message" placeholder="Type a message" />
-  <input type="checkbox" id="sendGif" name="sendGif" />
+  <input
+    type="text"
+    id="message"
+    name="message"
+    placeholder="Type a message"
+    tabindex="1"
+  />
+  <input type="checkbox" id="sendGif" name="sendGif" tabindex="1" />
   <label for="sendGif" id="gifButton">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
       <path
@@ -9,7 +15,7 @@
     </svg>
   </label>
 
-  <button type="submit" id="sendMessage">
+  <button type="submit" id="sendMessage" tabindex="1">
     <svg
       width="24"
       height="21"
