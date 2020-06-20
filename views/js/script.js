@@ -2,8 +2,7 @@ const body = document.querySelector('body');
 body.classList.add('jsActive');
 
 // login password toggle
-const passwordBox = document.querySelector('.passwordBox');
-if (passwordBox && passwordBox.dataset.pswhide === 'true') {
+if (document.querySelector('*[data-pswhide="true"]')) {
   const psw = document.querySelector('.passwordBox input');
   const pswToggle = document.querySelector('.passwordBox #toggle');
 
@@ -19,7 +18,7 @@ if (passwordBox && passwordBox.dataset.pswhide === 'true') {
 }
 
 // Socket io
-if (body.dataset.chatting === 'true') {
+if (document.querySelector('*[data-chatting="true"]')) {
   const msg = document.querySelector('#message');
   const sendMsg = document.querySelector('#sendMessage');
   const messageSection = document.querySelector('#messages');
@@ -45,25 +44,29 @@ if (body.dataset.chatting === 'true') {
   // Outgoing
   sendMsg.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log(msg.value.trim());
+    if (msg.value.trim()) {
+      const str = msg.value.trim()
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
+      const data = {
+        message: msg.value.trim(),
+      };
 
-    const data = {
-      message: msg.value.trim(),
-    };
-
-    messageSection.innerHTML += `
+      messageSection.innerHTML += `
     <div class="message messageSend">
         <p>
-            ${msg.value.trim()}
+            ${str}
         </p>
     </div>
     `;
 
-    messageSection.scrollTop = messageSection.scrollHeight;
+      messageSection.scrollTop = messageSection.scrollHeight;
 
-    console.log('send data');
-    socket.emit('message', data);
-    msg.value = '';
+      console.log('send data');
+      socket.emit('message', data);
+      msg.value = '';
+    }
   });
 }
 
