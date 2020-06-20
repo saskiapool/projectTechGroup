@@ -20,9 +20,7 @@ router.get('/users', async (req, res) => {
 
   const x = [];
   for (const i of chats) {
-    console.log(i.participants);
     for (const y of i.participants) {
-      console.log(y);
       if (y != id) {
         x.push(ObjectId(y));
       }

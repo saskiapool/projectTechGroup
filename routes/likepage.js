@@ -11,20 +11,16 @@ router.get('/like', async (req, res) => {
         .collection('users')
         .find({_id: {$ne: ObjectId(req.session.user._id)}})
         .toArray();
-    // console.log(users);
 
     const index = await db
         .get()
         .collection('users')
         .findOne({_id: ObjectId(req.session.user._id)});
-    // console.log('1 GEBRUIKER LADEN');
-    // console.log(users[index.number]);
     res.render('./liken.ejs', {data: users[index.number]});
   }
 });
 
 // When form gets posted
-
 router.post('/like', async (req, res) => {
   if (req.body.review === 'like') {
     db.get()
