@@ -9,14 +9,14 @@ router.get('/users', async (req, res) => {
 
   // get sidebar
   const chats = await db
-    .get()
-    .collection('chats')
-    .find({
-      participants: {
-        $in: [id],
-      },
-    })
-    .toArray();
+      .get()
+      .collection('chats')
+      .find({
+        participants: {
+          $in: [id],
+        },
+      })
+      .toArray();
 
   const x = [];
   for (const i of chats) {
@@ -30,14 +30,14 @@ router.get('/users', async (req, res) => {
   }
 
   const users = await db
-    .get()
-    .collection('users')
-    .find({
-      _id: { $in: x, $ne: ObjectId(req.session.user._id) },
-    })
-    .toArray();
+      .get()
+      .collection('users')
+      .find({
+        _id: {$in: x, $ne: ObjectId(req.session.user._id)},
+      })
+      .toArray();
 
-  res.render('./users.ejs', { data: users });
+  res.render('./users.ejs', {data: users});
 });
 
 module.exports = router;

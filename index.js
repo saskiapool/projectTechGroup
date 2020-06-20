@@ -26,7 +26,7 @@ const session = require('express-session')({
 app.use(express.static(__dirname + '/views'));
 app.set('view engine', 'ejs');
 app.set('views', 'views');
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 
 app.set('socketio', io);
@@ -55,13 +55,13 @@ io.on('connection', (socket) => {
 
     // send to database
     db.get()
-      .collection('chats')
-      .updateOne(
-        {
-          _id: ObjectId(socketRoom),
-        },
-        { $push: { messages: databaseData } }
-      );
+        .collection('chats')
+        .updateOne(
+            {
+              _id: ObjectId(socketRoom),
+            },
+            {$push: {messages: databaseData}},
+        );
 
     console.log(`sending message: ${data.message} to ${socketRoom}`);
     socket.to(socketRoom).emit('message', data.message);
