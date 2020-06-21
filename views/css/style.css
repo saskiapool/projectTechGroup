@@ -96,6 +96,13 @@ Buttons
   font-weight: bold;
   font-size: 1.2rem;
   margin-left: auto;
+  transition: all 0.2s ease-out;
+}
+
+.submit-button:hover,
+.submit-button:focus {
+  outline: none;
+  background-color: var(--blue);
 }
 
 /* text area  */
@@ -549,12 +556,14 @@ Chats
   justify-content: flex-end;
 }
 
-.messageSend p {
+.messageSend p,
+.messageSend img {
   background-color: var(--purple);
   color: var(--white);
 }
 
-.messageSend p::after {
+.messageSend p::after,
+.messageSend img::after {
   content: '';
   position: absolute;
   top: calc(100% - 14px);
@@ -575,24 +584,25 @@ Chats
   margin-top: 1rem;
 }
 
-.message p {
+.message p,
+.message img {
   display: inline-block;
   position: relative;
   max-width: 70%;
 
   margin-bottom: 1.6rem;
   padding: 0.4rem 1rem;
-
   border-radius: 10px;
-
   font-size: 1rem;
 }
 
-.messageRecieve p {
+.messageRecieve p,
+.messageRecieve img {
   background-color: var(--blue);
 }
 
-.messageRecieve p::after {
+.messageRecieve p::after,
+.messageRecieve img::after {
   content: '';
   position: absolute;
   top: calc(100% - 14px);
@@ -603,6 +613,11 @@ Chats
   border-style: solid;
   border-width: 12px 0 12px 14px;
   border-color: transparent transparent transparent var(--blue);
+}
+
+.message img {
+  padding: 1rem;
+  border-radius: 0.6rem;
 }
 /* end msg style*/
 
@@ -655,9 +670,14 @@ Chats
   height: 0;
 }
 
-#gifImg {
+.messageSend .gifImg {
   max-width: 45%;
-  margin: 1rem;
+  margin-bottom: 1.6rem;
+}
+
+.messageRecieve .gifImg {
+  max-width: 45%;
+  margin-bottom: 1.6rem;
 }
 
 #gifButton {

@@ -28,6 +28,16 @@ if (document.querySelector('*[data-chatting="true"]')) {
   messageSection.scrollTop = messageSection.scrollHeight;
 
   // Incomming
+  socket.on('hello', (data) => {
+    messageSection.innerHTML += `
+    <div class="message messageSend">
+      <img src="${data}" class="gifImg"/>
+    </div>
+    `;
+
+    messageSection.scrollTop = messageSection.scrollHeight;
+  });
+
   socket.on('message', (data) => {
     console.log(data);
 
@@ -38,6 +48,16 @@ if (document.querySelector('*[data-chatting="true"]')) {
       </p>
   </div>
   `;
+
+    messageSection.scrollTop = messageSection.scrollHeight;
+  });
+
+  socket.on('gif', (data) => {
+    messageSection.innerHTML += `
+    <div class="message messageRecieve">
+      <img src="${data}" class="gifImg"/>
+    </div>
+    `;
 
     messageSection.scrollTop = messageSection.scrollHeight;
   });
@@ -58,12 +78,7 @@ if (document.querySelector('*[data-chatting="true"]')) {
 
       if (sendGif.checked) {
         data.media = 'gif';
-
-        messageSection.innerHTML += `
-        <div class="message messageSend">
-          <img src="${str}" class="gifImg"/>
-        </div>
-        `;
+        socket.emit('gif', data);
       } else {
         messageSection.innerHTML += `
         <div class="message messageSend">
@@ -72,12 +87,11 @@ if (document.querySelector('*[data-chatting="true"]')) {
             </p>
         </div>
         `;
+
+        socket.emit('message', data);
       }
 
       messageSection.scrollTop = messageSection.scrollHeight;
-
-      console.log('send data');
-      socket.emit('message', data);
       msg.value = '';
     }
   });
