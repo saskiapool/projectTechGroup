@@ -1,30 +1,16 @@
 <form id="messageForm" action="/chat" method="post">
-  <input
-    type="text"
-    id="message"
-    name="message"
-    placeholder="Type a message"
-    tabindex="1"
-  />
+  <input type="text" id="message" name="message" placeholder="Type a message" tabindex="1" />
   <input type="checkbox" id="sendGif" name="sendGif" tabindex="1" />
   <label for="sendGif" id="gifButton">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
       <path
-        d="M146 146H37c-22 0-37 19-37 37v146c0 18 15 37 37 37h109c22 0 37-19 37-37v-73h-55v55H55V201h128v-18c0-18-15-37-37-37zM512 201v-55H347v220h55v-73h73v-55h-73v-37zM238 146h55v220h-55z"
-      />
+        d="M146 146H37c-22 0-37 19-37 37v146c0 18 15 37 37 37h109c22 0 37-19 37-37v-73h-55v55H55V201h128v-18c0-18-15-37-37-37zM512 201v-55H347v220h55v-73h73v-55h-73v-37zM238 146h55v220h-55z" />
     </svg>
   </label>
 
   <button type="submit" id="sendMessage" tabindex="1">
-    <svg
-      width="24"
-      height="21"
-      viewBox="0 0 24 21"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M0.0114107 0L0 8.68966L10.4762 10.5L0 12.3103L0.0114107 21L24 10.5L0.0114107 0Z"
-      />
+    <svg viewBox="0 0 24 21" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0.0114107 0L0 8.68966L10.4762 10.5L0 12.3103L0.0114107 21L24 10.5L0.0114107 0Z" />
     </svg>
   </button>
 </form>

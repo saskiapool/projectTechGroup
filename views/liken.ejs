@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include ("components/head.ejs") -%>
+<%- include ("components/head.ejs") -%>
 
-  <body>
-    <header>
-      <%- include ("components/header.ejs") -%>
-    </header>
+<body>
+  <header>
+    <%- include ("components/header.ejs") -%>
+  </header>
 
-    <main id="likeForm">
-      <div class="bgImage">
-        <div></div>
-      </div>
-      <%- include ("components/likeForm.ejs", {data: data}) -%>
-    </main>
+  <main id="likeForm" class="centerOneScreen">
+    <div class="bgImage">
+      <div></div>
+    </div>
 
-    <footer></footer>
+    <%- include ("components/likeForm.ejs", {data: data}) -%>
+  </main>
 
-    <script src="js/script.js"></script>
-  </body>
+  <footer></footer>
+
+  <script src="js/script.js"></script>
+</body>
+
 </html>

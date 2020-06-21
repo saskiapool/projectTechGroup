@@ -88,13 +88,12 @@ io.on('connection', (socket) => {
 
     const response = await axios.get(url);
     const index = Math.floor(Math.random() * response.data.data.length);
-    const gifUrl = response.data.data[index].images.downsized.url;
-    databaseData.content = gifUrl;
-    databaseData.media = 'gif';
-    databaseData.content = gifUrl;
-    if (!gifUrl) {
+    if (response.data.data[index]) {
+      databaseData.media = 'gif';
+      databaseData.content = response.data.data[index].images.downsized.url;
+    } else {
       databaseData.content =
-            'https://media.giphy.com/media/H7wajFPnZGdRWaQeu0/giphy.gif';
+      'https://media.giphy.com/media/H7wajFPnZGdRWaQeu0/giphy.gif';
     }
 
     // send to database
