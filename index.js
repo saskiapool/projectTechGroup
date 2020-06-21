@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const db = require('./helper/db');
 const mongo = require('mongodb');
 const ObjectId = mongo.ObjectID;
+const axios = require('axios');
 
 const http = require('http');
 const port = process.env.PORT || 3000;
@@ -55,6 +56,7 @@ io.on('connection', (socket) => {
       sender: sender,
       content: str,
       time: new Date(),
+      media: data.media,
     };
 
     // send to database
@@ -69,6 +71,45 @@ io.on('connection', (socket) => {
 
     console.log(`sending message: ${data.message} to ${socketRoom}`);
     socket.to(socketRoom).emit('message', str);
+  });
+
+  socket.on('gif', async (data) => {
+    const sender = socket.handshake.session.user._id;
+    const str = data.message.trim();
+
+    const databaseData = {
+      sender: sender,
+      content: str,
+      time: new Date(),
+      media: data.media,
+    };
+
+    const url = `https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_APIKEY}&limit=5&q=${str}`;
+
+    const response = await axios.get(url);
+    const index = Math.floor(Math.random() * response.data.data.length);
+    const gifUrl = response.data.data[index].images.downsized.url;
+    databaseData.content = gifUrl;
+    databaseData.media = 'gif';
+    databaseData.content = gifUrl;
+    if (!gifUrl) {
+      databaseData.content =
+            'https://media.giphy.com/media/H7wajFPnZGdRWaQeu0/giphy.gif';
+    }
+
+    // send to database
+    db.get()
+        .collection('chats')
+        .updateOne(
+            {
+              _id: ObjectId(socketRoom),
+            },
+            {$push: {messages: databaseData}},
+        );
+
+    console.log(`sending message: ${data.message} to ${socketRoom}`);
+    socket.emit('hello', databaseData.content);
+    socket.to(socketRoom).emit('gif', databaseData.content);
   });
 
   socket.on('disconnect', () => {

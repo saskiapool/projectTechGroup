@@ -47,26 +47,22 @@ router.post('/chat', async (req, res) => {
         sender: id,
         content: req.body.message.trim(),
         time: new Date(),
+        media: 'text',
       };
 
       // gifje verzenden
-      // Checkbox checken
       if (req.body.sendGif) {
-        let gifUrl = '';
         const url = `https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_APIKEY}&limit=5&q=${req.body.message}`;
 
         const response = await axios.get(url);
         const index = Math.floor(Math.random() * response.data.data.length);
-        gifUrl = response.data.data[index].images.downsized.url;
+        const gifUrl = response.data.data[index].images.downsized.url;
         databaseData.media = 'gif';
         databaseData.content = gifUrl;
         if (!gifUrl) {
           databaseData.content =
             'https://media.giphy.com/media/H7wajFPnZGdRWaQeu0/giphy.gif';
         }
-      } else {
-        databaseData.media = 'text';
-        databaseData.content = req.body.message.trim();
       }
 
       // send to database
@@ -79,10 +75,10 @@ router.post('/chat', async (req, res) => {
               },
               {$push: {messages: databaseData}},
           );
+
       console.log(`send to: ${req.session.chatroom}`);
     }
 
-    // rendering template
     // get chat
     if (req.session.chatroom) {
       chat = await db
