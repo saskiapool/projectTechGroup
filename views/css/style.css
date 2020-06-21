@@ -580,6 +580,11 @@ Chats
   font-size: 1rem;
 }
 
+.message img {
+  max-width: 45%;
+  max-height: 20rem;
+}
+
 .messageRecieve p,
 .messageRecieve img {
   background-color: var(--blue);
@@ -643,8 +648,15 @@ Chats
 
   width: 2.4rem;
   height: 2.4rem;
-
   padding: 0.4rem 0.6rem;
+
+  transition: all 0.2s ease-out;
+}
+
+#sendMessage:hover,
+#sendMessage:focus {
+  outline: none;
+  background-color: var(--blue);
 }
 
 #sendGif {
@@ -679,14 +691,17 @@ Chats
   padding: 0.4rem 0.6rem;
   transition: 0.1s ease-in-out;
 }
-#sendGif:checked + #gifButton {
+
+#sendGif:checked + #gifButton,
+#sendGif:hover + #gifButton {
   opacity: 1;
   background-color: var(--blue);
   box-shadow: none;
   transition: 0.1s ease-in-out;
 }
 
-#sendGif:checked + #gifButton svg {
+#sendGif:checked + #gifButton svg,
+#sendGif:hover + #gifButton svg {
   fill: var(--white);
   animation-duration: 1s;
   animation-iteration-count: infinite;
@@ -701,19 +716,11 @@ Chats
 }
 
 #sendMessage svg {
+  width: 24px;
+  height: 21px;
   fill: var(--white);
 }
-@keyframes shake {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2) rotate(5deg);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
+
 /***********************
 Users
 ***********************/
@@ -739,6 +746,10 @@ Dashboard
 #dashboard section {
   margin-top: 4rem;
   background-color: var(--purple-blue-gradient);
+}
+
+#dashboard form {
+  margin-bottom: 1.4rem;
 }
 
 .dashboardItems {
@@ -812,4 +823,17 @@ Dashboard
 
 /* Desktop */
 @media screen and (min-width: 64rem) {
+}
+
+/* Animation */
+@keyframes shake {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2) rotate(5deg);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

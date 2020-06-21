@@ -5,11 +5,12 @@ const mongo = require('mongodb');
 const ObjectId = mongo.ObjectID;
 
 router.get('/dashboard', (req, res) => {
-  req.session.user ? res.render('./dashboard.ejs') : res.render('./login.ejs');
+  req.session.user ? res.render('./dashboard.ejs', {data: req.session.user}) : res.render('./login.ejs');
 });
 
-router.post('/dashboard', async (req, res) => {
-  // res.redirect('/login');
+router.post('/logout', async (req, res) => {
+  req.session.destroy();
+  res.redirect('/login');
 });
 
 router.post('deleteUser', async (req, res) => {

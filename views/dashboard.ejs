@@ -15,7 +15,11 @@
 
         <section class="dashboardItems">
             <img src="img/moffelMuts.png" alt="User profile picture">
-            <h1>Username</h1>
+            <h1><%= data.name %></h1>
+            <form action="/logout" method="post">
+                <button class="submit-button" type="submit" tabindex="1">Log out</button>
+            </form>
+
             <form action="/deleteUser" method="post">
                 <button class="submit-button" type="submit" tabindex="1">Delete accaunt</button>
             </form>
