@@ -632,10 +632,68 @@ Chats
   padding: 0.4rem 0.6rem;
 }
 
+#sendGif {
+  opacity: 0;
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+#gifImg {
+  max-width: 45%;
+  margin: 1rem;
+}
+
+#gifButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: inset 0rem 0rem 0rem 0.1rem var(--blue);
+  border-radius: 0.3rem;
+  opacity: 0.75;
+
+  width: 2.4rem;
+  height: 1.6rem;
+  margin-right: 0.8rem;
+  padding: 0.4rem 0.6rem;
+  transition: 0.1s ease-in-out;
+}
+#sendGif:checked + #gifButton {
+  opacity: 1;
+  background-color: var(--blue);
+  box-shadow: none;
+  transition: 0.1s ease-in-out;
+}
+
+#sendGif:checked + #gifButton svg {
+  fill: var(--white);
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+#gifButton svg {
+  animation-name: shake;
+  animation-timing-function: ease;
+  fill: var(--blue);
+  width: 100%;
+  transition: 0.1s;
+}
+
 #sendMessage svg {
   fill: var(--white);
 }
-
+@keyframes shake {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2) rotate(5deg);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 /***********************
 Users
 ***********************/

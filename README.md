@@ -45,6 +45,7 @@ DB_NAME= name of database
 DB_USER= database username
 DB_PASSWORD= database password
 SECRET= session secret
+GIPHY_APIKEY = get your giphy API key at https://developers.giphy.com/
 ```
 
 ### 🚀 Launching the project

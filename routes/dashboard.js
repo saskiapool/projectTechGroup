@@ -18,17 +18,17 @@ router.post('deleteUser', async (req, res) => {
 
     // remove user
     db.get()
-      .collection('users')
-      .deleteOne({ _id: ObjectId(id) });
+        .collection('users')
+        .deleteOne({_id: ObjectId(id)});
 
     // remove chats
     db.get()
-      .collection('chats')
-      .deleteMany({
-        participants: {
-          $in: [id],
-        },
-      });
+        .collection('chats')
+        .deleteMany({
+          participants: {
+            $in: [id],
+          },
+        });
 
     req.session.destroy();
   } catch (err) {
