@@ -13,13 +13,21 @@
 - [Sources](#-sources)
 
 ## 🤔 About
+
+Hi there! Welcome to our github repository, featuring our datingapp.
+
+![login screen](views/img/login_screen.PNG)
+
 In this repository you will find a datingapp containing the following features:
+
 * Register/login
 * Liking, disliking and megaliking other people
 * Chatting with your matches (and seding gifs)
 * A fill in form for after the date
 
 The webapp is ment for people who are looking to get into some more serious dating focussing on dinner dates. It is just like [First Dates](https://www.npo3.nl/first-dates/BNN_101378960), with the only difference that you have to do the organizing yourself. You are able to find people with the same interest and when you match you can start planning your first date while having a blast by sending funny gifs. 
+
+Checkout the [wiki](https://github.com/Vuurvos1/projectTechGroup/wiki) of this repository to find out more about this project. Enjoy!
 
 ### 🛠 Build with
 
