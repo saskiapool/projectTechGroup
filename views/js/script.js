@@ -20,6 +20,7 @@ if (document.querySelector('*[data-pswhide="true"]')) {
 // Socket io
 if (document.querySelector('*[data-chatting="true"]')) {
   const msg = document.querySelector('#message');
+  const sendGif = document.querySelector('#sendGif');
   const sendMsg = document.querySelector('#sendMessage');
   const messageSection = document.querySelector('#messages');
 
@@ -27,6 +28,16 @@ if (document.querySelector('*[data-chatting="true"]')) {
   messageSection.scrollTop = messageSection.scrollHeight;
 
   // Incomming
+  socket.on('hello', (data) => {
+    messageSection.innerHTML += `
+    <div class="message messageSend">
+      <img src="${data}" class="gifImg"/>
+    </div>
+    `;
+
+    messageSection.scrollTop = messageSection.scrollHeight;
+  });
+
   socket.on('message', (data) => {
     console.log(data);
 
@@ -41,6 +52,16 @@ if (document.querySelector('*[data-chatting="true"]')) {
     messageSection.scrollTop = messageSection.scrollHeight;
   });
 
+  socket.on('gif', (data) => {
+    messageSection.innerHTML += `
+    <div class="message messageRecieve">
+      <img src="${data}" class="gifImg"/>
+    </div>
+    `;
+
+    messageSection.scrollTop = messageSection.scrollHeight;
+  });
+
   // Outgoing
   sendMsg.addEventListener('click', (e) => {
     e.preventDefault();
@@ -49,22 +70,28 @@ if (document.querySelector('*[data-chatting="true"]')) {
           .replace(/&/g, '&amp;')
           .replace(/</g, '&lt;')
           .replace(/>/g, '&gt;');
+
       const data = {
         message: msg.value.trim(),
+        media: 'text',
       };
 
-      messageSection.innerHTML += `
-    <div class="message messageSend">
-        <p>
-            ${str}
-        </p>
-    </div>
-    `;
+      if (sendGif.checked) {
+        data.media = 'gif';
+        socket.emit('gif', data);
+      } else {
+        messageSection.innerHTML += `
+        <div class="message messageSend">
+            <p>
+                ${str}
+            </p>
+        </div>
+        `;
+
+        socket.emit('message', data);
+      }
 
       messageSection.scrollTop = messageSection.scrollHeight;
-
-      console.log('send data');
-      socket.emit('message', data);
       msg.value = '';
     }
   });
