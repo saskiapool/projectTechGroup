@@ -3,6 +3,10 @@ const db = require('../helper/db');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 
+router.get('/', (req, res) => {
+  res.render('./login.ejs');
+});
+
 router.get('/login', (req, res) => {
   res.render('./login.ejs');
 });
