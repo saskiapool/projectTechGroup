@@ -14,7 +14,7 @@ router.post('/logout', async (req, res) => {
   res.redirect('/login');
 });
 
-router.post('deleteUser', async (req, res) => {
+router.post('/deleteUser', async (req, res) => {
   try {
     const id = req.session._id;
 
