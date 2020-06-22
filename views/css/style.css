@@ -189,6 +189,15 @@ header .profilepicture img {
   margin-right: 0;
 }
 
+.back {
+  background-image: url(../img/backArrow.svg);
+  background-repeat: no-repeat;
+  font-size: 0;
+  width: 1.4rem;
+  height: 1.4rem;
+  filter: invert();
+}
+
 /***********************
 Login form
 ***********************/
@@ -646,11 +655,16 @@ Chats
   justify-content: center;
   align-items: center;
 
-  width: 2.4rem;
+  width: 2.6rem;
   height: 2.4rem;
-  padding: 0.4rem 0.6rem;
+  padding: 0.6rem;
+  font-size: 0;
 
   transition: all 0.2s ease-out;
+  background-image: url(../img/sendIcon.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1.2rem auto;
 }
 
 #sendMessage:hover,
@@ -680,6 +694,7 @@ Chats
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 
   box-shadow: inset 0rem 0rem 0rem 0.1rem var(--blue);
   border-radius: 0.3rem;
@@ -691,6 +706,16 @@ Chats
   padding: 0.4rem 0.6rem;
   transition: 0.1s ease-in-out;
   cursor: pointer;
+  font-size: 0;
+}
+
+#gifButton::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0.4rem;
+  background: url(../img/gif.svg) 0 0 no-repeat;
 }
 
 #sendGif:checked + #gifButton {
@@ -700,24 +725,19 @@ Chats
   transition: 0.1s ease-in-out;
 }
 
-#sendGif:checked + #gifButton svg {
+#sendGif:checked + #gifButton::before {
   fill: var(--white);
   animation-duration: 1s;
   animation-iteration-count: infinite;
+  filter: invert();
 }
 
-#gifButton svg {
+#gifButton::before {
   animation-name: shake;
   animation-timing-function: ease;
   fill: var(--blue);
   width: 100%;
   transition: 0.1s;
-}
-
-#sendMessage svg {
-  width: 24px;
-  height: 21px;
-  fill: var(--white);
 }
 
 /***********************
@@ -744,7 +764,6 @@ questions
   height: 21px;
   fill: var(--white);
 }
-
 
 .button[type='submit'] {
   background-color: var(--purple);
@@ -964,7 +983,7 @@ Dashboard
     transform: scale(1);
   }
   50% {
-    transform: scale(1.2) rotate(5deg);
+    transform: scale(1.1) rotate(5deg);
   }
   100% {
     transform: scale(1);

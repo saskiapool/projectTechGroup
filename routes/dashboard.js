@@ -16,15 +16,15 @@ router.post('/logout', async (req, res) => {
 
 router.post('/deleteUser', async (req, res) => {
   try {
-    const id = req.session._id;
+    const id = req.session.user._id;
 
     // remove user
-    db.get()
+    await db.get()
         .collection('users')
         .deleteOne({_id: ObjectId(id)});
 
     // remove chats
-    db.get()
+    await db.get()
         .collection('chats')
         .deleteMany({
           participants: {
@@ -33,6 +33,7 @@ router.post('/deleteUser', async (req, res) => {
         });
 
     req.session.destroy();
+    res.redirect('/login');
   } catch (err) {
     console.log(err);
   }
