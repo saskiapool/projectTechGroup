@@ -1,3 +1,6 @@
-function updateDateValue(val) {
-    document.getElementById('dateValue').value=val;
-  }
+const slider = document.querySelector('.slider');
+const val = document.getElementById('dateValue');
+
+slider.addEventListener('input', () => {
+  val.value = slider.value;
+});

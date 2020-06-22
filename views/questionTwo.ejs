@@ -1,16 +1,16 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <%- include ("components/head.ejs") %>
 
 <body>
-    <header>
-        <%- include ("components/header.ejs") %>
-    </header>
+  <header>
+    <%- include ("components/header.ejs") %>
+  </header>
 
-    <main class="questions">
-      <div class="bgImage">
-        <div></div>
+  <main class="questions">
+    <div class="bgImage">
+      <div></div>
     </div>
 
     <div class="questionElement">
@@ -18,24 +18,24 @@
 
       <!-- source: HTML5 input type range show range value. (2012, 4 april). Geraadpleegd op 16 juni 2020, 
       van https://stackoverflow.com/questions/10004723/html5-input-type-range-show-range-value -->
-      <form name="questionT" id="question" action="/questionTwo" method="post">         
-             <div class="slide">
-                    <input class="slider" type="range" name="rangeInput" min="1" max="100" onchange="updateDateValue(this.value);">
-                    <input name="questionT" type="text" id="dateValue" value="">
-              </div>
+      <form name="questionT" id="question" action="/questionTwo" method="post">
+        <div class="slide">
+          <input class="slider" type="range" name="rangeInput" min="1" max="100">
+          <input name="questionT" type="text" id="dateValue" value="50">
+        </div>
 
-              <button class="button" type="submit">Next question</button>
-      </form>  
+        <button class="button" type="submit">Next question</button>
+      </form>
 
-       
-      </div>
-    </main>
 
-    <footer>
+    </div>
+  </main>
 
-    </footer>
+  <footer>
 
-    <script src="js/qscript.js"></script>
+  </footer>
+
+  <script src="js/qscript.js"></script>
 </body>
 
 </html>
