@@ -50,7 +50,7 @@ First of all, make sure you have **NodeJS** and **NPM** installed otherwise the 
 ### ⚙ Setting up the database
 
 1. Create a MongoDB database
-2. Create the following collections: **users**, **chats**
+2. Create the following collections: **users**, **chats**, **questions**
 3. Create a .env containing these variables:
 
 ```
@@ -70,7 +70,7 @@ By default, the project will be hosted on **port 3000**
 
 ### ✏ Linting the project
 
-Don't want to format all your code by and doesn't have ESLint installed? no problemo, use `npm run lint` to make the computer format all the code for you
+Don't want to format all your code by hand and don't have ESLint installed? No problemo, use `npm run lint` to make the computer format all the code for you.
 
 ## 👨‍👩‍👦 Team
 
