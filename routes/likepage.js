@@ -16,6 +16,20 @@ router.get('/like', async (req, res) => {
         .get()
         .collection('users')
         .findOne({_id: ObjectId(req.session.user._id)});
+
+    // convert date to age
+    if (users.length > index.number ) {
+      dob = new Date(users[index.number].age);
+      const today = new Date();
+      const age = Math.floor((today-dob) / (365.25 * 24 * 60 * 60 * 1000));
+
+      if (age) {
+        users[index.number].age = age;
+      } else {
+        users[index.number].age = 'Timeless';
+      }
+    }
+
     res.render('./liken.ejs', {data: users[index.number]});
   }
 });
