@@ -138,7 +138,7 @@ header {
   top: 0;
   left: 0;
   position: fixed;
-  background: var(--blue);
+  background: var(--purple);
   z-index: 10;
 }
 
@@ -725,7 +725,29 @@ Chats
 questions
 ***********************/
 
-.button[type='next'] {
+#goToQuestions {
+  background-color: var(--purple);
+  display: flex;
+
+  border-radius: 100rem;
+  justify-content: center;
+  align-items: center;
+
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0.4rem 0.6rem;
+
+  transition: all 0.2s ease-out;
+}
+
+#goToQuestions svg {
+  width: 24px;
+  height: 21px;
+  fill: var(--white);
+}
+
+
+.button[type='submit'] {
   background-color: var(--purple);
   border-radius: 100rem;
   padding: 0.6rem 1.2rem;
@@ -735,7 +757,7 @@ questions
   margin-top: 1.4rem;
 }
 
-.button[type='next']:hover {
+.button[type='submit']:hover {
   background-color: var(--cyan);
   border-radius: 100rem;
   padding: 0.6rem 1.2rem;
