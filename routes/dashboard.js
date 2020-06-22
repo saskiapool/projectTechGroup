@@ -5,7 +5,8 @@ const mongo = require('mongodb');
 const ObjectId = mongo.ObjectID;
 
 router.get('/dashboard', (req, res) => {
-  req.session.user ? res.render('./dashboard.ejs', {data: req.session.user}) : res.render('./login.ejs');
+  req.session.user ? res.render('./dashboard.ejs', {data: req.session.user}) :
+  res.render('./login.ejs');
 });
 
 router.post('/logout', async (req, res) => {

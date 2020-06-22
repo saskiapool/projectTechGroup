@@ -42,7 +42,6 @@ io.on('connection', (socket) => {
   console.log(`A new client connected: ${socket.id}`);
 
   const socketRoom = socket.handshake.session.chatroom;
-  console.log(socketRoom);
   socket.join(socketRoom);
 
   socket.on('message', (data) => {
@@ -69,7 +68,6 @@ io.on('connection', (socket) => {
             {$push: {messages: databaseData}},
         );
 
-    console.log(`sending message: ${data.message} to ${socketRoom}`);
     socket.to(socketRoom).emit('message', str);
   });
 
@@ -106,7 +104,6 @@ io.on('connection', (socket) => {
             {$push: {messages: databaseData}},
         );
 
-    console.log(`sending message: ${data.message} to ${socketRoom}`);
     socket.emit('hello', databaseData.content);
     socket.to(socketRoom).emit('gif', databaseData.content);
   });

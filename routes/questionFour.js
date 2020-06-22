@@ -13,10 +13,7 @@ router.post('/questionFour', async (req, res) => {
     questionF: req.body.questionF,
   };
 
-  console.log(`post question one data: ${data}`);
-
   db.get().collection('questions').insertOne(data);
-  console.log(`added ${data} to the database`);
   res.redirect('/chat');
 });
 

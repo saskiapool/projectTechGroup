@@ -39,8 +39,6 @@ if (document.querySelector('*[data-chatting="true"]')) {
   });
 
   socket.on('message', (data) => {
-    console.log(data);
-
     messageSection.innerHTML += `
   <div class="message messageRecieve">
       <p>

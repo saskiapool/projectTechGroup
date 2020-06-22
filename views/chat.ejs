@@ -4,8 +4,7 @@
 
 <body>
   <header>
-    <%- include ("components/chatHeader.ejs") -%>
-  </header>
+    <%- include('components/chatHeader.ejs', {data: users.name}) -%> </header>
 
   <main id="chats" class="centerOneScreen" data-chatting="true">
 
@@ -21,11 +20,8 @@
 
   </main>
 
-  <footer></footer>
-
   <script src="/socket.io/socket.io.js"></script>
   <script src="js/script.js"></script>
-  <script src="js/qscript.js"></script>
 </body>
 
 </html>
