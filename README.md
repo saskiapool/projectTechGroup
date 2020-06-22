@@ -2,19 +2,32 @@
 
 <!-- slogan  -->
 
-## Table of contents
+## 📚 Table of contents
 
-- About
-  - Build with
-- Installing the project
-  - Setup database
-  - Launch the project
-- Team
-- Sources
+- [About](#-about)
+  - [Build with](#-build-with)
+- [Installing the project](#-installing-the-project)
+  - [Setup database](#-setting-up-the-database)
+  - [Launch the project](#-launching-the-project)
+- [Team](#-team)
+- [Sources](#-sources)
 
-## About
+## 🤔 About
 
-<!-- some info about the dating app -->
+Hi there! Welcome to our github repository, featuring our datingapp.
+
+![login screen](views/img/login_screen.PNG)
+
+In this repository you will find a datingapp containing the following features:
+
+* Register/login
+* Liking, disliking and megaliking other people
+* Chatting with your matches (and seding gifs)
+* A fill in form for after the date
+
+The webapp is ment for people who are looking to get into some more serious dating focussing on dinner dates. It is just like [First Dates](https://www.npo3.nl/first-dates/BNN_101378960), with the only difference that you have to do the organizing yourself. You are able to find people with the same interest and when you match you can start planning your first date while having a blast by sending funny gifs. 
+
+Checkout the [wiki](https://github.com/Vuurvos1/projectTechGroup/wiki) of this repository to find out more about this project. Enjoy!
 
 ### 🛠 Build with
 
@@ -24,7 +37,7 @@
 - NPM packages
 - Lots of love
 
-## Installing the project
+## 🔧 Installing the project
 
 First of all, make sure you have **NodeJS** and **NPM** installed otherwise the project won't work.
 
@@ -33,7 +46,7 @@ First of all, make sure you have **NodeJS** and **NPM** installed otherwise the 
 2. Cd into the project folder
 3. Run `npm install` to install the needed npm packages
 
-### Setting up the database
+### ⚙ Setting up the database
 
 1. Create a MongoDB database
 2. Create the following collections: **users**, **chats**
@@ -45,6 +58,7 @@ DB_NAME= name of database
 DB_USER= database username
 DB_PASSWORD= database password
 SECRET= session secret
+GIPHY_APIKEY = get your giphy API key at https://developers.giphy.com/
 ```
 
 ### 🚀 Launching the project
@@ -53,7 +67,7 @@ You can use `npm start` to start the project or `npm run dev` if you are a devel
 
 By default, the project will be hosted on **port 3000**
 
-## Team
+## 👨‍👩‍👦 Team
 
 Sam de Kanter || [Vuurvos1](https://github.com/Vuurvos1) \
 Simon Planje || [SimonPlanje](https://github.com/SimonPlanje) \
