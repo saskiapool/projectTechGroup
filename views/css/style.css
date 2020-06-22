@@ -84,6 +84,14 @@ body {
   display: none;
 }
 
+.centerOneScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 4.2rem);
+  margin-top: 4.2rem;
+}
+
 /***********************
 Buttons
 ***********************/
@@ -96,6 +104,13 @@ Buttons
   font-weight: bold;
   font-size: 1.2rem;
   margin-left: auto;
+  transition: all 0.2s ease-out;
+}
+
+.submit-button:hover,
+.submit-button:focus {
+  outline: none;
+  background-color: var(--blue);
 }
 
 /* text area  */
@@ -123,7 +138,7 @@ header {
   top: 0;
   left: 0;
   position: fixed;
-  background: var(--blue);
+  background: var(--purple);
   z-index: 10;
 }
 
@@ -177,14 +192,6 @@ header .profilepicture img {
 /***********************
 Login form
 ***********************/
-#login {
-  height: calc(100vh - 4.2rem);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 #login .container {
   background: var(--purple-blue-gradient);
   max-width: 24rem;
@@ -257,14 +264,6 @@ Login form
 /***********************
 Like form
 ***********************/
-#likeForm {
-  height: calc(100vh - 4.2rem);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 #likeForm .text {
   background: var(--purple-blue-gradient);
   max-width: 24rem;
@@ -445,14 +444,6 @@ Chats
   border-radius: 100rem;
 }
 
-#chats {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 4.2rem;
-  height: calc(100vh - 4.2rem);
-}
-
 #chats .chatComponents {
   width: 100%;
   max-width: 52rem;
@@ -549,12 +540,14 @@ Chats
   justify-content: flex-end;
 }
 
-.messageSend p {
+.messageSend p,
+.messageSend img {
   background-color: var(--purple);
   color: var(--white);
 }
 
-.messageSend p::after {
+.messageSend p::after,
+.messageSend img::after {
   content: '';
   position: absolute;
   top: calc(100% - 14px);
@@ -575,24 +568,30 @@ Chats
   margin-top: 1rem;
 }
 
-.message p {
+.message p,
+.message img {
   display: inline-block;
   position: relative;
   max-width: 70%;
 
   margin-bottom: 1.6rem;
   padding: 0.4rem 1rem;
-
   border-radius: 10px;
-
   font-size: 1rem;
 }
 
-.messageRecieve p {
+.message img {
+  max-width: 45%;
+  max-height: 20rem;
+}
+
+.messageRecieve p,
+.messageRecieve img {
   background-color: var(--blue);
 }
 
-.messageRecieve p::after {
+.messageRecieve p::after,
+.messageRecieve img::after {
   content: '';
   position: absolute;
   top: calc(100% - 14px);
@@ -603,6 +602,11 @@ Chats
   border-style: solid;
   border-width: 12px 0 12px 14px;
   border-color: transparent transparent transparent var(--blue);
+}
+
+.message img {
+  padding: 1rem;
+  border-radius: 0.6rem;
 }
 /* end msg style*/
 
@@ -644,12 +648,210 @@ Chats
 
   width: 2.4rem;
   height: 2.4rem;
-
   padding: 0.4rem 0.6rem;
+
+  transition: all 0.2s ease-out;
+}
+
+#sendMessage:hover,
+#sendMessage:focus {
+  outline: none;
+  background-color: var(--blue);
+}
+
+#sendGif {
+  opacity: 0;
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.messageSend .gifImg {
+  max-width: 45%;
+  margin-bottom: 1.6rem;
+}
+
+.messageRecieve .gifImg {
+  max-width: 45%;
+  margin-bottom: 1.6rem;
+}
+
+#gifButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: inset 0rem 0rem 0rem 0.1rem var(--blue);
+  border-radius: 0.3rem;
+  opacity: 0.75;
+
+  width: 2.4rem;
+  height: 1.6rem;
+  margin-right: 0.8rem;
+  padding: 0.4rem 0.6rem;
+  transition: 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+#sendGif:checked + #gifButton {
+  opacity: 1;
+  background-color: var(--blue);
+  box-shadow: none;
+  transition: 0.1s ease-in-out;
+}
+
+#sendGif:checked + #gifButton svg {
+  fill: var(--white);
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+#gifButton svg {
+  animation-name: shake;
+  animation-timing-function: ease;
+  fill: var(--blue);
+  width: 100%;
+  transition: 0.1s;
 }
 
 #sendMessage svg {
+  width: 24px;
+  height: 21px;
   fill: var(--white);
+}
+
+/***********************
+questions
+***********************/
+
+#goToQuestions {
+  background-color: var(--purple);
+  display: flex;
+
+  border-radius: 100rem;
+  justify-content: center;
+  align-items: center;
+
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0.4rem 0.6rem;
+
+  transition: all 0.2s ease-out;
+}
+
+#goToQuestions svg {
+  width: 24px;
+  height: 21px;
+  fill: var(--white);
+}
+
+
+.button[type='submit'] {
+  background-color: var(--purple);
+  border-radius: 100rem;
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-left: auto;
+  margin-top: 1.4rem;
+}
+
+.button[type='submit']:hover {
+  background-color: var(--cyan);
+  border-radius: 100rem;
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-left: auto;
+}
+
+.questions h1 {
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: var(--white);
+  margin-bottom: 5rem;
+}
+
+.questions a {
+  color: white;
+}
+
+.questions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 4.2rem;
+  height: calc(100vh - 4.2rem);
+}
+
+.questions .questionElement {
+  background: var(--purple-blue-gradient);
+  width: 100%;
+  max-width: 52rem;
+  padding: 1rem;
+  border-radius: 0.6rem;
+  height: 60vh;
+}
+
+.questions input {
+  box-sizing: border-box;
+  background-color: var(--white);
+  border-radius: 100rem;
+  padding: 0.6rem 0.6rem;
+  width: 100%;
+  outline: none;
+  margin-bottom: 1.2rem;
+  display: inline-block;
+}
+
+.questions label {
+  box-sizing: border-box;
+  border-radius: 100rem;
+  padding: 0rem 1.4rem;
+  width: 100%;
+  color: white;
+  outline: none;
+  margin-bottom: 1.2rem;
+  display: inline-block;
+  justify-content: center;
+}
+
+.questions .slide {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.questions .slider {
+  -webkit-appearance: none; /* Override default CSS styles */
+  appearance: none;
+  width: 100%;
+  height: 1rem;
+  background: white;
+  outline: none;
+}
+
+.questions .slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 1rem;
+  background: var(--purple);
+  cursor: pointer;
+}
+
+.questions #dateValue {
+  box-sizing: border-box;
+  background-color: var(--white);
+  border-radius: 100rem;
+  padding: 0.6rem 1.4rem;
+  width: 8%;
+  outline: none;
+  margin-bottom: 1.2rem;
+  display: inline-block;
+  margin-top: 2rem;
 }
 
 /***********************
@@ -668,6 +870,33 @@ Users
 
 .chatUsers #sideSearchbar {
   padding: 0;
+  margin-bottom: 1rem;
+}
+
+/***********************
+Dashboard
+***********************/
+#dashboard section {
+  margin-top: 4rem;
+  background-color: var(--purple-blue-gradient);
+}
+
+#dashboard form {
+  margin-bottom: 1.4rem;
+}
+
+.dashboardItems {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashboardItems img {
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.dashboardItems h1 {
   margin-bottom: 1rem;
 }
 
@@ -715,6 +944,7 @@ Users
     top: initial;
     left: initial;
     height: initial;
+    max-height: calc(80vh + 1rem);
     width: initial;
     margin-top: 0;
     transform: translateX(0);
@@ -726,4 +956,17 @@ Users
 
 /* Desktop */
 @media screen and (min-width: 64rem) {
+}
+
+/* Animation */
+@keyframes shake {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2) rotate(5deg);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

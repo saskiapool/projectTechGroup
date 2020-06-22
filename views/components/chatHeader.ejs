@@ -1,5 +1,5 @@
 <nav class="chatNav">
-    <a class="logo hideMobile" href="index.html">
+    <a class="logo hideMobile" href="./like">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 117.63 51.16">
             <path fill="#6a63ac" d="M48.3 2.08v22.8H25.5V8.61l3.77-6.53H48.3z" />
             <path fill="#ec5c6b"
@@ -17,15 +17,19 @@
         </svg>
     </a>
 
-    <h1>Username</h1>
+    <% if (data) {%>
+    <h1><%= data %></h1>
+    <%} else { %>
+    <h1>No matched yet</h1>
+    <% } %>
 
     <ul class="hideMobile">
         <li><a href="./chat">Chat</a></li>
         <li><a href="./like">Let's find some love</a></li>
     </ul>
 
-    <a class="userProfile" href="#">
-        <img src="img/profilepicture.jpg" alt="profilepicture" />
+    <a class="userProfile" href="./dashboard">
+        <img src="img/moffelMuts.png" alt="profilepicture" />
     </a>
     </div>
 </nav>

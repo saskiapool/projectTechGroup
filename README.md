@@ -9,12 +9,26 @@
 - [Installing the project](#-installing-the-project)
   - [Setup database](#-setting-up-the-database)
   - [Launch the project](#-launching-the-project)
+  - [Linting the project](#-linting-the-project)
 - [Team](#-team)
 - [Sources](#-sources)
 
 ## 🤔 About
 
-<!-- some info about the dating app -->
+Hi there! Welcome to our github repository, featuring our datingapp.
+
+![login screen](views/img/login_screen.PNG)
+
+In this repository you will find a datingapp containing the following features:
+
+- Register/login
+- Liking, disliking and megaliking other people
+- Chatting with your matches (and seding gifs)
+- A fill in form for after the date
+
+The webapp is ment for people who are looking to get into some more serious dating focussing on dinner dates. It is just like [First Dates](https://www.npo3.nl/first-dates/BNN_101378960), with the only difference that you have to do the organizing yourself. You are able to find people with the same interest and when you match you can start planning your first date while having a blast by sending funny gifs.
+
+Checkout the [wiki](https://github.com/Vuurvos1/projectTechGroup/wiki) of this repository to find out more about this project. Enjoy!
 
 ### 🛠 Build with
 
@@ -36,7 +50,7 @@ First of all, make sure you have **NodeJS** and **NPM** installed otherwise the 
 ### ⚙ Setting up the database
 
 1. Create a MongoDB database
-2. Create the following collections: **users**, **chats**
+2. Create the following collections: **users**, **chats**, **questions**
 3. Create a .env containing these variables:
 
 ```
@@ -45,6 +59,7 @@ DB_NAME= name of database
 DB_USER= database username
 DB_PASSWORD= database password
 SECRET= session secret
+GIPHY_APIKEY = get your giphy API key at https://developers.giphy.com/
 ```
 
 ### 🚀 Launching the project
@@ -52,6 +67,10 @@ SECRET= session secret
 You can use `npm start` to start the project or `npm run dev` if you are a developer
 
 By default, the project will be hosted on **port 3000**
+
+### ✏ Linting the project
+
+Don't want to format all your code by hand and don't have ESLint installed? No problemo, use `npm run lint` to make the computer format all the code for you.
 
 ## 👨‍👩‍👦 Team
 

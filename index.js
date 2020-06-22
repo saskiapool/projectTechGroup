@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const db = require('./helper/db');
 const mongo = require('mongodb');
 const ObjectId = mongo.ObjectID;
+const axios = require('axios');
 
 const http = require('http');
 const port = process.env.PORT || 3000;
@@ -26,7 +27,7 @@ const session = require('express-session')({
 app.use(express.static(__dirname + '/views'));
 app.set('view engine', 'ejs');
 app.set('views', 'views');
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 
 app.set('socketio', io);
@@ -41,30 +42,70 @@ io.on('connection', (socket) => {
   console.log(`A new client connected: ${socket.id}`);
 
   const socketRoom = socket.handshake.session.chatroom;
-  console.log(socketRoom);
   socket.join(socketRoom);
 
   socket.on('message', (data) => {
     const sender = socket.handshake.session.user._id;
+    const str = data.message.trim()
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
 
     const databaseData = {
       sender: sender,
-      content: data.message,
+      content: str,
       time: new Date(),
+      media: data.media,
     };
 
     // send to database
     db.get()
-      .collection('chats')
-      .updateOne(
-        {
-          _id: ObjectId(socketRoom),
-        },
-        { $push: { messages: databaseData } }
-      );
+        .collection('chats')
+        .updateOne(
+            {
+              _id: ObjectId(socketRoom),
+            },
+            {$push: {messages: databaseData}},
+        );
 
-    console.log(`sending message: ${data.message} to ${socketRoom}`);
-    socket.to(socketRoom).emit('message', data.message);
+    socket.to(socketRoom).emit('message', str);
+  });
+
+  socket.on('gif', async (data) => {
+    const sender = socket.handshake.session.user._id;
+    const str = data.message.trim();
+
+    const databaseData = {
+      sender: sender,
+      content: str,
+      time: new Date(),
+      media: data.media,
+    };
+
+    const url = `https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_APIKEY}&limit=5&q=${str}`;
+
+    const response = await axios.get(url);
+    const index = Math.floor(Math.random() * response.data.data.length);
+    if (response.data.data[index]) {
+      databaseData.media = 'gif';
+      databaseData.content = response.data.data[index].images.downsized.url;
+    } else {
+      databaseData.content =
+      'https://media.giphy.com/media/H7wajFPnZGdRWaQeu0/giphy.gif';
+    }
+
+    // send to database
+    db.get()
+        .collection('chats')
+        .updateOne(
+            {
+              _id: ObjectId(socketRoom),
+            },
+            {$push: {messages: databaseData}},
+        );
+
+    socket.emit('hello', databaseData.content);
+    socket.to(socketRoom).emit('gif', databaseData.content);
   });
 
   socket.on('disconnect', () => {
