@@ -22,7 +22,7 @@ router.get('/like', async (req, res) => {
 
 // When form gets posted
 router.post('/like', async (req, res) => {
-  if (req.body.review === 'like') {
+  if (req.body.id) {
     db.get()
         .collection('users')
         .updateOne(
@@ -37,18 +37,32 @@ router.post('/like', async (req, res) => {
             },
         );
     req.session.user.likes.push(req.body.id);
-  } else if (req.body.review === 'dislike') {
-    db.get()
-        .collection('users')
-        .updateOne(
-            {
-              _id: ObjectId(req.session.user._id),
-            },
-            {
-              $inc: {number: 1},
-            },
-        );
-  } else if (req.body.review === 'megalike') {
+
+    if (
+      req.session.user.likes.length > 0 ||
+      req.session.user.megalikes.length > 0
+    ) {
+      const likedUser = await db
+          .get()
+          .collection('users')
+          .findOne({_id: ObjectId(req.body.id)});
+
+      if (likedUser.likes.includes(req.session.user._id)) {
+        const data = {
+          participants: [req.session.user._id, `${likedUser._id}`],
+          messages: [],
+        };
+        db.get().collection('chats').insertOne(data);
+        console.log(`Chat toegevoegd met ${data.participants} `);
+      }
+    }
+    res.redirect('./like');
+  }
+});
+
+
+router.post('/megalike', async (req, res) => {
+  if (req.body.id) {
     db.get()
         .collection('users')
         .updateOne(
@@ -63,31 +77,62 @@ router.post('/like', async (req, res) => {
             },
         );
     req.session.user.megalikes.push(req.body.id);
-  }
 
-  if (
-    req.session.user.likes.length > 0 ||
-    req.session.user.megalikes.length > 0
-  ) {
-    const likedUser = await db
-        .get()
-        .collection('users')
-        .findOne({_id: ObjectId(req.body.id)});
+    if (
+      req.session.user.likes.length > 0 ||
+      req.session.user.megalikes.length > 0
+    ) {
+      const likedUser = await db
+          .get()
+          .collection('users')
+          .findOne({_id: ObjectId(req.body.id)});
 
-    console.log('liked user is ');
-    console.log(`${likedUser._id}`);
-
-    if (likedUser.likes.includes(req.session.user._id)) {
-      const data = {
-        participants: [req.session.user._id, `${likedUser._id}`],
-        messages: [],
-      };
-      db.get().collection('chats').insertOne(data);
-      console.log(`Chat toegevoegd met ${data.participants} `);
+      if (likedUser.likes.includes(req.session.user._id)) {
+        const data = {
+          participants: [req.session.user._id, `${likedUser._id}`],
+          messages: [],
+        };
+        db.get().collection('chats').insertOne(data);
+        console.log(`Chat toegevoegd met ${data.participants} `);
+      }
     }
+    res.redirect('./like');
   }
-  res.redirect('./like');
-  console.log(req.body.review);
+});
+
+
+router.post('/dislike', async (req, res) => {
+  if (req.body.id) {
+    db.get()
+        .collection('users')
+        .updateOne(
+            {
+              _id: ObjectId(req.session.user._id),
+            },
+            {
+              $inc: {number: 1},
+            },
+        );
+    if (
+      req.session.user.likes.length > 0 ||
+          req.session.user.megalikes.length > 0
+    ) {
+      const likedUser = await db
+          .get()
+          .collection('users')
+          .findOne({_id: ObjectId(req.body.id)});
+
+      if (likedUser.likes.includes(req.session.user._id)) {
+        const data = {
+          participants: [req.session.user._id, `${likedUser._id}`],
+          messages: [],
+        };
+        db.get().collection('chats').insertOne(data);
+        console.log(`Chat toegevoegd met ${data.participants} `);
+      }
+    }
+    res.redirect('./like');
+  }
 });
 
 module.exports = router;
