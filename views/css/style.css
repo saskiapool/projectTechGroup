@@ -153,20 +153,23 @@ nav ul {
   display: flex;
   flex-direction: row;
   margin-left: auto;
+  align-items: center;
 }
 
 nav ul li {
-  color: white;
-  margin-left: 2rem;
+  color: var(--white);
+  margin-left: 1.2rem;
 }
 
 nav ul li a,
 nav ul li a:visited {
-  color: white;
+  color: var(--white);
 }
 
 header .logo {
   height: 3rem;
+  overflow: hidden;
+  max-width: 5rem;
 }
 
 header .logo svg {
@@ -176,7 +179,7 @@ header .logo svg {
 
 header .profilepicture {
   height: 3rem;
-  margin-left: 2rem;
+  margin-left: 0.8rem;
 }
 
 header .profilepicture img {
@@ -185,8 +188,8 @@ header .profilepicture img {
 }
 
 .chatNav .userProfile {
-  margin-left: auto;
   margin-right: 0;
+  font-size: 0;
 }
 
 .back {
@@ -434,11 +437,8 @@ Chats
 }
 
 .chatNav h1 {
-  font-size: 2rem;
-}
-
-.chatNav a {
-  margin-right: 1rem;
+  font-size: 1.6rem;
+  margin-left: 1.4rem;
 }
 
 .chatNav svg {
@@ -456,7 +456,7 @@ Chats
 #chats .chatComponents {
   width: 100%;
   max-width: 52rem;
-  margin: 0 1rem;
+  margin: 0 0.6rem;
   border-radius: 0.6rem;
 }
 
@@ -469,16 +469,14 @@ Chats
   top: 0;
   overflow-y: scroll;
 
-  transform: translateX(-100%);
+  transform: translateY(-100%);
 
   width: 100%;
   height: 100vh;
-
-  margin-top: 4rem;
-  max-height: calc(100vh - 4rem);
+  max-height: 100vh;
 
   background-color: var(--white);
-  padding: 0 1rem 1rem 1rem;
+  padding: 4.8rem 1rem 1rem 1rem;
   transition: all 0.3s ease-out;
 }
 
@@ -488,9 +486,6 @@ Chats
 
 #profiles li {
   margin-bottom: 1rem;
-  border: 1px solid var(--purple);
-  border-radius: 0.6rem;
-  padding: 0.6rem;
 }
 
 #profiles li form {
@@ -498,20 +493,12 @@ Chats
   align-items: center;
 }
 
-#sideSearchbar {
+#profiles form button,
+.chatUsers form button {
   width: 100%;
-  background-color: var(--white);
-  padding: 1rem 0 0.4rem 0;
-  position: sticky;
-  top: 0;
-}
-
-#sideSearchbar input {
-  box-sizing: border-box;
-  border-radius: 100rem;
   border: 1px solid var(--purple);
-  width: 100%;
-  padding: 0.6rem 1rem;
+  border-radius: 0.6rem;
+  padding: 0.6rem;
 }
 
 .chatProfile {
@@ -538,13 +525,12 @@ Chats
   grid-area: chatMessages;
   background-color: var(--white);
   border-radius: 0.6rem 0.6rem 0 0;
-  padding: 0 1rem;
+  padding: 0 0.6rem;
   height: calc(100vh - 9rem);
 
   overflow-y: scroll;
 }
 
-/* style chat messages. */
 .messageSend {
   justify-content: flex-end;
 }
@@ -617,7 +603,6 @@ Chats
   padding: 1rem;
   border-radius: 0.6rem;
 }
-/* end msg style*/
 
 #messageForm {
   grid-area: sendMessage;
@@ -628,7 +613,7 @@ Chats
   align-items: center;
   background-color: var(--white);
   border-radius: 0 0 0.6rem 0.6rem;
-  padding: 0.4rem 1rem;
+  padding: 0.4rem 0.6rem;
 }
 
 #message {
@@ -702,7 +687,7 @@ Chats
 
   width: 2.4rem;
   height: 1.6rem;
-  margin-right: 0.8rem;
+  margin-right: 0.6rem;
   padding: 0.4rem 0.6rem;
   transition: 0.1s ease-in-out;
   cursor: pointer;
@@ -714,8 +699,8 @@ Chats
   position: absolute;
   width: 100%;
   height: 100%;
-  left: 0.4rem;
   background: url(../img/gif.svg) 0 0 no-repeat;
+  background-position: center;
 }
 
 #sendGif:checked + #gifButton {
@@ -745,7 +730,6 @@ questions
 ***********************/
 
 #goToQuestions {
-  background-color: var(--purple);
   display: flex;
 
   border-radius: 100rem;
@@ -754,9 +738,15 @@ questions
 
   width: 2.4rem;
   height: 2.4rem;
-  padding: 0.4rem 0.6rem;
+  margin-left: auto;
 
   transition: all 0.2s ease-out;
+
+  background-image: url(../img/questionIcon.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: invert();
+  font-size: 0;
 }
 
 #goToQuestions svg {
@@ -792,7 +782,7 @@ questions
 }
 
 .questions a {
-  color: white;
+  color: var(--white);
 }
 
 .questions {
@@ -829,7 +819,7 @@ questions
   border-radius: 100rem;
   padding: 0rem 1.4rem;
   width: 100%;
-  color: white;
+  color: var(--white);
   outline: none;
   margin-bottom: 1.2rem;
   display: inline-block;
@@ -847,7 +837,7 @@ questions
   appearance: none;
   width: 100%;
   height: 1rem;
-  background: white;
+  background: var(--white);
   outline: none;
 }
 
@@ -877,18 +867,18 @@ questions
 Users
 ***********************/
 .chatUsers {
+  box-sizing: border-box;
   width: 100vw;
   max-width: 32rem;
   background-color: var(--white);
-  border-radius: 0.6rem;
-  margin: 1rem;
-  padding: 1rem;
-  max-height: 80vh;
+  padding: 5rem 0.6rem 0.6rem 0.6rem;
+  max-height: 100vh;
+  height: 100vh;
   overflow-y: scroll;
+  margin: 0 auto;
 }
 
-.chatUsers #sideSearchbar {
-  padding: 0;
+.chatUsers ul li {
   margin-bottom: 1rem;
 }
 
@@ -925,16 +915,18 @@ Dashboard
     display: inline-block;
   }
 
+  header .logo {
+    max-width: initial;
+    overflow: initial;
+  }
+
   .hideDesktop {
     display: none;
   }
 
   .chatNav ul {
     display: flex;
-  }
-
-  .chatNav .userProfile {
-    margin-left: 1rem;
+    align-items: center;
   }
 
   #chats .chatComponents {
@@ -965,11 +957,23 @@ Dashboard
     height: initial;
     max-height: calc(80vh + 1rem);
     width: initial;
-    margin-top: 0;
+    padding-top: 1rem;
     transform: translateX(0);
 
     border-radius: 0.6rem;
     margin-right: 1rem;
+  }
+
+  #goToQuestions {
+    margin-left: 0;
+  }
+
+  #goToQuestions {
+    font-size: 0;
+  }
+
+  .chatUsers {
+    padding: 5rem 1rem 1rem 1rem;
   }
 }
 
