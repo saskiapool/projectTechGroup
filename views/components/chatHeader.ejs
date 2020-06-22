@@ -17,7 +17,11 @@
         </svg>
     </a>
 
-    <h1>Username</h1>
+    <% if (data) {%>
+    <h1><%= data %></h1>
+    <%} else { %>
+    <h1>No matched yet</h1>
+    <% } %>
 
     <ul class="hideMobile">
         <li><a href="./chat">Chat</a></li>

@@ -30,6 +30,12 @@ router.get('/chat', async (req, res) => {
     // get sidebar
     const users = await getSidebar(id);
 
+    if (Object.keys(users).length != 0) {
+      users.name = users[0].name;
+    } else {
+      users.name = 'No Matches yet 😭';
+    }
+
     res.render('./chat.ejs', {chats: chat, users: users});
   } catch (err) {
     console.log(err);
@@ -127,6 +133,13 @@ router.post('/changeChat', async (req, res) => {
 
     // get sidebar
     const users = await getSidebar(id);
+
+    const other = await db
+        .get()
+        .collection('users')
+        .findOne({_id: ObjectId(userId)});
+
+    users.name = other.name;
 
     res.render('./chat.ejs', {chats: chat, users: users});
   } catch (err) {

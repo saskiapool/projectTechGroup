@@ -4,8 +4,7 @@
 
 <body>
   <header>
-    <%- include ("components/chatHeader.ejs") -%>
-  </header>
+    <%- include('components/chatHeader.ejs', {data: users.name}) -%> </header>
 
   <main id="chats" class="centerOneScreen" data-chatting="true">
 

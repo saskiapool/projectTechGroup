@@ -690,18 +690,17 @@ Chats
   margin-right: 0.8rem;
   padding: 0.4rem 0.6rem;
   transition: 0.1s ease-in-out;
+  cursor: pointer;
 }
 
-#sendGif:checked + #gifButton,
-#sendGif:hover + #gifButton {
+#sendGif:checked + #gifButton {
   opacity: 1;
   background-color: var(--blue);
   box-shadow: none;
   transition: 0.1s ease-in-out;
 }
 
-#sendGif:checked + #gifButton svg,
-#sendGif:hover + #gifButton svg {
+#sendGif:checked + #gifButton svg {
   fill: var(--white);
   animation-duration: 1s;
   animation-iteration-count: infinite;
