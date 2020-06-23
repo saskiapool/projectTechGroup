@@ -301,12 +301,12 @@ Like form
 #likeForm .person {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 #likeForm .addData {
-  display: flex;
-  justify-content: center;
-  margin: 2em;
+  margin: 1.5em;
 }
 
 #likeForm .like {
@@ -322,9 +322,10 @@ Like form
 }
 
 #likeForm .reviewButtons {
+  margin-top: 2rem;
   display: flex;
   justify-content: space-around;
-  height: 1em;
+  flex-wrap: wrap;
 }
 
 #likeForm label {
@@ -865,7 +866,7 @@ questions
   margin-top: 2rem;
 }
 
-#smiley{
+#smiley {
   width: 100px;
 }
 
