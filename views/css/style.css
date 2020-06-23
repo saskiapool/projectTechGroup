@@ -153,20 +153,23 @@ nav ul {
   display: flex;
   flex-direction: row;
   margin-left: auto;
+  align-items: center;
 }
 
 nav ul li {
-  color: white;
-  margin-left: 2rem;
+  color: var(--white);
+  margin-left: 1.2rem;
 }
 
 nav ul li a,
 nav ul li a:visited {
-  color: white;
+  color: var(--white);
 }
 
 header .logo {
   height: 3rem;
+  overflow: hidden;
+  max-width: 5rem;
 }
 
 header .logo svg {
@@ -175,18 +178,29 @@ header .logo svg {
 }
 
 header .profilepicture {
-  height: 3rem;
-  margin-left: 2rem;
-}
+  margin-left: 0.8rem;
+  font-size: 0;
 
-header .profilepicture img {
-  border-radius: 100%;
   height: 100%;
 }
 
+header .profilepicture img {
+  height: 3rem;
+  border-radius: 100%;
+}
+
 .chatNav .userProfile {
-  margin-left: auto;
   margin-right: 0;
+  font-size: 0;
+}
+
+.back {
+  background-image: url(../img/backArrow.svg);
+  background-repeat: no-repeat;
+  font-size: 0;
+  width: 1.4rem;
+  height: 1.4rem;
+  filter: invert();
 }
 
 /***********************
@@ -287,12 +301,12 @@ Like form
 #likeForm .person {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 #likeForm .addData {
-  display: flex;
-  justify-content: center;
-  margin: 2em;
+  margin: 1.5em;
 }
 
 #likeForm .like {
@@ -308,9 +322,10 @@ Like form
 }
 
 #likeForm .reviewButtons {
+  margin-top: 2rem;
   display: flex;
   justify-content: space-around;
-  height: 1em;
+  flex-wrap: wrap;
 }
 
 #likeForm label {
@@ -425,11 +440,8 @@ Chats
 }
 
 .chatNav h1 {
-  font-size: 2rem;
-}
-
-.chatNav a {
-  margin-right: 1rem;
+  font-size: 1.6rem;
+  margin-left: 1.4rem;
 }
 
 .chatNav svg {
@@ -447,7 +459,7 @@ Chats
 #chats .chatComponents {
   width: 100%;
   max-width: 52rem;
-  margin: 0 1rem;
+  margin: 0 0.6rem;
   border-radius: 0.6rem;
 }
 
@@ -460,16 +472,14 @@ Chats
   top: 0;
   overflow-y: scroll;
 
-  transform: translateX(-100%);
+  transform: translateY(-100%);
 
   width: 100%;
   height: 100vh;
-
-  margin-top: 4rem;
-  max-height: calc(100vh - 4rem);
+  max-height: 100vh;
 
   background-color: var(--white);
-  padding: 0 1rem 1rem 1rem;
+  padding: 4.8rem 1rem 1rem 1rem;
   transition: all 0.3s ease-out;
 }
 
@@ -479,9 +489,6 @@ Chats
 
 #profiles li {
   margin-bottom: 1rem;
-  border: 1px solid var(--purple);
-  border-radius: 0.6rem;
-  padding: 0.6rem;
 }
 
 #profiles li form {
@@ -489,20 +496,12 @@ Chats
   align-items: center;
 }
 
-#sideSearchbar {
+#profiles form button,
+.chatUsers form button {
   width: 100%;
-  background-color: var(--white);
-  padding: 1rem 0 0.4rem 0;
-  position: sticky;
-  top: 0;
-}
-
-#sideSearchbar input {
-  box-sizing: border-box;
-  border-radius: 100rem;
   border: 1px solid var(--purple);
-  width: 100%;
-  padding: 0.6rem 1rem;
+  border-radius: 0.6rem;
+  padding: 0.6rem;
 }
 
 .chatProfile {
@@ -529,13 +528,12 @@ Chats
   grid-area: chatMessages;
   background-color: var(--white);
   border-radius: 0.6rem 0.6rem 0 0;
-  padding: 0 1rem;
+  padding: 0 0.6rem;
   height: calc(100vh - 9rem);
 
   overflow-y: scroll;
 }
 
-/* style chat messages. */
 .messageSend {
   justify-content: flex-end;
 }
@@ -608,7 +606,6 @@ Chats
   padding: 1rem;
   border-radius: 0.6rem;
 }
-/* end msg style*/
 
 #messageForm {
   grid-area: sendMessage;
@@ -619,7 +616,7 @@ Chats
   align-items: center;
   background-color: var(--white);
   border-radius: 0 0 0.6rem 0.6rem;
-  padding: 0.4rem 1rem;
+  padding: 0.4rem 0.6rem;
 }
 
 #message {
@@ -646,11 +643,16 @@ Chats
   justify-content: center;
   align-items: center;
 
-  width: 2.4rem;
+  width: 2.6rem;
   height: 2.4rem;
-  padding: 0.4rem 0.6rem;
+  padding: 0.6rem;
+  font-size: 0;
 
   transition: all 0.2s ease-out;
+  background-image: url(../img/sendIcon.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1.2rem auto;
 }
 
 #sendMessage:hover,
@@ -680,6 +682,7 @@ Chats
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 
   box-shadow: inset 0rem 0rem 0rem 0.1rem var(--blue);
   border-radius: 0.3rem;
@@ -687,10 +690,20 @@ Chats
 
   width: 2.4rem;
   height: 1.6rem;
-  margin-right: 0.8rem;
+  margin-right: 0.6rem;
   padding: 0.4rem 0.6rem;
   transition: 0.1s ease-in-out;
   cursor: pointer;
+  font-size: 0;
+}
+
+#gifButton::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url(../img/gif.svg) 0 0 no-repeat;
+  background-position: center;
 }
 
 #sendGif:checked + #gifButton {
@@ -700,13 +713,14 @@ Chats
   transition: 0.1s ease-in-out;
 }
 
-#sendGif:checked + #gifButton svg {
+#sendGif:checked + #gifButton::before {
   fill: var(--white);
   animation-duration: 1s;
   animation-iteration-count: infinite;
+  filter: invert();
 }
 
-#gifButton svg {
+#gifButton::before {
   animation-name: shake;
   animation-timing-function: ease;
   fill: var(--blue);
@@ -714,18 +728,11 @@ Chats
   transition: 0.1s;
 }
 
-#sendMessage svg {
-  width: 24px;
-  height: 21px;
-  fill: var(--white);
-}
-
 /***********************
 questions
 ***********************/
 
 #goToQuestions {
-  background-color: var(--purple);
   display: flex;
 
   border-radius: 100rem;
@@ -734,9 +741,15 @@ questions
 
   width: 2.4rem;
   height: 2.4rem;
-  padding: 0.4rem 0.6rem;
+  margin-left: auto;
 
   transition: all 0.2s ease-out;
+
+  background-image: url(../img/questionIcon.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: invert();
+  font-size: 0;
 }
 
 #goToQuestions svg {
@@ -745,7 +758,6 @@ questions
   fill: var(--white);
 }
 
-
 .button[type='submit'] {
   background-color: var(--purple);
   border-radius: 100rem;
@@ -753,7 +765,7 @@ questions
   font-weight: bold;
   font-size: 1.2rem;
   margin-left: auto;
-  margin-top: 1.4rem;
+  margin-top: 0rem;
 }
 
 .button[type='submit']:hover {
@@ -773,7 +785,7 @@ questions
 }
 
 .questions a {
-  color: white;
+  color: var(--white);
 }
 
 .questions {
@@ -791,7 +803,7 @@ questions
   max-width: 52rem;
   padding: 1rem;
   border-radius: 0.6rem;
-  height: 60vh;
+  height: 70vh;
 }
 
 .questions input {
@@ -810,7 +822,7 @@ questions
   border-radius: 100rem;
   padding: 0rem 1.4rem;
   width: 100%;
-  color: white;
+  color: var(--white);
   outline: none;
   margin-bottom: 1.2rem;
   display: inline-block;
@@ -828,7 +840,7 @@ questions
   appearance: none;
   width: 100%;
   height: 1rem;
-  background: white;
+  background: var(--white);
   outline: none;
 }
 
@@ -854,22 +866,26 @@ questions
   margin-top: 2rem;
 }
 
+#smiley {
+  width: 100px;
+}
+
 /***********************
 Users
 ***********************/
 .chatUsers {
+  box-sizing: border-box;
   width: 100vw;
   max-width: 32rem;
   background-color: var(--white);
-  border-radius: 0.6rem;
-  margin: 1rem;
-  padding: 1rem;
-  max-height: 80vh;
+  padding: 5rem 0.6rem 0.6rem 0.6rem;
+  max-height: 100vh;
+  height: 100vh;
   overflow-y: scroll;
+  margin: 0 auto;
 }
 
-.chatUsers #sideSearchbar {
-  padding: 0;
+.chatUsers ul li {
   margin-bottom: 1rem;
 }
 
@@ -906,16 +922,18 @@ Dashboard
     display: inline-block;
   }
 
+  header .logo {
+    max-width: initial;
+    overflow: initial;
+  }
+
   .hideDesktop {
     display: none;
   }
 
   .chatNav ul {
     display: flex;
-  }
-
-  .chatNav .userProfile {
-    margin-left: 1rem;
+    align-items: center;
   }
 
   #chats .chatComponents {
@@ -946,11 +964,23 @@ Dashboard
     height: initial;
     max-height: calc(80vh + 1rem);
     width: initial;
-    margin-top: 0;
+    padding-top: 1rem;
     transform: translateX(0);
 
     border-radius: 0.6rem;
     margin-right: 1rem;
+  }
+
+  #goToQuestions {
+    margin-left: 0;
+  }
+
+  #goToQuestions {
+    font-size: 0;
+  }
+
+  .chatUsers {
+    padding: 5rem 1rem 1rem 1rem;
   }
 }
 
@@ -964,7 +994,7 @@ Dashboard
     transform: scale(1);
   }
   50% {
-    transform: scale(1.2) rotate(5deg);
+    transform: scale(1.1) rotate(5deg);
   }
   100% {
     transform: scale(1);

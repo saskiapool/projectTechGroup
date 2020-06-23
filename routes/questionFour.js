@@ -5,7 +5,7 @@ const db = require('../helper/db');
 router.get('/questionFour', (req, res) => {
   req.session.user ?
   res.render('./questionFour.ejs') :
-  res.render('./questionFour.ejs');
+  res.render('./login.ejs');
 });
 
 router.post('/questionFour', async (req, res) => {
