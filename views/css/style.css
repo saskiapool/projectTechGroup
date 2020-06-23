@@ -329,7 +329,7 @@ Like form
 }
 
 #likeForm label {
-  margin: .4em;
+  margin: 0.4em;
   padding: 2em;
   background-repeat: no-repeat;
   transition: 0.1s ease-out;
@@ -866,7 +866,7 @@ questions
   margin-top: 2rem;
 }
 
-#smiley{
+#smiley {
   width: 100px;
 }
 
@@ -1000,6 +1000,3 @@ Dashboard
     transform: scale(1);
   }
 }
-
-
-
