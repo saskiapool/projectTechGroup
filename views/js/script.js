@@ -95,9 +95,11 @@ if (document.querySelector('*[data-chatting="true"]')) {
   });
 }
 
-const openMenu = document.querySelector('.back');
-openMenu.addEventListener('click', (e) => {
-  e.preventDefault;
-  openMenu.removeAttribute('href');
-  document.querySelector('#profiles').classList.toggle('active');
-});
+if (document.querySelector('.back')) {
+  const openMenu = document.querySelector('.back');
+  openMenu.addEventListener('click', (e) => {
+    e.preventDefault;
+    openMenu.removeAttribute('href');
+    document.querySelector('#profiles').classList.toggle('active');
+  });
+}
