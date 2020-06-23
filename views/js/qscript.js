@@ -18,5 +18,5 @@ slider.oninput = function() {
     val.value = slider.value;
     smile.src='../img/null.png';
   }
-}
+};
 

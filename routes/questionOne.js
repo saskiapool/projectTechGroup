@@ -3,10 +3,9 @@ const router = express.Router();
 const db = require('../helper/db');
 
 router.get('/questionOne', (req, res) => {
-  req.session.user
-   ? res.render('./questionOne.ejs')
-   : res.render('./login.ejs');
-  // res.render('./questionOne.ejs');
+  req.session.user ?
+  res.render('./questionOne.ejs') :
+  res.render('./login.ejs');
 });
 
 router.post('/questionOne', async (req, res) => {
