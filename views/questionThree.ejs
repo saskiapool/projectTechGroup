@@ -4,33 +4,28 @@
 <%- include ("components/head.ejs") %>
 
 <body>
-    <header>
-        <%- include ("components/header.ejs") %>
-    </header>
+  <header>
+    <%- include ("components/header.ejs") %>
+  </header>
 
-    <main class="questions">
-      <div class="bgImage">
-        <div></div>
+  <main class="questions">
+    <div class="bgImage">
+      <div></div>
     </div>
 
     <div class="questionElement">
       <h1>On which points did you match the most?</h1>
 
       <form name="questionTh" id="question" action="/questionThree" method="post">
-      <input id="text-input" name="questionTh" placeholder="add tags" type="text" value="">
+        <input id="text-input" name="questionTh" placeholder="add tags" type="text" value="">
 
         <button class="button" type="submit">Next question</button>
       </form>
-      
-    
+
     </div>
-    </main>
+  </main>
 
-    <footer>
-
-    </footer>
-
-    <script src="js/script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 
 </html>

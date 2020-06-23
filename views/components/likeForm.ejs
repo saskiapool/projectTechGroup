@@ -1,46 +1,45 @@
 <% if(data){ %>
-  <div class="container">
-    <div class="person">
-      <figure>
-        <img src="../img/loestoch.PNG" alt="" />
-      </figure>
-      <div class="text">
-        <h2 class="firstname"><%= data.name %></h2>
-        <h2 class="age"><%= data.age %></h2>
-        <p>
-          Hoi, ik ben <%= data.name %>, ik moet nog even een beschrijving toevoegen via mijn profiel :)
-        </p>
-      </div>
-    </div>
-    <div class="reviewButtons">
-      <form class="addData" action="/like" method="post">
-        <button type="submit" name="id" value="<%= data._id %>" id="like" >Like
-          </button>
-        <label for="like" class="like"></label>
-      </form>
-  
-      <form class="addData" action="/megalike" method="post">
-        <button type="submit" name="id" value="<%= data._id %>" id="megalike" >megalike
-        </button>
-        <label for="megalike" class="megalike"></label>
-      </form>
-  
-      <form class="addData" action="/dislike" method="post">
-        <button type="submit" name="id" value="<%= data._id %>" id="dislike" >dislike
-        </button>
-  
-        <label for="dislike" class="dislike"></label>
-      </form>
+<div class="container">
+  <div class="person">
+    <figure>
+      <img src="../img/loestoch.PNG" alt="" />
+    </figure>
+    <div class="text">
+      <h2 class="firstname"><%= data.name %></h2>
+      <h2 class="age"><%= data.age %></h2>
+      <p>
+        Hoi, ik ben <%= data.name %>, ik moet nog even een beschrijving toevoegen via mijn profiel :)
+      </p>
     </div>
   </div>
-  
-  <% } else{ %>
-  
-  <div class="noMoreUsers">
-    <h1>
-      👀 You liked the a ton of people. Wait for more users to signup to continue. 💜    </h1>
-    <a href="./chat">Checkout your matches</a>
+  <div class="reviewButtons">
+    <form class="addData" action="/like" method="post">
+      <button type="submit" name="id" value="<%= data._id %>" id="like">Like
+      </button>
+      <label for="like" class="like"></label>
+    </form>
+
+    <form class="addData" action="/megalike" method="post">
+      <button type="submit" name="id" value="<%= data._id %>" id="megalike">megalike
+      </button>
+      <label for="megalike" class="megalike"></label>
+    </form>
+
+    <form class="addData" action="/dislike" method="post">
+      <button type="submit" name="id" value="<%= data._id %>" id="dislike">dislike
+      </button>
+
+      <label for="dislike" class="dislike"></label>
+    </form>
   </div>
-  
-  <% } %>
-  
+</div>
+
+<% } else { %>
+
+<div class="noMoreUsers">
+  <h1>
+    👀 You liked a ton of people. Wait for more users to signup to continue. 💜 </h1>
+  <a href="./chat">Checkout your matches</a>
+</div>
+
+<% } %>

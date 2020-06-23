@@ -1,27 +1,10 @@
-<a id="goToQuestions" href="./questionOne">
-    <!-- Icons made by <a href="https://www.flaticon.com/authors/those-icons" title="Those Icons">Those Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a> -->
-    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="34" viewBox="0 0 512 512">
-      <path
-        d="M256 0C114.83 0 0 114.83 0 256s114.83 256 256 256 256-114.83 256-256S397.17 0 256 0zm-10.67 426.67c-17.64 0-32-14.36-32-32s14.36-32 32-32c17.65 0 32 14.35 32 32s-14.35 32-32 32zm32-130.13v34.13c0 5.9-4.77 10.66-10.66 10.66H224c-5.9 0-10.67-4.77-10.67-10.66v-53.34c0-23.52 19.15-42.66 42.67-42.66s42.67-19.15 42.67-42.67-19.15-42.67-42.67-42.67-42.67 19.15-42.67 42.67v10.67c0 5.9-4.77 10.66-10.66 10.66H160c-5.9 0-10.67-4.77-10.67-10.66V192c0-58.81 47.86-106.67 106.67-106.67S362.67 133.2 362.67 192c0 51.19-36.07 94.56-85.34 104.54z" />
-    </svg>
-</a>
-
 <form id="messageForm" action="/chat" method="post">
   <input type="text" id="message" name="message" placeholder="Type a message" tabindex="1" />
 
-
-
   <input type="checkbox" id="sendGif" name="sendGif" tabindex="1" />
   <label for="sendGif" id="gifButton">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-      <path
-        d="M146 146H37c-22 0-37 19-37 37v146c0 18 15 37 37 37h109c22 0 37-19 37-37v-73h-55v55H55V201h128v-18c0-18-15-37-37-37zM512 201v-55H347v220h55v-73h73v-55h-73v-37zM238 146h55v220h-55z" />
-    </svg>
+    Send as gif
   </label>
 
-  <button type="submit" id="sendMessage" tabindex="1">
-    <svg viewBox="0 0 24 21" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0.0114107 0L0 8.68966L10.4762 10.5L0 12.3103L0.0114107 21L24 10.5L0.0114107 0Z" />
-    </svg>
-  </button>
+  <input type="submit" id="sendMessage" tabindex="1" value="Send message">
 </form>
