@@ -13,20 +13,20 @@
       </div>
     </div>
     <div class="reviewButtons">
-      <form class="addData" action="/like" method="post">
+      <form class="addData" action="/like" method="post" id="likeForm" name="likeSubmit">
         <button type="submit" name="id" value="<%= data._id %>" id="like" >Like
           </button>
         <label for="like" class="like"></label>
       </form>
   
-      <form class="addData" action="/megalike" method="post">
+      <form class="addData" action="/megalike" method="post" name="megalikeSubmit">
         <button type="submit" name="id" value="<%= data._id %>" id="megalike" >megalike
         </button>
         <label for="megalike" class="megalike"></label>
       </form>
   
-      <form class="addData" action="/dislike" method="post">
-        <button type="submit" name="id" value="<%= data._id %>" id="dislike" >dislike
+      <form class="addData" action="/dislike" method="post" >
+        <button type="submit" name="id" value="<%= data._id %>" id="dislike" name="dislikeSubmit" >dislike
         </button>
   
         <label for="dislike" class="dislike"></label>

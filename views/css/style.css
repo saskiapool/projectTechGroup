@@ -287,12 +287,12 @@ Like form
 #likeForm .person {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 #likeForm .addData {
-  display: flex;
-  justify-content: center;
-  margin: 2em;
+  margin: 1.5em;
 }
 
 #likeForm .like {
@@ -308,13 +308,14 @@ Like form
 }
 
 #likeForm .reviewButtons {
+  margin-top: 2rem;
   display: flex;
   justify-content: space-around;
-  height: 1em;
+  flex-wrap: wrap;
 }
 
 #likeForm label {
-  margin: 0.4em;
+  margin: .4em;
   padding: 2em;
   background-repeat: no-repeat;
   transition: 0.1s ease-out;
@@ -952,6 +953,9 @@ Dashboard
     border-radius: 0.6rem;
     margin-right: 1rem;
   }
+
+
+  
 }
 
 /* Desktop */
@@ -970,3 +974,6 @@ Dashboard
     transform: scale(1);
   }
 }
+
+
+
