@@ -3,9 +3,10 @@ const router = express.Router();
 const db = require('../helper/db');
 
 router.get('/questionOne', (req, res) => {
-  req.session.user?
-  res.render('./questionOne.ejs'):
-  res.render('./login.ejs');
+  req.session.user
+   ? res.render('./questionOne.ejs')
+   : res.render('./login.ejs');
+  // res.render('./questionOne.ejs');
 });
 
 router.post('/questionOne', async (req, res) => {
@@ -14,8 +15,6 @@ router.post('/questionOne', async (req, res) => {
   };
 
   db.get().collection('questions').insertOne(data);
-  console.log(`added ${data} to the database`);
-
   res.redirect('/questionTwo');
 });
 

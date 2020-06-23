@@ -764,7 +764,7 @@ questions
   font-weight: bold;
   font-size: 1.2rem;
   margin-left: auto;
-  margin-top: 1.4rem;
+  margin-top: 0rem;
 }
 
 .button[type='submit']:hover {
@@ -802,7 +802,7 @@ questions
   max-width: 52rem;
   padding: 1rem;
   border-radius: 0.6rem;
-  height: 60vh;
+  height: 70vh;
 }
 
 .questions input {
@@ -863,6 +863,10 @@ questions
   margin-bottom: 1.2rem;
   display: inline-block;
   margin-top: 2rem;
+}
+
+#smiley{
+  width: 100px;
 }
 
 /***********************
